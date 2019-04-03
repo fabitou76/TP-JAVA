@@ -5,7 +5,7 @@ import ca.csf.dfc.poo.ui.WorkSpace;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Test
 		WorkSpace ws = new WorkSpace();
 		
 	}

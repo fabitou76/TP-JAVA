@@ -8,7 +8,7 @@ public class WorkSpace extends JFrame {
 	
 	/**
 	 * Constructeur pour ouvrir une nouvelle fenêtre
-	 * 
+	 * Test
 	 */
 	public WorkSpace() {
 		
