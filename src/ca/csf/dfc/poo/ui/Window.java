@@ -76,7 +76,8 @@ public class Window extends JFrame {
 
 //	    TitledBorder titled = new TitledBorder("Title");
 //	    label.setBorder(titled);
-//		
+//		ok
+		
 		JButton btnNew = new JButton("New");
 		JButton btnOpen = new JButton("Open");
 		JButton btnSave = new JButton("Save");
