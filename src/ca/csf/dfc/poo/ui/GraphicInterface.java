@@ -16,11 +16,11 @@ import javax.swing.border.LineBorder;
 
 import com.sun.prism.paint.Color;
 
-
+//
 
 public class  GraphicInterface extends JFrame{
 
-	
+	// TEST POUR HUGO
 	private WorkSpace m_workSpace = new WorkSpace();
 	
 	
