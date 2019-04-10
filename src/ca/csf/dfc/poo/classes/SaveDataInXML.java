@@ -41,51 +41,60 @@ public class SaveDataInXML implements ISaveData  {
 		this.m_ListShape = p_Shape;	
 		
 		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
-			
+			XMLStreamWriter xmlDoc = null;
 			
 			try {
 				XMLOutputFactory factory = XMLOutputFactory.newInstance();
 				FileWriter outputWriter =new FileWriter(new File("data.xml"));
-				XMLStreamWriter xmlDoc = factory.createXMLStreamWriter(outputWriter);
+				xmlDoc = factory.createXMLStreamWriter(outputWriter);
 				
 				xmlDoc.writeStartDocument();
-				xmlDoc.writeStartElement("ListofShapes");
-					for (Shape oneShape : this.m_ListShape) {
-					
-						xmlDoc.writeStartElement("shape");
-							xmlDoc.writeAttribute("type", oneShape.getName());
-							
-							//element de position
-							xmlDoc.writeStartElement("style");
-								xmlDoc.writeAttribute("BorderColor", oneShape.getBorderColor());
-							xmlDoc.writeEndElement();
-							
-							//element de style
-							xmlDoc.writeStartElement("style");
-								xmlDoc.writeAttribute("couleurBordure", oneShape.getBorderColor());
-								xmlDoc.writeAttribute("épaisseurBordure", Integer.toString(oneShape.getBorderWidth()));
-								xmlDoc.writeAttribute("couleurFond", oneShape.getFillColor());
-							xmlDoc.writeEndElement();
-							
-							
+					xmlDoc.writeStartElement("ListofShapes");
+						for (Shape oneShape : this.m_ListShape) {
 						
-					
-					}
-				xmlDoc.writeEndElement();
-				
-				
-				
-				
-				
-				
-			}catch (IOException | XMLStreamException | FactoryConfigurationError exp)
+							xmlDoc.writeStartElement("shape");
+								xmlDoc.writeAttribute("type", oneShape.getName());
+								
+								//element de position
+								xmlDoc.writeStartElement("coord");
+									xmlDoc.writeAttribute("initialPoint", Integer.toString(oneShape.getInitialPoint().x)+
+											";"+Integer.toString(oneShape.getInitialPoint().y));
+									xmlDoc.writeAttribute("finalPoint", Integer.toString(oneShape.getFinalPoint().x)+
+											";"+Integer.toString(oneShape.getFinalPoint().y));
+								xmlDoc.writeEndElement();
+								
+								//element de style
+								xmlDoc.writeStartElement("style");
+									xmlDoc.writeAttribute("borderColor", oneShape.getBorderColor());
+									xmlDoc.writeAttribute("borderWidth", Integer.toString(oneShape.getBorderWidth()));
+									xmlDoc.writeAttribute("fillColor", oneShape.getFillColor());
+								xmlDoc.writeEndElement();
+						}//for
+					xmlDoc.writeEndElement();
+				xmlDoc.writeEndDocument();
+			}catch (IOException  exp)
 			{
-				
-			}
+				System.err.println("Erreur d'�criture : " + exp);
+			}catch (XMLStreamException exp){
+				System.err.println("Erreur de XML : " + exp);
+			}catch (FactoryConfigurationError exp){
+				System.err.println("Erreur de XML : " + exp);
+			}finally {
+				if (xmlDoc != null) {
+					try {
+						xmlDoc.flush();
+						xmlDoc.close();
+					}catch(XMLStreamException exp) {
+						System.err.println("Erreur lors de la fermeture" + exp);
+						
+					} finally {
+						xmlDoc = null;
+					}
+				}
 			
+			}//finally
 		}//if
-	}
-
+	}//collectData
 
 	@Override
 	public void SaveData() {
