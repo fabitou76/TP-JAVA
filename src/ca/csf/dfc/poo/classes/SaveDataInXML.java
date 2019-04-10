@@ -50,22 +50,28 @@ public class SaveDataInXML implements ISaveData  {
 				
 				xmlDoc.writeStartDocument();
 				xmlDoc.writeStartElement("ListofShapes");
-				for (Shape oneShape : this.m_ListShape) {
+					for (Shape oneShape : this.m_ListShape) {
 					
-					xmlDoc.writeStartElement("shape");
-					xmlDoc.writeAttribute("type", oneShape.getName());
+						xmlDoc.writeStartElement("shape");
+							xmlDoc.writeAttribute("type", oneShape.getName());
+							
+							//element de position
+							xmlDoc.writeStartElement("style");
+								xmlDoc.writeAttribute("BorderColor", oneShape.getBorderColor());
+							xmlDoc.writeEndElement();
+							
+							//element de style
+							xmlDoc.writeStartElement("style");
+								xmlDoc.writeAttribute("couleurBordure", oneShape.getBorderColor());
+								xmlDoc.writeAttribute("épaisseurBordure", Integer.toString(oneShape.getBorderWidth()));
+								xmlDoc.writeAttribute("couleurFond", oneShape.getFillColor());
+							xmlDoc.writeEndElement();
+							
+							
+						
 					
-					//element de position
-					
-					//element de style
-					xmlDoc.writeStartElement("style");
-					xmlDoc.writeAttribute("couleurBordure", oneShape.getBorderColor());
-					xmlDoc.writeAttribute("épaisseurBordure", Integer.toString(oneShape.getBorderWidth()));
-					xmlDoc.writeAttribute("couleurFond", oneShape.getFillColor());
-					
-					
-				}
-				
+					}
+				xmlDoc.writeEndElement();
 				
 				
 				
