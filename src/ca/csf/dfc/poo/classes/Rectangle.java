@@ -10,6 +10,10 @@ public class Rectangle implements Shape{
 	private int m_height = 0;
 	private int m_width = 0;
 	
+	private String m_borderColor;
+	private int m_borderWidth;
+	private String m_fillColor;
+	
 	public Rectangle(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -67,6 +71,21 @@ public class Rectangle implements Shape{
 	public int getWidth() {
 		
 		return this.m_width;
+	}
+	
+	@Override
+	public String getBorderColor() {
+		return this.m_borderColor;
+	}
+
+	@Override
+	public int getBorderWidth() {
+		return this.m_borderWidth;
+	}
+
+	@Override
+	public String getFillColor() {
+		return this.m_fillColor;
 	}
 	
 	

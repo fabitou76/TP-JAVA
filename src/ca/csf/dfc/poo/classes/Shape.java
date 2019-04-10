@@ -5,7 +5,7 @@ import java.awt.*;
 public interface Shape {
 
 
-	 public String getName() ;
+	
 	 
 	 
 	/*
@@ -19,6 +19,7 @@ public interface Shape {
 	 public int setY1();
 	 public int setY2();
 	 */
+	 public String getName() ;
 	 
 	 public Point getInitialPoint();
 	 public Point getFinalPoint();
@@ -30,4 +31,7 @@ public interface Shape {
 	 public int getHeight();
 	 public int getWidth();
 	
+	 public String getBorderColor();
+	 public int getBorderWidth();
+	 public String getFillColor();
 }
