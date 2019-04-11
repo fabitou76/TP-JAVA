@@ -37,16 +37,20 @@ public class SaveDataInXML implements ISaveData  {
 	}
 	
 	@Override
-	public void collectData(List<Shape> p_Shape) {
-		this.m_ListShape = p_Shape;	
+	public void collectData() {
+		
 		
 		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
 			XMLStreamWriter xmlDoc = null;
 			
 			try {
-				XMLOutputFactory factory = XMLOutputFactory.newInstance();
 				FileWriter outputWriter =new FileWriter(new File("data.xml"));
-				xmlDoc = factory.createXMLStreamWriter(outputWriter);
+//				XMLOutputFactory factory = XMLOutputFactory.newInstance();
+				xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+				
+			
+				
+//				xmlDoc = factory.createXMLStreamWriter(outputWriter);
 				
 				xmlDoc.writeStartDocument();
 					xmlDoc.writeStartElement("ListofShapes");
@@ -62,24 +66,34 @@ public class SaveDataInXML implements ISaveData  {
 									xmlDoc.writeAttribute("finalPoint", Integer.toString(oneShape.getFinalPoint().x)+
 											";"+Integer.toString(oneShape.getFinalPoint().y));
 								xmlDoc.writeEndElement();
+//							xmlDoc.writeEndElement();
 								
-								//element de style
+//								element de style
 								xmlDoc.writeStartElement("style");
-									xmlDoc.writeAttribute("borderColor", oneShape.getBorderColor());
+									xmlDoc.writeAttribute("borderColor", "ff");
 									xmlDoc.writeAttribute("borderWidth", Integer.toString(oneShape.getBorderWidth()));
-									xmlDoc.writeAttribute("fillColor", oneShape.getFillColor());
+									xmlDoc.writeAttribute("fillColor", "");
 								xmlDoc.writeEndElement();
+							xmlDoc.writeEndElement();
 						}//for
 					xmlDoc.writeEndElement();
 				xmlDoc.writeEndDocument();
 			}catch (IOException  exp)
 			{
-				System.err.println("Erreur d'�criture : " + exp);
-			}catch (XMLStreamException exp){
+				System.err.println("Erreur écriture : " + exp);
+			}catch (XMLStreamException exp)
+			{
 				System.err.println("Erreur de XML : " + exp);
-			}catch (FactoryConfigurationError exp){
+			}catch (FactoryConfigurationError exp)
+			{
 				System.err.println("Erreur de XML : " + exp);
-			}finally {
+			}
+//			catch(NullPointerException exp)
+//			{
+//				System.err.println("erreur de pointeur" + exp);
+//			}
+			finally {
+			
 				if (xmlDoc != null) {
 					try {
 						xmlDoc.flush();

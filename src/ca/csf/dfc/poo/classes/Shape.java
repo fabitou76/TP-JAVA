@@ -4,21 +4,6 @@ import java.awt.*;
 
 public interface Shape {
 
-
-	
-	 
-	 
-	/*
-	 public int getX1() ;
-	 public int getX2() ;
-	 public int getY1() ;
-	 public int getY2() ;
-	 
-	 public int setX1();
-	 public int setX2();
-	 public int setY1();
-	 public int setY2();
-	 */
 	 public String getName() ;
 	 
 	 public Point getInitialPoint();

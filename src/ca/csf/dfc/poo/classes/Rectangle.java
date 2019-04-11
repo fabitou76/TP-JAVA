@@ -4,15 +4,15 @@ import java.awt.Point;
 
 public class Rectangle implements Shape{
 	
-	private Point m_initialPoint;
-	private Point m_finalPoint;
+	private Point m_initialPoint = null;
+	private Point m_finalPoint = null;
 	private String m_nom = "rectangle";
-	private int m_height = 0;
-	private int m_width = 0;
+	private int m_height;
+	private int m_width;
 	
-	private String m_borderColor;
-	private int m_borderWidth;
-	private String m_fillColor;
+	private String m_borderColor = "black";
+	private int m_borderWidth = 2;
+	private String m_fillColor = "black";
 	
 	public Rectangle(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
