@@ -37,18 +37,20 @@ public class ReadDataXML implements IReadData {
 				 //lire quelle forme il faut créer
 				 String elementType = documentXML.getLocalName();
 				 String shapeType  = documentXML.getAttributeValue("", "type");
+				 documentXML.next();
 				 String coord = documentXML.getLocalName();//devrait etre coord
-				 String initialPoint = documentXML.getAttributeValue("", "initialPoint");
-				 String finalPoint = documentXML.getAttributeValue("", "finalPoint");
+				 String finalPoint= documentXML.getAttributeValue("", "finalPoint");
+				 String  initialPoint  = documentXML.getAttributeValue("", "initialPoint");
+				 documentXML.next();
+				 documentXML.next();
 				 String style = documentXML.getLocalName();//devrait etre style
-				 String borderColor = documentXML.getAttributeValue("", "borderColor");
-				 String borderWidth = documentXML.getAttributeValue("", "borderWidth");
 				 String fillColor = documentXML.getAttributeValue("", "fillColor");
-				 
+				 String borderWidth = documentXML.getAttributeValue("", "borderWidth");
+				 String borderColor = documentXML.getAttributeValue("", "borderColor");
+				 documentXML.next();documentXML.next();
+				 documentXML.next();
 				 System.out.println(elementType+shapeType+coord+
-						 initialPoint+finalPoint+style+borderColor+borderWidth+fillColor);
-			     documentXML.next();
-			     
+						 finalPoint+initialPoint+style+fillColor+borderWidth+borderColor);
 			 }
 			 
 		 }catch (IOException exp) {
