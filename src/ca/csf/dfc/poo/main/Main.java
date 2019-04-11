@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import ca.csf.dfc.poo.classes.Line;
+import ca.csf.dfc.poo.classes.ReadDataXML;
 import ca.csf.dfc.poo.classes.Rectangle;
 import ca.csf.dfc.poo.classes.SaveDataInXML;
 import ca.csf.dfc.poo.classes.Shape;
@@ -16,7 +17,7 @@ import ca.csf.dfc.poo.ui.*;
 public class Main {
 
 	public static void main(String[] args) throws XMLStreamException, FactoryConfigurationError {
-		new ReadDataXML();
+		
 		List<Shape> shapes = new ArrayList<Shape>();
 		Point p1 = new Point(200,100);
 		Point p2 = new Point (50,50);
@@ -28,6 +29,7 @@ public class Main {
 		shapes.add(line1);
 		ISaveData xmlSaver = new SaveDataInXML(shapes);
 		xmlSaver.collectData();
+		new ReadDataXML();
 	}
 
 }
