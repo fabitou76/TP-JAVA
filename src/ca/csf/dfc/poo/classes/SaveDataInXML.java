@@ -69,9 +69,9 @@ public class SaveDataInXML implements ISaveData  {
 //							xmlDoc.writeEndElement();
 								
 //								element de style
-								xmlDoc.writeStartElement("style");
-									xmlDoc.writeAttribute("borderColor", "ff");
-									xmlDoc.writeAttribute("borderWidth", Integer.toString(oneShape.getBorderWidth()));
+								xmlDoc.writeStartElement("style");								    
+								    xmlDoc.writeAttribute("borderColor", oneShape.getBorderColor());
+								    xmlDoc.writeAttribute("borderWidth", Integer.toString(oneShape.getBorderWidth()));
 									xmlDoc.writeAttribute("fillColor", "");
 								xmlDoc.writeEndElement();
 							xmlDoc.writeEndElement();
