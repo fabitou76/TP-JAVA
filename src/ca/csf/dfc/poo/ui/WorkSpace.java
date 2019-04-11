@@ -4,6 +4,7 @@ import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
 
 import java.awt.*;
+import java.awt.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -49,11 +50,11 @@ public class WorkSpace extends JPanel{
 	      
 	}
 	
-	/*
-	public List<Shape> getShapeList(){
+	
+	public ArrayList<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
-	*/
+	
 	
 	public void setSelectedShape(String p_shapeType) {
 		this.m_selectedShape = p_shapeType;

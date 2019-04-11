@@ -82,8 +82,12 @@ public class  GraphicInterface extends JFrame{
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
+		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
+		menuFichier.add(menuSauvegarderXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
+		
+		
 		
 	}
 	

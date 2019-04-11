@@ -2,6 +2,9 @@ package ca.csf.dfc.poo.classes;
 
 import java.awt.Point;
 
+import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IImportData;
+
 public class Rectangle implements Shape{
 	
 	private Point m_initialPoint = null;
@@ -86,6 +89,18 @@ public class Rectangle implements Shape{
 	@Override
 	public String getFillColor() {
 		return this.m_fillColor;
+	}
+
+	@Override
+	public void toExport(IExportData p_modelExportation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toImport(IImportData p_modelImportation) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

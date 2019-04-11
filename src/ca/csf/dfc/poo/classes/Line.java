@@ -2,6 +2,9 @@ package ca.csf.dfc.poo.classes;
 
 import java.awt.*;
 
+import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IImportData;
+
 public class Line implements Shape{
 
 	private Point m_initialPoint;
@@ -87,6 +90,20 @@ public class Line implements Shape{
 	@Override
 	public String getFillColor() {
 		return this.m_fillColor;
+	}
+
+
+	@Override
+	public void toExport(IExportData p_modelExportation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void toImport(IImportData p_modelImportation) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
