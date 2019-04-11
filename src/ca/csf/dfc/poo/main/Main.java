@@ -30,6 +30,8 @@ public class Main {
 		IExportData xmlSaver = new ExportDataInXML(shapes);
 		xmlSaver.collectData();
 		new ImportDataFromXML();
+		
+		new GraphicInterface().setVisible(true);
 	}
 
 }

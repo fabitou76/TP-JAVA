@@ -82,12 +82,24 @@ public class  GraphicInterface extends JFrame{
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
+		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
+		menuFichier.add(menuSauvegarderXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
+		menuSauvegarderXML.addActionListener(new GestSaveXML());
+		
 	}
 	
+	private class GestSaveXML implements ActionListener {
 
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			System.out.println("sauvegarde en cours");
+			
+		}
+		
+	}
 	
 
 	

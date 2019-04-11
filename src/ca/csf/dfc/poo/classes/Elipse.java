@@ -11,9 +11,9 @@ public class Elipse implements Shape{
 	private int m_height = 0;
 	private int m_width = 0;
 	
-	private String m_borderColor;
+	private String m_borderColor = "black";
 	private int m_borderWidth;
-	private String m_fillColor;
+	private String m_fillColor = "black";
 	
 	public Elipse(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
@@ -76,6 +76,7 @@ public class Elipse implements Shape{
 
 	@Override
 	public String getBorderColor() {
+		
 		return this.m_borderColor;
 	}
 
