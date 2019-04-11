@@ -23,7 +23,7 @@ public class  GraphicInterface extends JFrame{
 	// TEST POUR HUGO
 	private WorkSpace m_workSpace = new WorkSpace();
 	
-	
+	//test lau
 	
 	JButton m_btn_rectangle = new JButton("Rectangle");
     JButton m_btn_elipse = new JButton("Elipse");
