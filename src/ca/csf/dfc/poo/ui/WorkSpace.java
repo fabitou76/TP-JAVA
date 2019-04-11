@@ -11,19 +11,24 @@ import java.util.List;
 
 import javax.swing.*;
 
-import com.sun.prism.paint.Color;
 
 
 
 public class WorkSpace extends JPanel{
 
+	private static final Color DEFAULT_BORDER_COLOR = Color.black;
 	private static final long serialVersionUID = 6100091375438707781L;
 	private List<Shape> m_shapeList;
 	private Point m_initialPoint;
 	private Point m_finalPoint;
 	private ShapeFactory m_shapeFactory = new ShapeFactory();
 	private String m_selectedShape = "elipse";
-	private int m_selectedColorFill;
+	
+	private Color m_selectedFillColor = Color.green;
+	private int m_selectedBorderWidth = 7;
+	private Color m_selectedBorderColor = Color.red;
+	
+	
 	
 	
 	
@@ -37,6 +42,7 @@ public class WorkSpace extends JPanel{
     
 	public WorkSpace() {
 		super();
+		//this.setBackground(Color.white);
 		//this.setForeground(Color.BLACK);
 		this.m_shapeList = new ArrayList<Shape>();
 		
@@ -74,6 +80,10 @@ public class WorkSpace extends JPanel{
 	
 	private void addShapeToWorkSpace() {
 		Shape shape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
+		shape.setFillColor(this.m_selectedFillColor);
+		shape.setBorderWidth(this.m_selectedBorderWidth);
+		shape.setBorderColor(this.m_selectedBorderColor);
+		
 		this.m_shapeList.add(shape);
 		//test
 		System.out.println("--------Début liste workspace---------");
@@ -92,32 +102,76 @@ public class WorkSpace extends JPanel{
 	
 	@Override
 	protected void paintComponent(Graphics p_Graphic) {
-		super.paintComponent(p_Graphic);		
+		super.paintComponent(p_Graphic);
+		Graphics2D g2 = (Graphics2D) p_Graphic;
+		
+		
+		
+		
+		
 		if(!this.m_shapeList.isEmpty()) {
+			
 			for(Shape shape : this.m_shapeList) {
-				
+				g2.setStroke(new BasicStroke(shape.getBorderWidth()));
 				int coordX2, coordY2, width, height,coordX1,coordY1;
+				boolean hasFillColor = false;
+				coordX1 = shape.getInitialPoint().x;
+				coordY1 = shape.getInitialPoint().y;
+				coordX2 = shape.getFinalPoint().x;
+				coordY2 = shape.getFinalPoint().y;
+				height = shape.getHeight();
+				width = shape.getWidth();
+				
+				if(shape.getFillColor() != null) {
+					hasFillColor = true;
+				}
+				
 				switch (shape.getName()) {
+				
 				case "rectangle":
-					height = shape.getHeight();
-					width = shape.getWidth();
-					coordX1 = shape.getInitialPoint().x;
-					coordY1 = shape.getInitialPoint().y;
+				
+					
+					
+				
+				
+				
+					
+					
+					if(hasFillColor) {
+						g2.setColor(shape.getFillColor());
+						
+						p_Graphic.fillRect(coordX1,coordY1, width, height);
+					}
+					
+				
+					
+					g2.setColor(shape.getBorderColor());
 					p_Graphic.drawRect(coordX1,coordY1, width, height);
+					
+	
+					
 					break;
 				case "line":
-					coordX1 = shape.getInitialPoint().x;
-					coordY1 = shape.getInitialPoint().y;
-					coordX2 = shape.getFinalPoint().x;
-					coordY2 = shape.getFinalPoint().y;
+					
+					if(hasFillColor) {
+						g2.setColor(shape.getFillColor());
+					}
+					
 					p_Graphic.drawLine(coordX1, coordY1, coordX2, coordY2);
+				
 					break;
 				case "elipse":
-					height = shape.getHeight();
-					width = shape.getWidth();
-					coordX1 = shape.getInitialPoint().x;
-					coordY1 = shape.getInitialPoint().y;
+				
+			
+					
+					if(hasFillColor){
+						g2.setColor(shape.getFillColor());
+						p_Graphic.fillOval(coordX1,coordY1, width, height);
+					}
+					g2.setColor(shape.getBorderColor());
 					p_Graphic.drawOval(coordX1,coordY1, width, height);
+					
+					
 				default:
 					break;
 					

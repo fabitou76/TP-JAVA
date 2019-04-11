@@ -3,31 +3,29 @@ package ca.csf.dfc.poo.ui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
+import java.awt.color.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import com.sun.prism.paint.Color;
 
-<<<<<<< HEAD
+
 import ca.csf.dfc.poo.classes.*;
 
 public class  GraphicInterface extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-=======
-//
 
-public class  GraphicInterface extends JFrame{
+
 
 	// TEST POUR HUGO
->>>>>>> master
 	private WorkSpace m_workSpace = new WorkSpace();
 	
 	JButton m_btn_rectangle = new JButton("Rectangle");
@@ -40,8 +38,7 @@ public class  GraphicInterface extends JFrame{
   	  super("FenetrePrincipale");
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setLayout(new BorderLayout());
-    
-
+ 
       this.add(this.m_workSpace, BorderLayout.CENTER);
 
       
