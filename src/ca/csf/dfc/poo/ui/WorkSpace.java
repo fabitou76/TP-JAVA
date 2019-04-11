@@ -49,11 +49,11 @@ public class WorkSpace extends JPanel{
 	      
 	}
 	
-	/*
-	public List<Shape> getShapeList(){
+	
+	public ArrayList<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
-	*/
+	
 	
 	public void setSelectedShape(String p_shapeType) {
 		this.m_selectedShape = p_shapeType;

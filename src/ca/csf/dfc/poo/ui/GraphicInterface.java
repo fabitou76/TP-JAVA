@@ -95,11 +95,13 @@ public class  GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
+			new ExportDataInXML(GraphicInterface.this.m_workSpace.getShapeList());
 			System.out.println("sauvegarde en cours");
 			
 		}
 		
 	}
+	
 	
 
 	
