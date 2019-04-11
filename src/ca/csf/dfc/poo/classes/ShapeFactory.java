@@ -4,7 +4,9 @@ package ca.csf.dfc.poo.classes;
 import java.awt.Point;
 import java.util.*;
 
+import com.sun.prism.paint.Color;
 
+import ca.csf.dfc.poo.classes.*;
 
 public class ShapeFactory {
 	
@@ -33,6 +35,7 @@ public class ShapeFactory {
 		newShape.setHeight(height);
 		newShape.setWidth(width);
 		return newShape;
+		
 		
 	}
 	

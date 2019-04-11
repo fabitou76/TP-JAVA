@@ -29,5 +29,19 @@ public interface Shape {
 	 public void setWidth(int p_width);
 	 public int getHeight();
 	 public int getWidth();
-	
+	 
+	 public Color getFillColor();
+	 public void setFillColor(Color p_color);
+	 
+	 
+	 public int getBorderWidth();
+	 public void setBorderWidth(int p_borderWidth);
+	 
+	 public Color getBorderColor();
+	 public void setBorderColor(Color p_color);
+	 
+	 
+	 
+	 
+	 
 }

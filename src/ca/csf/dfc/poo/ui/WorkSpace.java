@@ -7,20 +7,25 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
-
+import java.util.List;
 
 import javax.swing.*;
+
+import com.sun.prism.paint.Color;
 
 
 
 public class WorkSpace extends JPanel{
 
 	private static final long serialVersionUID = 6100091375438707781L;
-	private ArrayList<Shape> m_shapeList;
+	private List<Shape> m_shapeList;
 	private Point m_initialPoint;
 	private Point m_finalPoint;
 	private ShapeFactory m_shapeFactory = new ShapeFactory();
 	private String m_selectedShape = "elipse";
+	private int m_selectedColorFill;
+	
+	
 	
 	
     //test
@@ -32,32 +37,34 @@ public class WorkSpace extends JPanel{
     
 	public WorkSpace() {
 		super();
-		this.setBackground(Color.white);
+		//this.setForeground(Color.BLACK);
 		this.m_shapeList = new ArrayList<Shape>();
 		
       
        //Panel test
-       JPanel panelTest = new JPanel();
-       panelTest.setLayout(new GridLayout(3,1));
-       panelTest.add(m_testShapeName);
-       panelTest.add(m_testP1);
-       panelTest.add(m_testP2);
-       this.add(panelTest, BorderLayout.EAST);
+        JPanel panelTest = new JPanel();
+        panelTest.setLayout(new GridLayout(3,1));
+        panelTest.add(m_testShapeName);
+        panelTest.add(m_testP1);
+        panelTest.add(m_testP2);
+        this.add(panelTest, BorderLayout.EAST);
        //fin test
 
-	   this.addMouseListener(new MouseHandler());
+	    this.addMouseListener(new MouseHandler());
 	      
 	}
 	
-	/*
+	
 	public List<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
-	*/
+	
 	
 	public void setSelectedShape(String p_shapeType) {
 		this.m_selectedShape = p_shapeType;
 	}
+	
+	
 	
 	/*
 	public void addShape(Shape p_shape) {
@@ -113,6 +120,7 @@ public class WorkSpace extends JPanel{
 					p_Graphic.drawOval(coordX1,coordY1, width, height);
 				default:
 					break;
+					
 				
 				}
 			}
@@ -171,10 +179,6 @@ public class WorkSpace extends JPanel{
 			
 		}
 	}
-	/*
-	public void refresh() {
-		this.repaint();
-		
-	}
-	*/
+
+	
 }
