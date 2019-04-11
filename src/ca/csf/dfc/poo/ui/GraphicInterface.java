@@ -15,11 +15,19 @@ import javax.swing.border.LineBorder;
 
 import com.sun.prism.paint.Color;
 
+<<<<<<< HEAD
 import ca.csf.dfc.poo.classes.*;
 
 public class  GraphicInterface extends JFrame{
 
 	private static final long serialVersionUID = 1L;
+=======
+//
+
+public class  GraphicInterface extends JFrame{
+
+	// TEST POUR HUGO
+>>>>>>> master
 	private WorkSpace m_workSpace = new WorkSpace();
 	
 	JButton m_btn_rectangle = new JButton("Rectangle");
