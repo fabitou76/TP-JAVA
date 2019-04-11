@@ -1,5 +1,6 @@
 package ca.csf.dfc.poo.classes;
 
+import java.awt.Color;
 import java.awt.Point;
 
 public class Rectangle implements Shape{
@@ -9,7 +10,10 @@ public class Rectangle implements Shape{
 	private String m_nom = "rectangle";
 	private int m_height = 0;
 	private int m_width = 0;
-	
+	private Color m_fillColor;
+	private int m_borderWidth;
+	private Color m_borderColor;
+
 	public Rectangle(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -67,6 +71,50 @@ public class Rectangle implements Shape{
 	public int getWidth() {
 		
 		return this.m_width;
+	}
+
+
+	@Override
+	public Color getFillColor() {
+		// TODO Auto-generated method stub
+		return this.m_fillColor;
+	}
+
+
+	@Override
+	public void setFillColor(Color p_color) {
+		// TODO Auto-generated method stub
+		this.m_fillColor = p_color;
+	}
+
+
+	@Override
+	public int getBorderWidth() {
+		// TODO Auto-generated method stub
+		return this.m_borderWidth;
+	}
+
+
+	@Override
+	public void setBorderWidth(int p_borderWidth) {
+		// TODO Auto-generated method stub
+		this.m_borderWidth = p_borderWidth;
+		
+	}
+
+
+	@Override
+	public Color getBorderColor() {
+		// TODO Auto-generated method stub
+		return this.m_borderColor;
+	}
+
+
+	@Override
+	public void setBorderColor(Color p_color) {
+		// TODO Auto-generated method stub
+		this.m_borderColor = p_color;
+		
 	}
 	
 	

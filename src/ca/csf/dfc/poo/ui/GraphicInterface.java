@@ -1,5 +1,4 @@
 package ca.csf.dfc.poo.ui;
-import ca.csf.dfc.poo.classes.*;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -16,43 +15,35 @@ import javax.swing.border.LineBorder;
 
 import com.sun.prism.paint.Color;
 
+<<<<<<< HEAD
+import ca.csf.dfc.poo.classes.*;
+
+public class  GraphicInterface extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+=======
 //
 
 public class  GraphicInterface extends JFrame{
 
 	// TEST POUR HUGO
+>>>>>>> master
 	private WorkSpace m_workSpace = new WorkSpace();
-	
-	
 	
 	JButton m_btn_rectangle = new JButton("Rectangle");
     JButton m_btn_elipse = new JButton("Elipse");
     JButton m_btn_line = new JButton("Ligne");
-    //private Point m_initialPoint;
-    //private Point m_finalPoint;
+    JButton m_btn_clear = new JButton("Clear");
     
-    //test
-    //JLabel m_testShapeName = new JLabel("nom");
-    //JLabel m_testP1 = new JLabel("p1");
-    //JLabel m_testP2 = new JLabel("p2");
-    //fin
-    
-    
-	
-	private static final long serialVersionUID = 1L;
 
 	public GraphicInterface() {
   	  super("FenetrePrincipale");
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setLayout(new BorderLayout());
-     
-      
+    
 
-      
-      
-      
       this.add(this.m_workSpace, BorderLayout.CENTER);
-      //this.m_workSpace.addMouseListener(new MouseHandler());
+
       
       this.initMenu();
       this.initShapeGrid();
@@ -70,14 +61,18 @@ public class  GraphicInterface extends JFrame{
 		this.m_btn_elipse.addActionListener(new ShapeBtnHandler());
 		this.m_btn_line.addActionListener(new ShapeBtnHandler());
 		this.m_btn_rectangle.addActionListener(new ShapeBtnHandler());
+		this.m_btn_clear.addActionListener(new ClearBtnHandler());
 		
         panneauForme.add(this.m_btn_elipse);
         panneauForme.add(this.m_btn_rectangle);
         panneauForme.add(this.m_btn_line);
+        panneauForme.add(this.m_btn_clear);
         
+    
         this.add(panneauForme, BorderLayout.WEST);
         
 	}
+	
 	
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
@@ -87,11 +82,6 @@ public class  GraphicInterface extends JFrame{
 		
 	}
 	
-
-	
-
-	
-	//OK
 	private class ShapeBtnHandler implements ActionListener{
 
 		@Override
@@ -111,10 +101,30 @@ public class  GraphicInterface extends JFrame{
 				itemSelected = "rectangle";
 			}
 			
+			
 			GraphicInterface.this.m_workSpace.m_testShapeName.setText(itemSelected);
 		}
 		
 	}
+	
+	private class ClearBtnHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			GraphicInterface.this.m_workSpace.getShapeList().clear();
+			GraphicInterface.this.m_workSpace.repaint();
+		}
+
+		
+		
+		
+		
+	}
+	
+		
+	
+	
+	
 	
 }
 	
