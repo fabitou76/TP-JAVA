@@ -10,9 +10,9 @@ public class Line implements Shape{
 	private int m_height = 0;
 	private int m_width = 0;
 	
-	private String m_borderColor;
-	private int m_borderWidth;
-	private String m_fillColor;
+	private String m_borderColor ="black";
+	private int m_borderWidth = 1;
+	private String m_fillColor="black";
 	
 	public Line(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;

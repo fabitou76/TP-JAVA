@@ -14,7 +14,7 @@ import ca.csf.dfc.poo.classes.Shape;
 public interface ISaveData {
 	public void SaveData();
 	public String getFolderPath();
-	public void collectData(List<Shape> p_Shape);
+	public void collectData();
 	public void writeDataInDocument();
 	public List<Shape> getShapeList();
 
