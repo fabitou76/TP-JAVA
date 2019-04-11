@@ -20,6 +20,8 @@ public interface Shape {
 	 public int setY2();
 	 */
 	 
+	 
+	 // testtttt
 	 public Point getInitialPoint();
 	 public Point getFinalPoint();
 	 public void setIntialPoint(Point p_point);
