@@ -12,16 +12,16 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import ca.csf.dfc.poo.interfaces.IReadData;
+import ca.csf.dfc.poo.interfaces.IImportData;
 
 /**
  * @author Maximilian
  *
  */
-public class ReadDataXML implements IReadData {
+public class ImportDataFromXML implements IImportData {
 	 XMLStreamReader documentXML = null;
 	 
-	 public ReadDataXML() throws XMLStreamException, FactoryConfigurationError {
+	 public ImportDataFromXML() throws XMLStreamException, FactoryConfigurationError {
 		 try {
 			 FileReader input=new FileReader(new File("data.xml"));
 			 documentXML = XMLInputFactory.newInstance().createXMLStreamReader(input);

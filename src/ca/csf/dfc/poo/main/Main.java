@@ -7,11 +7,11 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import ca.csf.dfc.poo.classes.Line;
-import ca.csf.dfc.poo.classes.ReadDataXML;
+import ca.csf.dfc.poo.classes.ImportDataFromXML;
 import ca.csf.dfc.poo.classes.Rectangle;
-import ca.csf.dfc.poo.classes.SaveDataInXML;
+import ca.csf.dfc.poo.classes.ExportDataInXML;
 import ca.csf.dfc.poo.classes.Shape;
-import ca.csf.dfc.poo.interfaces.ISaveData;
+import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.ui.*;
 
 public class Main {
@@ -27,9 +27,9 @@ public class Main {
 		Line line1 = new Line(p1,p2);
 		shapes.add(rect1);
 		shapes.add(line1);
-		ISaveData xmlSaver = new SaveDataInXML(shapes);
+		IExportData xmlSaver = new ExportDataInXML(shapes);
 		xmlSaver.collectData();
-		new ReadDataXML();
+		new ImportDataFromXML();
 	}
 
 }

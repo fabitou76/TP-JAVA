@@ -17,13 +17,13 @@ import javax.xml.stream.XMLStreamWriter;
 
 import com.sun.xml.internal.txw2.Document;
 
-import ca.csf.dfc.poo.interfaces.ISaveData;
+import ca.csf.dfc.poo.interfaces.IExportData;
 
 /**
  * @author Maximilian
  *
  */
-public class SaveDataInXML implements ISaveData  {
+public class ExportDataInXML implements IExportData  {
 	private List<Shape> m_ListShape;
 	private String folderPath;
 	
@@ -32,7 +32,7 @@ public class SaveDataInXML implements ISaveData  {
 	 * ctr par initialisation
 	 * @param p_Shape : liste des formes affichées sur le workspace
 	 */
-	public SaveDataInXML(List<Shape>p_Shape) {
+	public ExportDataInXML(List<Shape>p_Shape) {
 		this.m_ListShape = p_Shape;
 	}
 	
