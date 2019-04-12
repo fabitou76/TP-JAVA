@@ -13,6 +13,8 @@ import java.util.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamException;
 
 import com.sun.prism.paint.Color;
 
@@ -26,7 +28,7 @@ public class  GraphicInterface extends JFrame{
 	
 	
 	JButton m_btn_rectangle = new JButton("Rectangle");
-    JButton m_btn_elipse = new JButton("Elipse");
+    JButton m_btn_elipse = new JButton("Ellipse");
     JButton m_btn_line = new JButton("Ligne");
     //private Point m_initialPoint;
     //private Point m_finalPoint;
@@ -83,11 +85,14 @@ public class  GraphicInterface extends JFrame{
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
 		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
+		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
 		menuFichier.add(menuSauvegarderXML);
+		menuFichier.add(menuChargerXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
+		menuChargerXML.addActionListener(new GestLoadXML());
 		
 	}
 	
@@ -103,6 +108,27 @@ public class  GraphicInterface extends JFrame{
 		
 	}
 	
+	/**
+	 * 
+	 * @author Maximilian
+	 *
+	 */
+	private class GestLoadXML implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			
+			try {
+				new ImportDataFromXML(GraphicInterface.this.m_workSpace.getShapeList()).loadDataXML();
+			} catch (FactoryConfigurationError | XMLStreamException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			GraphicInterface.this.m_workSpace.refresh();
+			
+		}
+		
+	}
 	
 
 	

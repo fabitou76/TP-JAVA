@@ -105,7 +105,7 @@ public class WorkSpace extends JPanel{
 					coordY2 = shape.getFinalPoint().y;
 					p_Graphic.drawLine(coordX1, coordY1, coordX2, coordY2);
 					break;
-				case "elipse":
+				case "ellipse":
 					height = shape.getHeight();
 					width = shape.getWidth();
 					coordX1 = shape.getInitialPoint().x;
@@ -171,10 +171,8 @@ public class WorkSpace extends JPanel{
 			
 		}
 	}
-	/*
+	
 	public void refresh() {
 		this.repaint();
-		
 	}
-	*/
 }

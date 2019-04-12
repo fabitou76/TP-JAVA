@@ -19,4 +19,10 @@ public interface Shape {
 	 public String getBorderColor();
 	 public int getBorderWidth();
 	 public String getFillColor();
+	 public String setBorderColor(String p_borderColor);
+	 public int setBorderWidth(int borderWidth);
+	 public String setFillColor(String fillColor);
+	 
+	 
+	 public Point createPoint(int p_x,int p_y);
 }

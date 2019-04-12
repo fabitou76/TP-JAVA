@@ -3,11 +3,11 @@ package ca.csf.dfc.poo.classes;
 import java.awt.Color;
 import java.awt.Point;
 
-public class Elipse implements Shape{
+public class Ellipse implements Shape{
 
 	private Point m_initialPoint;
 	private Point m_finalPoint;
-	private String m_nom = "elipse";
+	private String m_nom = "ellipse";
 	private int m_height = 0;
 	private int m_width = 0;
 	
@@ -15,7 +15,11 @@ public class Elipse implements Shape{
 	private int m_borderWidth;
 	private String m_fillColor = "black";
 	
-	public Elipse(Point p_initialPoint, Point p_finalPoint) {
+	public Ellipse() {
+		this(null,null);
+	}
+	
+	public Ellipse(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
 	}
@@ -88,6 +92,29 @@ public class Elipse implements Shape{
 	@Override
 	public String getFillColor() {
 		return this.m_fillColor;
+	}
+
+	@Override
+	public Point createPoint(int p_x, int p_y) {
+		return new Point(p_x,p_y);
+	}
+
+	@Override
+	public String setBorderColor(String p_borderColor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setBorderWidth(int p_BorderColor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String setFillColor(String p_setFillColor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
