@@ -14,6 +14,10 @@ public class Line implements Shape{
 	private int m_borderWidth = 1;
 	private String m_fillColor="black";
 	
+	public Line() {
+		this(null,null);
+	}
+	
 	public Line(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -87,6 +91,29 @@ public class Line implements Shape{
 	@Override
 	public String getFillColor() {
 		return this.m_fillColor;
+	}
+
+	@Override
+	public Point createPoint(int p_x, int p_y) {
+		return new Point(p_x,p_y);
+	}
+
+	@Override
+	public String setBorderColor(String p_borderColor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setBorderWidth(int p_BorderColor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String setFillColor(String p_setFillColor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
