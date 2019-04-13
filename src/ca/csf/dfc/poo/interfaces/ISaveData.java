@@ -8,5 +8,7 @@ package ca.csf.dfc.poo.interfaces;
  *
  */
 public interface ISaveData {
+	public void selectFolder();
+	public void FileWriter();
 
 }

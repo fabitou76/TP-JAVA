@@ -43,4 +43,22 @@ public class ExportDatainSVG implements IExportData {
 		return null;
 	}
 
+	@Override
+	public void exportRectangle(String[] p_shapeData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exportLine(String[] p_shapeData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exportEllipse(String[] p_shapeData) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

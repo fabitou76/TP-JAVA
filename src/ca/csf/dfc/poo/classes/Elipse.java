@@ -104,6 +104,21 @@ public class Elipse implements Shape{
 		
 	}
 	
+	@Override
+	public void export(IExportData p_export) {
+		p_export.exportLine(this.getData());
+		
+	}
+	public String[] getData() {
+		String [] dataLine = {this.getName(),
+						this.getInitialPoint().x+";"+this.getInitialPoint().y,
+						this.getFinalPoint().x+";"+this.getFinalPoint().y,
+						this.getBorderColor(),
+						Integer.toString(this.getBorderWidth()),
+						this.getFillColor()};
+		return dataLine;
+	}
+	
 	
 
 	
