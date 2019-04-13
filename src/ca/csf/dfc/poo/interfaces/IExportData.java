@@ -17,6 +17,10 @@ public interface IExportData {
 	public void collectData();
 	public void writeDataInDocument();
 	public List<Shape> getShapeList();
+	
+	public void exportRectangle(String[] p_shapeData);
+	public void exportLine(String[] p_shapeData);
+	public void exportEllipse(String[] p_shapeData);
 
 
 }

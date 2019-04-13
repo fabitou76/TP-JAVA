@@ -26,4 +26,6 @@ public interface Shape {
 	 public void toExport(IExportData p_modelExportation );
 	 public void toImport(IImportData p_modelImportation);
 	 
+	 public void export(IExportData p_export);
+	 
 }

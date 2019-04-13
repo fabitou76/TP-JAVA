@@ -103,6 +103,22 @@ public class Rectangle implements Shape{
 		
 	}
 	
+	public String[] getData() {
+		String [] dataRectangle = {this.getName(),
+						this.getInitialPoint().x+";"+this.getInitialPoint().y,
+						this.getFinalPoint().x+";"+this.getFinalPoint().y,
+						this.getBorderColor(),
+						Integer.toString(this.getBorderWidth()),
+						this.getFillColor()};
+		return dataRectangle;
+	}
+
+	@Override
+	public void export(IExportData p_export) {
+		p_export.exportRectangle(this.getData());
+		
+	}
+	
 	
 	
 	

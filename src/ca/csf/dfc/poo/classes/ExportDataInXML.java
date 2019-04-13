@@ -138,6 +138,25 @@ public class ExportDataInXML implements IExportData  {
 	public List<Shape> getShapeList() {
 		return this.m_ListShape;
 	}
+
+	@Override
+	public void exportRectangle(String [] p_exportRectangle) {
+		// TODO Auto-generated method stub	
+	}
+
+	
+
+	@Override
+	public void exportLine(String[] p_shapeData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exportEllipse(String[] p_shapeData) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 		
