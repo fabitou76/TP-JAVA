@@ -2,6 +2,7 @@ package ca.csf.dfc.poo.classes;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
 
 import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.interfaces.IImportData;
@@ -106,17 +107,21 @@ public class Elipse implements Shape{
 	
 	@Override
 	public void export(IExportData p_export) {
-		p_export.exportLine(this.getData());
+		p_export.exportEllipse(this.getData());
 		
 	}
-	public String[] getData() {
-		String [] dataLine = {this.getName(),
-						this.getInitialPoint().x+";"+this.getInitialPoint().y,
-						this.getFinalPoint().x+";"+this.getFinalPoint().y,
-						this.getBorderColor(),
-						Integer.toString(this.getBorderWidth()),
-						this.getFillColor()};
-		return dataLine;
+public ArrayList getData() {
+		
+		ArrayList dataRectangle = new ArrayList();
+		dataRectangle.add(this.getName());
+		dataRectangle.add(this.getInitialPoint().x+";"+this.getInitialPoint().y);
+//		ArrayList [] dataRectangle = {this.getName(),
+//						this.getInitialPoint().x+";"+this.getInitialPoint().y,
+//						this.getFinalPoint().x+";"+this.getFinalPoint().y,
+//						this.getBorderColor(),
+//						Integer.toString(this.getBorderWidth()),
+//						this.getFillColor()};
+		return dataRectangle;
 	}
 	
 	

@@ -3,6 +3,7 @@
  */
 package ca.csf.dfc.poo.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.csf.dfc.poo.interfaces.IExportData;
@@ -50,19 +51,19 @@ public class ExportDatainSVG implements IExportData {
 //	}
 
 	@Override
-	public void exportLine(String[] p_shapeData) {
+	public void exportLine(ArrayList p_shapeData) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void exportEllipse(String[] p_shapeData) {
+	public void exportEllipse(ArrayList  p_shapeData) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void exportRectangle(String[] p_shapeData) {
+	public void exportRectangle(ArrayList  p_shapeData) {
 		// TODO Auto-generated method stub
 		
 	}

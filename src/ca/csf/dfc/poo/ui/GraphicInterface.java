@@ -9,10 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamException;
 
 import com.sun.prism.paint.Color;
 
@@ -94,7 +97,13 @@ public class  GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-			new SaveToXML(GraphicInterface.this.m_workSpace.getList());
+			
+			try {
+				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).FileWriter();
+			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

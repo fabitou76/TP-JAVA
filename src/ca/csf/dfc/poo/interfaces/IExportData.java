@@ -3,6 +3,7 @@
  */
 package ca.csf.dfc.poo.interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.csf.dfc.poo.classes.Shape;
@@ -18,9 +19,9 @@ public interface IExportData {
 //	public void writeDataInDocument();
 //	public List<Shape> getShapeList();
 	
-	public void exportRectangle(String[] p_shapeData);
-	public void exportLine(String[] p_shapeData);
-	public void exportEllipse(String[] p_shapeData);
+	public void exportRectangle(ArrayList p_shapeData);
+	public void exportLine(ArrayList p_shapeData);
+	public void exportEllipse(ArrayList p_shapeData);
 
 
 }

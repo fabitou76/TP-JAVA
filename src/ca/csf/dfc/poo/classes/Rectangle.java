@@ -1,6 +1,7 @@
 package ca.csf.dfc.poo.classes;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.interfaces.IImportData;
@@ -103,13 +104,17 @@ public class Rectangle implements Shape{
 		
 	}
 	
-	public String[] getData() {
-		String [] dataRectangle = {this.getName(),
-						this.getInitialPoint().x+";"+this.getInitialPoint().y,
-						this.getFinalPoint().x+";"+this.getFinalPoint().y,
-						this.getBorderColor(),
-						Integer.toString(this.getBorderWidth()),
-						this.getFillColor()};
+	public ArrayList getData() {
+		
+		ArrayList dataRectangle = new ArrayList();
+		dataRectangle.add(this.getName());
+		dataRectangle.add(this.getInitialPoint().x+";"+this.getInitialPoint().y);
+//		ArrayList [] dataRectangle = {this.getName(),
+//						this.getInitialPoint().x+";"+this.getInitialPoint().y,
+//						this.getFinalPoint().x+";"+this.getFinalPoint().y,
+//						this.getBorderColor(),
+//						Integer.toString(this.getBorderWidth()),
+//						this.getFillColor()};
 		return dataRectangle;
 	}
 

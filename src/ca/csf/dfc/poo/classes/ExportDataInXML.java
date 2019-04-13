@@ -6,6 +6,7 @@ package ca.csf.dfc.poo.classes;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -36,20 +37,18 @@ public class ExportDataInXML implements IExportData  {
 	}
 
 	@Override
-	public void exportRectangle(String[] p_shapeData) {
-		System.out.println(p_shapeData);
+	public void exportRectangle(ArrayList p_shapeData) {
+		p_shapeData.forEach(s->System.out.println(s));
 	}
 
 	@Override
-	public void exportLine(String[] p_shapeData) {
-		System.out.println(p_shapeData);
-		
+	public void exportLine(ArrayList p_shapeData) {
+		p_shapeData.forEach(s->System.out.println(s));
 	}
 
 	@Override
-	public void exportEllipse(String[] p_shapeData) {
-		System.out.println(p_shapeData);
-		
+	public void exportEllipse(ArrayList p_shapeData) {
+		p_shapeData.forEach(s->System.out.println(s));
 	}
 	
 //	@Override
