@@ -73,7 +73,6 @@ public class Rectangle implements Shape{
 		return this.m_width;
 	}
 
-
 	@Override
 	public Color getFillColor() {
 		// TODO Auto-generated method stub

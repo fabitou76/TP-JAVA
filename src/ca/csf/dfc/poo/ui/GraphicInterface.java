@@ -65,9 +65,7 @@ public class  GraphicInterface extends JFrame{
         panneauForme.add(this.m_btn_line);
         panneauForme.add(this.m_btn_clear);
         
-    
         this.add(panneauForme, BorderLayout.WEST);
-        
 	}
 	
 	
@@ -112,17 +110,8 @@ public class  GraphicInterface extends JFrame{
 			GraphicInterface.this.m_workSpace.repaint();
 		}
 
-		
-		
-		
-		
 	}
-	
-		
-	
-	
-	
-	
+
 }
 	
 	
