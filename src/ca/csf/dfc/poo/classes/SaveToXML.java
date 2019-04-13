@@ -46,8 +46,10 @@ public class SaveToXML implements ISaveData {
 		ExportDataInXML format = new ExportDataInXML();
 		XMLStreamWriter xmlDoc = null;
 		
-//		FileWriter outputWriter =new FileWriter(new File("data.xml"));
-//		xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+		FileWriter outputWriter =new FileWriter(new File("data.xml"));
+		xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+		
+		format.getXMLStreamWriter(xmlDoc);
 		
 		for (Shape oneShape : this.m_ListShape) {
 			oneShape.export(format);

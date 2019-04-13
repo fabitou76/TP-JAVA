@@ -26,6 +26,8 @@ import ca.csf.dfc.poo.interfaces.IExportData;
  */
 public class ExportDataInXML implements IExportData  {
 	
+	private XMLStreamWriter m_XMLWriter;
+	
 	
 	
 	/**
@@ -55,6 +57,10 @@ public class ExportDataInXML implements IExportData  {
 	public String getPathToSave() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void getXMLStreamWriter(XMLStreamWriter p_xmlDoc) {
+		this.m_XMLWriter = p_xmlDoc;
 	}
 	
 //	@Override
