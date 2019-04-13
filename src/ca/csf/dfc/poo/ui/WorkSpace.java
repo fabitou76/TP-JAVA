@@ -83,6 +83,9 @@ public class WorkSpace extends JPanel{
 		this.m_finalPoint = null;
 	}
 	
+	public ArrayList<Shape> getList(){
+		return this.m_shapeList;
+	}
 	
 	@Override
 	protected void paintComponent(Graphics p_Graphic) {

@@ -87,11 +87,17 @@ public class  GraphicInterface extends JFrame{
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
-		
-		
+		menuSauvegarderXML.addActionListener(new GestSaveXML());
 	}
 	
+	private class GestSaveXML implements ActionListener{
 
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			new SaveToXML(GraphicInterface.this.m_workSpace.getList());
+		}
+		
+	}
 	
 
 	
