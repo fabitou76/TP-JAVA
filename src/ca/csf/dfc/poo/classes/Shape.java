@@ -28,4 +28,6 @@ public interface Shape {
 	 
 	 public void export(IExportData p_export);
 	 
+	 public String[] getData();
+	 
 }

@@ -12,11 +12,11 @@ import ca.csf.dfc.poo.classes.Shape;
  *
  */
 public interface IExportData {
-	public void SaveData();
-	public String getFolderPath();
-	public void collectData();
-	public void writeDataInDocument();
-	public List<Shape> getShapeList();
+//	public void SaveData();
+//	public String getFolderPath();
+//	public void collectData();
+//	public void writeDataInDocument();
+//	public List<Shape> getShapeList();
 	
 	public void exportRectangle(String[] p_shapeData);
 	public void exportLine(String[] p_shapeData);

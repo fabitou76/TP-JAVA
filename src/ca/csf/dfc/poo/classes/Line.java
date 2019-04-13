@@ -112,6 +112,8 @@ public class Line implements Shape{
 		p_export.exportLine(this.getData());
 		
 	}
+	
+	
 	public String[] getData() {
 		String [] dataLine = {this.getName(),
 						this.getInitialPoint().x+";"+this.getInitialPoint().y,
