@@ -50,6 +50,12 @@ public class ExportDataInXML implements IExportData  {
 	public void exportEllipse(ArrayList p_shapeData) {
 		p_shapeData.forEach(s->System.out.println(s));
 	}
+
+	@Override
+	public String getPathToSave() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 //	@Override
 //	public void collectData() {

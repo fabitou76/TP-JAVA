@@ -93,7 +93,30 @@ public class  GraphicInterface extends JFrame{
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
 	}
 	
+<<<<<<< Updated upstream
 	private class GestSaveXML implements ActionListener{
+=======
+//	public String getFileName
+	
+	private class GestSaveXML implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			
+			new ExportDataInXML(GraphicInterface.this.m_workSpace.getShapeList()).collectData();
+			System.out.println("sauvegarde en cours");
+			
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @author Maximilian
+	 *
+	 */
+	private class GestLoadXML implements ActionListener {
+>>>>>>> Stashed changes
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {

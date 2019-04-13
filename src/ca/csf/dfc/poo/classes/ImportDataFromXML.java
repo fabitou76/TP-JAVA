@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -19,11 +21,35 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  *
  */
 public class ImportDataFromXML implements IImportData {
+<<<<<<< Updated upstream
 	 XMLStreamReader documentXML = null;
+=======
+	 private XMLStreamReader documentXML = null;
+	 private List<Shape> m_ListShapes;
+	 private FileReader input;
+	 private String  pathToImportFrom;
+	  /**
+	   * constructeur
+	   * @param p_ListShapes
+	   */
+	 public ImportDataFromXML(List<Shape>p_ListShapes)  {
+		 this.m_ListShapes = p_ListShapes;
+	 }
+	 
+	 /**
+	  * charge les données XML dans la liste des shapes
+	  * @throws XMLStreamException
+	  * @throws FactoryConfigurationError
+	  */
+>>>>>>> Stashed changes
 	 
 	 public ImportDataFromXML() throws XMLStreamException, FactoryConfigurationError {
 		 try {
+<<<<<<< Updated upstream
 			 FileReader input=new FileReader(new File("data.xml"));
+=======
+			 input=new FileReader(new File(pathToImportFrom));
+>>>>>>> Stashed changes
 			 documentXML = XMLInputFactory.newInstance().createXMLStreamReader(input);
 			 
 			 documentXML.next();
@@ -57,5 +83,19 @@ public class ImportDataFromXML implements IImportData {
 			 System.err.println("Erreur de lecture de fichier : " + exp);
 		 }
 	 }
+
+	@Override
+	public String getPathToImportFrom() {
+		JFileChooser path = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter (
+										"XML files", "xml");
+		path.setFileFilter(filter);
+		int returnVal = path.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			return path.getSelectedFile().getName();
+		}
+		
+		return null;
+	}
 
 }

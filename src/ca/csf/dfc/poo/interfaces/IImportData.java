@@ -8,5 +8,6 @@ package ca.csf.dfc.poo.interfaces;
  *
  */
 public interface IImportData {
+	public String getPathToImportFrom();
 
 }

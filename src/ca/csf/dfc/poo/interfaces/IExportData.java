@@ -13,6 +13,7 @@ import ca.csf.dfc.poo.classes.Shape;
  *
  */
 public interface IExportData {
+<<<<<<< Updated upstream
 //	public void SaveData();
 //	public String getFolderPath();
 //	public void collectData();
@@ -22,6 +23,14 @@ public interface IExportData {
 	public void exportRectangle(ArrayList p_shapeData);
 	public void exportLine(ArrayList p_shapeData);
 	public void exportEllipse(ArrayList p_shapeData);
+=======
+	public void SaveData();
+	public String getFolderPath();
+	public void collectData();
+	public void writeDataInDocument();
+	public List<Shape> getShapeList();
+	public String getPathToSave();
+>>>>>>> Stashed changes
 
 
 }
