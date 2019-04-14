@@ -11,10 +11,6 @@ import javax.xml.stream.XMLStreamException;
  *
  */
 public interface IReadData {
-<<<<<<< HEAD
-
-=======
 	public void selectFolder();
 	public void dataLoader() throws XMLStreamException, FactoryConfigurationError;
->>>>>>> XML-LoadData-newARchi
 }

@@ -42,7 +42,7 @@ public class ImportDataFromXML implements IImportData {
 	  * @throws FactoryConfigurationError
 	  */
 
-	 public ImportDataFromXML() throws XMLStreamException, FactoryConfigurationError {
+	 public void  dataLoader () throws XMLStreamException, FactoryConfigurationError {
 		 try {
 
 			 FileReader input=new FileReader(new File("data.xml"));

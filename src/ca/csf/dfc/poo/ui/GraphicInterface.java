@@ -86,36 +86,34 @@ public class  GraphicInterface extends JFrame{
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
 		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
+		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
 		menuFichier.add(menuSauvegarderXML);
+		menuFichier.add(menuChargerXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
+		menuSauvegarderXML.addActionListener(new GestChargerXML());
 	}
-	
-<<<<<<< HEAD
-=======
-	private class GestChargerXML implements ActionListener{
+
+	private class GestChargerXML  implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
 			try {
-				new LoadFromXML(listShapes).dataLoader();
+				new ImportDataFromXML(listShapes).dataLoader();
 			} catch (XMLStreamException | FactoryConfigurationError e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			GraphicInterface.this.m_workSpace.repaint();
+			
+//			GraphicInterface.this.m_workSpace.repaint();
 		}
 		
 	}
->>>>>>> XML-LoadData-newARchi
-
+	
 	private class GestSaveXML implements ActionListener{
-
-
-
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			
