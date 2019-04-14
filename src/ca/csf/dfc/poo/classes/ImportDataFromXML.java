@@ -6,6 +6,7 @@ package ca.csf.dfc.poo.classes;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -21,9 +22,8 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  *
  */
 public class ImportDataFromXML implements IImportData {
-<<<<<<< Updated upstream
-	 XMLStreamReader documentXML = null;
-=======
+
+	
 	 private XMLStreamReader documentXML = null;
 	 private List<Shape> m_ListShapes;
 	 private FileReader input;
@@ -41,15 +41,15 @@ public class ImportDataFromXML implements IImportData {
 	  * @throws XMLStreamException
 	  * @throws FactoryConfigurationError
 	  */
->>>>>>> Stashed changes
-	 
+
 	 public ImportDataFromXML() throws XMLStreamException, FactoryConfigurationError {
 		 try {
-<<<<<<< Updated upstream
+
 			 FileReader input=new FileReader(new File("data.xml"));
-=======
+
 			 input=new FileReader(new File(pathToImportFrom));
->>>>>>> Stashed changes
+
+
 			 documentXML = XMLInputFactory.newInstance().createXMLStreamReader(input);
 			 
 			 documentXML.next();

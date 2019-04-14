@@ -3,6 +3,8 @@ package ca.csf.dfc.poo.classes;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.xml.stream.XMLStreamException;
+
 import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
@@ -119,8 +121,10 @@ public class Rectangle implements Shape{
 	}
 
 	@Override
-	public void export(IExportData p_export) {
-		p_export.exportRectangle(this.getData());
+	public void export(IExportData p_export) throws XMLStreamException {
+		p_export.exportRectangle(this);
+		// OU
+		//p_export.exportRectangle(this);
 		
 	}
 	

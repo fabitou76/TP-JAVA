@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.xml.stream.XMLStreamException;
+
 import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
@@ -15,9 +17,9 @@ public class Elipse implements Shape{
 	private int m_height = 0;
 	private int m_width = 0;
 	
-	private String m_borderColor;
-	private int m_borderWidth;
-	private String m_fillColor;
+	private String m_borderColor = "black";
+	private int m_borderWidth = 2;
+	private String m_fillColor = "black";
 	
 	public Elipse(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
@@ -106,8 +108,8 @@ public class Elipse implements Shape{
 	}
 	
 	@Override
-	public void export(IExportData p_export) {
-		p_export.exportEllipse(this.getData());
+	public void export(IExportData p_export) throws XMLStreamException {
+		p_export.exportEllipse(this);
 		
 	}
 public ArrayList getData() {

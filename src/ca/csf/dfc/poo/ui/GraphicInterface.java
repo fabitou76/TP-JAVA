@@ -93,17 +93,20 @@ public class  GraphicInterface extends JFrame{
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
 	}
 	
-<<<<<<< Updated upstream
+
 	private class GestSaveXML implements ActionListener{
-=======
-//	public String getFileName
-	
-	private class GestSaveXML implements ActionListener {
+
+
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			
-			new ExportDataInXML(GraphicInterface.this.m_workSpace.getShapeList()).collectData();
+			try {
+				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).dataSaver();
+			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
 			System.out.println("sauvegarde en cours");
 			
 		}
@@ -115,21 +118,20 @@ public class  GraphicInterface extends JFrame{
 	 * @author Maximilian
 	 *
 	 */
-	private class GestLoadXML implements ActionListener {
->>>>>>> Stashed changes
-
-		@Override
-		public void actionPerformed(ActionEvent p_arg0) {
-			
-			try {
-				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).FileWriter();
-			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-	}
+//	private class GestLoadXML implements ActionListener {
+//
+//
+//		public void actionPerformed(ActionEvent p_arg0) {
+//			
+//			try {
+//				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).FileWriter();
+//			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//	}
 	
 
 	

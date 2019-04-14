@@ -3,6 +3,8 @@ package ca.csf.dfc.poo.classes;
 import java.awt.*;
 import java.util.ArrayList;
 
+import javax.xml.stream.XMLStreamException;
+
 import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
@@ -27,7 +29,7 @@ public interface Shape {
 	 public void toExport(IExportData p_modelExportation );
 	 public void toImport(IImportData p_modelImportation);
 	 
-	 public void export(IExportData p_export);
+	 public void export(IExportData p_export) throws XMLStreamException;
 	 
 	 public ArrayList getData();
 	 

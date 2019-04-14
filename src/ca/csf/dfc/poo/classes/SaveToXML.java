@@ -42,19 +42,28 @@ public class SaveToXML implements ISaveData {
 	}
 
 	@Override
-	public void FileWriter() throws XMLStreamException, FactoryConfigurationError, IOException {
-		ExportDataInXML format = new ExportDataInXML();
-		XMLStreamWriter xmlDoc = null;
-		
-		FileWriter outputWriter =new FileWriter(new File("data.xml"));
-		xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
-		
-		format.getXMLStreamWriter(xmlDoc);
-		
-		for (Shape oneShape : this.m_ListShape) {
-			oneShape.export(format);
+	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {
+		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
+			XMLStreamWriter xmlDoc = null;
+			ExportDataInXML format = new ExportDataInXML();
+			
+			FileWriter outputWriter = new FileWriter(new File("data.xml"));
+			xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+			format.setXMLStreamWriter(xmlDoc);
+			
+			// DEBUT ECRITURE DOCUMENT XML
+			xmlDoc.writeStartDocument();
+				xmlDoc.writeStartElement("ListofShapes");
+					for (Shape oneShape : this.m_ListShape) {
+						oneShape.export(format);
+					}
+				xmlDoc.writeEndElement();
+			xmlDoc.writeEndDocument();
+			
+			xmlDoc.flush();
+			xmlDoc.close();
+			xmlDoc = null;
 		}
-		
 	}
 
 }
