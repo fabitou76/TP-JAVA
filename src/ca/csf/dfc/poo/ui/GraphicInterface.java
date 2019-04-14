@@ -86,25 +86,13 @@ public class  GraphicInterface extends JFrame{
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
 		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
-		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
 		menuFichier.add(menuSauvegarderXML);
-		menuFichier.add(menuChargerXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
-		menuChargerXML.addActionListener(new GestChargerXML());
 	}
 	
-	private class GestChargerXML implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent p_arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
 
 	private class GestSaveXML implements ActionListener{
 
