@@ -93,6 +93,24 @@ public class  GraphicInterface extends JFrame{
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
 	}
 	
+<<<<<<< HEAD
+=======
+	private class GestChargerXML implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
+			try {
+				new LoadFromXML(listShapes).dataLoader();
+			} catch (XMLStreamException | FactoryConfigurationError e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			GraphicInterface.this.m_workSpace.repaint();
+		}
+		
+	}
+>>>>>>> XML-LoadData-newARchi
 
 	private class GestSaveXML implements ActionListener{
 
