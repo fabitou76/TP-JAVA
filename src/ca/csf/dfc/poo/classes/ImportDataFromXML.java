@@ -22,6 +22,16 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  *
  */
 public class ImportDataFromXML implements IImportData {
+	
+	private final static String ELM_SHAPE = "shape"; 
+	private final static String ELM_TYPE = "type"; 
+	private final static String ELM_COORD = "coord"; 
+	private final static String ELM_STYLE = "style"; 
+	private final static String ATTR_INIT_POINT = "initialPoint"; 
+	private final static String ATTR_FINAL_POINT = "finalPoint";
+	private final static String ATTR_BORDER_COLOR = "borderColor";
+	private final static String ATTR_BORDER_WIDTH = "borderWidth";
+	private final static String ATTR_FILL_COLOR= "fillColor";
 
 	
 	 private XMLStreamReader documentXML = null;
@@ -62,17 +72,17 @@ public class ImportDataFromXML implements IImportData {
 			 while(documentXML.isStartElement()) {
 				 //lire quelle forme il faut créer
 				 String elementType = documentXML.getLocalName();
-				 String shapeType  = documentXML.getAttributeValue("", "type");
+				 String shapeType  = documentXML.getAttributeValue("", ELM_TYPE);
 				 documentXML.next();
 				 String coord = documentXML.getLocalName();//devrait etre coord
-				 String finalPoint= documentXML.getAttributeValue("", "finalPoint");
-				 String  initialPoint  = documentXML.getAttributeValue("", "initialPoint");
+				 String finalPoint= documentXML.getAttributeValue("", ATTR_FINAL_POINT);
+				 String  initialPoint  = documentXML.getAttributeValue("", ATTR_INIT_POINT);
 				 documentXML.next();
 				 documentXML.next();
 				 String style = documentXML.getLocalName();//devrait etre style
-				 String fillColor = documentXML.getAttributeValue("", "fillColor");
-				 String borderWidth = documentXML.getAttributeValue("", "borderWidth");
-				 String borderColor = documentXML.getAttributeValue("", "borderColor");
+				 String fillColor = documentXML.getAttributeValue("", ATTR_FILL_COLOR);
+				 String borderWidth = documentXML.getAttributeValue("", ATTR_BORDER_WIDTH);
+				 String borderColor = documentXML.getAttributeValue("", ATTR_BORDER_COLOR);
 				 documentXML.next();documentXML.next();
 				 documentXML.next();
 				 System.out.println(elementType+shapeType+coord+
