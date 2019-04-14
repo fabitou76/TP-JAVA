@@ -70,13 +70,13 @@ public class WorkSpace extends JPanel{
 		Shape shape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
 		this.m_shapeList.add(shape);
 		//test
-		System.out.println("--------Début liste workspace---------");
-		for(Shape s: this.m_shapeList) {
-			System.out.println("-"+s.toString());
-			System.out.println(s.getInitialPoint().toString() + "  " + s.getFinalPoint().toString());
-			System.out.println("Hauteur:" + s.getHeight() + " " + "Largeur:" + s.getWidth());
-		}
-		System.out.println("--------Fin liste workspace---------");
+//		System.out.println("--------Début liste workspace---------");
+//		for(Shape s: this.m_shapeList) {
+//			System.out.println("-"+s.toString());
+//			System.out.println(s.getInitialPoint().toString() + "  " + s.getFinalPoint().toString());
+//			System.out.println("Hauteur:" + s.getHeight() + " " + "Largeur:" + s.getWidth());
+//		}
+//		System.out.println("--------Fin liste workspace---------");
 		//fin
 		this.repaint();
 		this.m_initialPoint = null;
