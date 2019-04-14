@@ -125,6 +125,12 @@ public ArrayList getData() {
 //						this.getFillColor()};
 		return dataRectangle;
 	}
+
+@Override
+public void importData(IImportData p_import) {
+	// TODO Auto-generated method stub
+	
+}
 	
 	
 

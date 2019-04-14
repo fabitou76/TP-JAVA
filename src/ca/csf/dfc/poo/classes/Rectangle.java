@@ -127,6 +127,12 @@ public class Rectangle implements Shape{
 		//p_export.exportRectangle(this);
 		
 	}
+
+	@Override
+	public void importData(IImportData p_import) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

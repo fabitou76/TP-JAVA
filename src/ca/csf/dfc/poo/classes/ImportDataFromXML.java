@@ -51,6 +51,12 @@ public class ImportDataFromXML implements IImportData {
 	  * @throws XMLStreamException
 	  * @throws FactoryConfigurationError
 	  */
+	 
+	 @Override
+		public void importData(Shape p_shape) {
+			// TODO Auto-generated method stub
+			
+		}
 
 	 public void  dataLoader () throws XMLStreamException, FactoryConfigurationError {
 		 try {
@@ -107,5 +113,7 @@ public class ImportDataFromXML implements IImportData {
 		
 		return null;
 	}
+
+	
 
 }

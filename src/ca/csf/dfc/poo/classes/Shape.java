@@ -30,6 +30,7 @@ public interface Shape {
 	 public void toImport(IImportData p_modelImportation);
 	 
 	 public void export(IExportData p_export) throws XMLStreamException;
+	 public void importData (IImportData p_import);
 	 
 	 public ArrayList getData();
 	 
