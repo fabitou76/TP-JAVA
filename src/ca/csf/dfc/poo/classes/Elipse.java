@@ -128,7 +128,7 @@ public ArrayList getData() {
 
 @Override
 public void importData(IImportData p_import) {
-	// TODO Auto-generated method stub
+	p_import.importData(this);
 	
 }
 	
