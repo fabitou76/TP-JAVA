@@ -47,7 +47,7 @@ public class ImportDataFromXML implements IImportData {
 
 			 FileReader input=new FileReader(new File("data.xml"));
 
-			 input=new FileReader(new File(pathToImportFrom));
+//			 input=new FileReader(new File(pathToImportFrom));
 
 
 			 documentXML = XMLInputFactory.newInstance().createXMLStreamReader(input);

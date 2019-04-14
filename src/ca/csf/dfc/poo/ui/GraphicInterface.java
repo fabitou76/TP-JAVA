@@ -93,7 +93,7 @@ public class  GraphicInterface extends JFrame{
 		this.setJMenuBar(menuBar);
 		
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
-		menuSauvegarderXML.addActionListener(new GestChargerXML());
+		menuChargerXML.addActionListener(new GestChargerXML());
 	}
 
 	private class GestChargerXML  implements ActionListener{
