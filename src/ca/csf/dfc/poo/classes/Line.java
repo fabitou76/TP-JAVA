@@ -134,7 +134,7 @@ public ArrayList getData() {
 
 @Override
 public void importData(IImportData p_import) {
-	p_import.importData(this);
+	p_import.importDataLine(this);
 	
 }
 	

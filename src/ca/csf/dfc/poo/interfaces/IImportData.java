@@ -3,6 +3,8 @@
  */
 package ca.csf.dfc.poo.interfaces;
 
+import javax.xml.stream.XMLStreamReader;
+
 import ca.csf.dfc.poo.classes.Shape;
 
 /**
@@ -10,7 +12,10 @@ import ca.csf.dfc.poo.classes.Shape;
  *
  */
 public interface IImportData {
-	public String getPathToImportFrom();
-	public void importData(Shape p_shape);
+	void importDataEllipse(Shape p_shape);
+	void importDataLine(Shape p_shape);
+	void importDataRectangle(Shape p_shape);
+	
+
 
 }

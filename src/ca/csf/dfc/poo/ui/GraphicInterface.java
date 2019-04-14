@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -100,13 +101,17 @@ public class  GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
+			CreateShapeFromXML m_createShapeFromXML = new CreateShapeFromXML();
 			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
+			m_createShapeFromXML.setShapeList(listShapes);
+			
 			try {
-				new ImportDataFromXML(listShapes).dataLoader();
-			} catch (XMLStreamException | FactoryConfigurationError e) {
+				m_createShapeFromXML.createShapes();
+			} catch (FileNotFoundException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			
 //			GraphicInterface.this.m_workSpace.repaint();
 		}

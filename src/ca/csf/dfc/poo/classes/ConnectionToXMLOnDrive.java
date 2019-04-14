@@ -22,6 +22,30 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	
 	XMLStreamReader m_xmlDoc;
 	String m_pathToFolder = null;
+	
+	/**
+	 * ctr
+	 */
+	
+	public ConnectionToXMLOnDrive() {
+		
+	}
+	
+
+	public XMLStreamReader getXMLDoc(){
+		return this.m_xmlDoc;
+	}
+	
+	public void connect() {
+		this.selectDataFolder();
+		try {
+			this.connectToDB();
+		} catch (FileNotFoundException | XMLStreamException | FactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 	@Override
 	public void selectDataFolder() {
@@ -34,16 +58,14 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	public void connectToDB()throws FileNotFoundException, XMLStreamException, FactoryConfigurationError  {
 		 FileReader input=new FileReader(new File(m_pathToFolder));
 		 this.m_xmlDoc = XMLInputFactory.newInstance().createXMLStreamReader(input);
-		
-		
 	}
 
 	@Override
 	public void closeConnection() throws XMLStreamException {
-		//this.m_xmlDoc.flush();
 		this.m_xmlDoc.close();
 		this.m_xmlDoc = null;
 		
 	}
+	
 
 }

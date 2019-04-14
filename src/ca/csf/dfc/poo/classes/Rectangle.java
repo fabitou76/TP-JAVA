@@ -130,7 +130,7 @@ public class Rectangle implements Shape{
 
 	@Override
 	public void importData(IImportData p_import) {
-		p_import.importData(this);
+		p_import.importDataRectangle(this);
 		
 	}
 	

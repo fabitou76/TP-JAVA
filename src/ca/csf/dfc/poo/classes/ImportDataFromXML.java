@@ -52,11 +52,7 @@ public class ImportDataFromXML implements IImportData {
 	  * @throws FactoryConfigurationError
 	  */
 	 
-	 @Override
-		public void importData(Shape p_shape) {
-			// TODO Auto-generated method stub
-			
-		}
+	 
 
 	 public void  dataLoader () throws XMLStreamException, FactoryConfigurationError {
 		 try {
@@ -112,6 +108,24 @@ public class ImportDataFromXML implements IImportData {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public void importDataEllipse(Shape p_shape) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void importDataLine(Shape p_shape) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void importDataRectangle(Shape p_shape) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

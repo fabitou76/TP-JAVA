@@ -3,6 +3,8 @@
  */
 package ca.csf.dfc.poo.classes;
 
+import javax.xml.stream.XMLStreamReader;
+
 import ca.csf.dfc.poo.interfaces.IImportData;
 
 /**
@@ -10,17 +12,37 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  *
  */
 public class ImportXML implements IImportData {
-
-	@Override
-	public String getPathToImportFrom() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private XMLStreamReader m_xmlDoc = null;
+	
+	/**
+	 * ctr
+	 */
+	public ImportXML (XMLStreamReader p_xmlDoc) {
+		this.m_xmlDoc = p_xmlDoc;
 	}
+	
+
 
 	@Override
-	public void importData(Shape p_shape) {
+	public void importDataLine(Shape p_shape) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void importDataEllipse(Shape p_shape) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void importDataRectangle(Shape p_shape) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
 
 }
