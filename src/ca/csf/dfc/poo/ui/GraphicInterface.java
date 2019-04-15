@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.Color;
 import java.util.*;
 import java.awt.color.*;
@@ -17,22 +19,16 @@ import javax.swing.border.LineBorder;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 
-import com.sun.prism.paint.Color;
 
-<<<<<<< HEAD
+
+
 import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
 
-public class  GraphicInterface extends JFrame{
 
-	private static final long serialVersionUID = 1L;
-=======
-//
+public class GraphicInterface extends JFrame{
 
-public class  GraphicInterface extends JFrame{
 
-	// TEST POUR HUGO
->>>>>>> master
 	private WorkSpace m_workSpace = new WorkSpace();
 	
 	JButton m_btn_rectangle = new JButton(new ImageIcon("src/rectangle.png"));
@@ -106,8 +102,7 @@ public class  GraphicInterface extends JFrame{
 		
 		this.setJMenuBar(menuBar);
 		
-		menuSauvegarderXML.addActionListener(new GestSaveXML());
-		menuChargerXML.addActionListener(new GestChargerXML());
+
 	}
 
 	private class GestChargerXML  implements ActionListener{
@@ -169,7 +164,7 @@ public class  GraphicInterface extends JFrame{
 	
 
 	
-	//OK
+
 	private class ShapeBtnHandler implements ActionListener{
 
 		@Override
@@ -245,11 +240,5 @@ public class  GraphicInterface extends JFrame{
 		return chosenColor;
 	}
 	
-		
-	
-	
-	
 	
 }
-	
-
