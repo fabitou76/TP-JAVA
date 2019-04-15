@@ -8,12 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Color;
 import java.util.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-
-import com.sun.prism.paint.Color;
 
 //<<<<<<< HEAD
 import ca.csf.dfc.poo.classes.*;
@@ -33,8 +32,8 @@ public class  GraphicInterface extends JFrame{
     JButton m_btn_line = new JButton(new ImageIcon("src/line.png"));
     JButton m_btn_clear = new JButton("Clear");
     
-    String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange", "Mauve"};
-    Double[] m_BorderWidthOptions = {0.5, 1.0, 1.5, 2.0};
+    String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange"};
+    Integer[] m_BorderWidthOptions = {1, 2, 3, 4, 5};
     
     
     JComboBox m_BorderColor = new JComboBox(m_ColorChoice);
@@ -137,33 +136,44 @@ public class  GraphicInterface extends JFrame{
 		
 	}
 	
+	public Integer getBorderWidth() {
+		return  Integer.valueOf(this.m_BorderWidth.getSelectedItem().toString());
+	}
+	
 	public Color getFillColor(){
-		
-	    String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange", "Mauve"};
 
-		int selectedColor = this.m_FillColor.getSelectedIndex();
+		Color chosenColor = getColor(this.m_FillColor.getSelectedIndex());
+	
+		return chosenColor;
+	}
+	
+	public Color getBorderColor(){
+
+		Color chosenColor = getColor(this.m_BorderColor.getSelectedIndex());
 		
-		Color chosenColor = Color.TRANSPARENT;
+		return chosenColor;
+	}
+	
+	private Color getColor(int p_selectedColor) {
 		
-		Switch (selectedColor){
-			case 1:
-				color = Color.WHITE;
-				break;
-			case 2:
-				color = Color.BLACK;
-				break;
-			default:
-				color = Color.TRANSPARENT;
-				break;
-			
-			
-			
-		}
+		Color chosenColor = null;
 		
+		if(p_selectedColor == 0)
+			chosenColor = Color.WHITE;
+		else if(p_selectedColor == 1)
+			chosenColor = Color.BLACK;
+		else if(p_selectedColor == 2)
+			chosenColor = Color.BLUE;
+		else if(p_selectedColor == 3)
+			chosenColor = Color.RED;
+		else if(p_selectedColor == 4)
+			chosenColor = Color.YELLOW;
+		else if(p_selectedColor == 5)
+			chosenColor = Color.GREEN;
+		else if(p_selectedColor == 6)
+			chosenColor = Color.ORANGE;
 		
-		
-		
-		return Color.BLACK;
+		return chosenColor;
 	}
 
 
