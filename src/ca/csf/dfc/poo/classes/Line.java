@@ -12,7 +12,7 @@ public class Line implements Shape{
 
 	private Point m_initialPoint;
 	private Point m_finalPoint;
-	private String m_nom = "line";
+	private String m_nom = "elipse";
 	private int m_height = 0;
 	private int m_width = 0;
 	private Color m_fillColor;
@@ -20,20 +20,13 @@ public class Line implements Shape{
 	private Color m_borderColor;
 
 	
-	
-	private String m_borderColor ="black";
-	private int m_borderWidth = 1;
-	private String m_fillColor="black";
-	
 	public Line() {
 		this(null,null);
 	}
-	
 	public Line(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
 	}
-	
 	
 	@Override
 	public String getName() {
@@ -41,7 +34,6 @@ public class Line implements Shape{
 		return this.m_nom;
 	}
 	
-
 	@Override
 	public void setName(String p_name) {
 		this.m_nom = p_name;;
@@ -94,9 +86,9 @@ public class Line implements Shape{
 		
 		return this.m_width;
 	}
-	
+
 	@Override
-	public String getBorderColor() {
+	public Color getBorderColor() {
 		return this.m_borderColor;
 	}
 
@@ -106,21 +98,25 @@ public class Line implements Shape{
 	}
 
 	@Override
-	public String getFillColor() {
+	public Color getFillColor() {
 		return this.m_fillColor;
 	}
+
+	
 	@Override
 	public void export(IExportData p_export) throws XMLStreamException {
 		p_export.exportLine(this);
+		
 	}
-	
+
+
 	@Override
-	public void importData(IImportData p_import) throws XMLStreamException  {
-		p_import.importDataLine(this);	
+	public void importData(IImportData p_import) throws XMLStreamException {
+		p_import.importDataLine(this);
+		
 	}
-	
 	@Override
-	public void setBorderColor(String p_borderColor) {
+	public void setBorderColor(Color p_borderColor) {
 		this.m_borderColor = p_borderColor;
 		
 	}
@@ -130,57 +126,10 @@ public class Line implements Shape{
 		
 	}
 	@Override
-	public void setFillColor(String p_fillColor) {
+	public void setFillColor(Color p_fillColor) {
 		this.m_fillColor = p_fillColor;
 		
 	}
-	
-	
-
-
-	@Override
-	public Color getFillColor() {
-		// TODO Auto-generated method stub
-		return this.m_fillColor;
-	}
-
-
-	@Override
-	public void setFillColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_fillColor = p_color;
-	}
-
-
-	@Override
-	public int getBorderWidth() {
-		// TODO Auto-generated method stub
-		return this.m_borderWidth;
-	}
-
-
-	@Override
-	public void setBorderWidth(int p_borderWidth) {
-		// TODO Auto-generated method stub
-		this.m_borderWidth = p_borderWidth;
-		
-	}
-
-
-	@Override
-	public Color getBorderColor() {
-		// TODO Auto-generated method stub
-		return this.m_borderColor;
-	}
-
-
-	@Override
-	public void setBorderColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_borderColor = p_color;
-		
-	}
-
 
 
 

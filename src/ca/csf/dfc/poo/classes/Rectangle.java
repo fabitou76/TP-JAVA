@@ -11,15 +11,15 @@ import ca.csf.dfc.poo.interfaces.IImportData;
 
 public class Rectangle implements Shape{
 	
-	private Point m_initialPoint = null;
-	private Point m_finalPoint = null;
-	private String m_nom = "rectangle";
-	private int m_height;
-	private int m_width;
-	
-	private String m_borderColor = "black";
-	private int m_borderWidth = 2;
-	private String m_fillColor = "black";
+	private Point m_initialPoint;
+	private Point m_finalPoint;
+	private String m_nom = "elipse";
+	private int m_height = 0;
+	private int m_width = 0;
+	private Color m_fillColor;
+	private int m_borderWidth;
+	private Color m_borderColor;
+
 	
 	public Rectangle() {
 		this(null,null);
@@ -89,50 +89,7 @@ public class Rectangle implements Shape{
 	}
 
 	@Override
-	public Color getFillColor() {
-		// TODO Auto-generated method stub
-		return this.m_fillColor;
-	}
-
-
-	@Override
-	public void setFillColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_fillColor = p_color;
-	}
-
-
-	@Override
-	public int getBorderWidth() {
-		// TODO Auto-generated method stub
-		return this.m_borderWidth;
-	}
-
-
-	@Override
-	public void setBorderWidth(int p_borderWidth) {
-		// TODO Auto-generated method stub
-		this.m_borderWidth = p_borderWidth;
-		
-	}
-
-
-	@Override
 	public Color getBorderColor() {
-		// TODO Auto-generated method stub
-		return this.m_borderColor;
-	}
-
-
-	@Override
-	public void setBorderColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_borderColor = p_color;
-		
-	}
-	
-	@Override
-	public String getBorderColor() {
 		return this.m_borderColor;
 	}
 
@@ -142,29 +99,25 @@ public class Rectangle implements Shape{
 	}
 
 	@Override
-	public String getFillColor() {
+	public Color getFillColor() {
 		return this.m_fillColor;
 	}
 
 	
-
-
 	@Override
 	public void export(IExportData p_export) throws XMLStreamException {
 		p_export.exportRectangle(this);
-		// OU
-		//p_export.exportRectangle(this);
 		
 	}
+
 
 	@Override
 	public void importData(IImportData p_import) throws XMLStreamException {
 		p_import.importDataRectangle(this);
 		
 	}
-	
 	@Override
-	public void setBorderColor(String p_borderColor) {
+	public void setBorderColor(Color p_borderColor) {
 		this.m_borderColor = p_borderColor;
 		
 	}
@@ -174,11 +127,10 @@ public class Rectangle implements Shape{
 		
 	}
 	@Override
-	public void setFillColor(String p_fillColor) {
+	public void setFillColor(Color p_fillColor) {
 		this.m_fillColor = p_fillColor;
 		
 	}
-	
 	
 	
 	

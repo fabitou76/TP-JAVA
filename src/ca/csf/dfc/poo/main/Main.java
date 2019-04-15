@@ -3,6 +3,9 @@ package ca.csf.dfc.poo.main;
 
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
+
+import com.sun.prism.paint.Color;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,8 @@ public class Main {
 //		xmlSaver.collectData();
 //		new ImportDataFromXML();
 		
-		new GraphicInterface().setVisible(true);
+		//new GraphicInterface().setVisible(true);
+		System.out.print(Color.BLACK.toString());
 	}
 
 }

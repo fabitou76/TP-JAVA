@@ -22,6 +22,7 @@ import com.sun.prism.paint.Color;
 
 
 import ca.csf.dfc.poo.classes.*;
+import ca.csf.dfc.poo.classes.Shape;
 
 public class  GraphicInterface extends JFrame{
 
@@ -91,7 +92,7 @@ public class  GraphicInterface extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			ImportShapesFromXML importFromXML = new ImportShapesFromXML();
-			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
+			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getShapeList();
 			importFromXML.setShapeList(listShapes);
 			
 			try {
@@ -112,7 +113,7 @@ public class  GraphicInterface extends JFrame{
 		public void actionPerformed(ActionEvent p_arg0) {
 			
 			try {
-				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).dataSaver();
+				new SaveToXML(GraphicInterface.this.m_workSpace.getShapeList()).dataSaver();
 			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

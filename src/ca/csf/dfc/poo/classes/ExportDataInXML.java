@@ -70,7 +70,7 @@ public class ExportDataInXML implements IExportData  {
 		
 		//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor());
+				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor().toString());
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_shapeData.getBorderWidth()));
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, "");
 			m_xmlDoc.writeEndElement();
@@ -92,7 +92,7 @@ public class ExportDataInXML implements IExportData  {
 			
 			//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor());
+				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor().toString());
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_shapeData.getBorderWidth()));
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, "");
 			m_xmlDoc.writeEndElement();
@@ -115,7 +115,7 @@ public class ExportDataInXML implements IExportData  {
 			
 			//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Ellipse.getBorderColor());
+				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Ellipse.getBorderColor().toString());
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, "");
 			m_xmlDoc.writeEndElement();

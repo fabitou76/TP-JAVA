@@ -3,6 +3,7 @@
  */
 package ca.csf.dfc.poo.classes;
 
+import java.awt.Color;
 import java.awt.Point;
 
 import javax.xml.stream.XMLStreamException;
@@ -64,9 +65,9 @@ public class ImportXML implements IImportData {
 		 m_xmlDoc.next(); m_xmlDoc.next();
 		 String style = m_xmlDoc.getLocalName();//devrait etre style
 		 
-		 p_shape.setBorderColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR));
+		 p_shape.setBorderColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR)));
 		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
-		 p_shape.setFillColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR));
+		 p_shape.setFillColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
 		 
 		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
 		 
@@ -81,7 +82,7 @@ public class ImportXML implements IImportData {
 	public Elipse importDataEllipse(Elipse p_shape) throws XMLStreamException {
 		p_shape.setName("elipse");
 		this.m_xmlDoc.next();
-		
+		Color.getColor("yellow");
 		m_xmlDoc.getLocalName();//devrait etre coord
 		 
 		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
@@ -101,9 +102,9 @@ public class ImportXML implements IImportData {
 		 m_xmlDoc.next(); m_xmlDoc.next();
 		 String style = m_xmlDoc.getLocalName();//devrait etre style
 		 
-		 p_shape.setBorderColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR));
+		 p_shape.setBorderColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR)));
 		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
-		 p_shape.setFillColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR));
+		 p_shape.setFillColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
 		 
 		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
 		 
@@ -139,9 +140,9 @@ public class ImportXML implements IImportData {
 		 m_xmlDoc.next(); m_xmlDoc.next();
 		 String style = m_xmlDoc.getLocalName();//devrait etre style
 		 
-		 p_shape.setBorderColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR));
+		 p_shape.setBorderColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR)));
 		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
-		 p_shape.setFillColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR));
+		 p_shape.setFillColor(Color.getColor(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
 		 
 		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
 		 

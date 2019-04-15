@@ -8,7 +8,7 @@ import java.awt.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
-import java.util.List;
+
 
 import javax.swing.*;
 
@@ -20,7 +20,7 @@ public class WorkSpace extends JPanel{
 	private static final int DEFAULT_BORDER_WIDTH = 1;
 	private static final String DEFAULT_SHAPE = "elipse";
 	
-	private List<Shape> m_shapeList;
+	private ArrayList<Shape> m_shapeList;
 	private Point m_initialPoint;
 	private Point m_finalPoint;
 	private ShapeFactory m_shapeFactory = new ShapeFactory();
@@ -55,7 +55,7 @@ public class WorkSpace extends JPanel{
 
 	}
 	
-	public List<Shape> getShapeList(){
+	public ArrayList<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
 	

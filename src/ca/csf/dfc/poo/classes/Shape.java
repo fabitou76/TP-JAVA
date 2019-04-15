@@ -23,13 +23,13 @@ public interface Shape {
 	 public int getHeight();
 	 public int getWidth();
 	
-	 public String getBorderColor();
+	 public Color getBorderColor();
 	 public int getBorderWidth();
-	 public String getFillColor();
+	 public Color getFillColor();
 	 
-	 public void setBorderColor(String p_borderColor);
+	 public void setBorderColor(Color p_borderColor);
 	 public void setBorderWidth(int p_borderWidth);
-	 public void setFillColor(String p_fillColor);
+	 public void setFillColor(Color p_fillColor);
 	 
 	
 	 
