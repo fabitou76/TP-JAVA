@@ -46,10 +46,12 @@ public class GraphicInterface extends JFrame{
     
     JMenuBar menuBar = new JMenuBar();
     
-    JMenu m_newDrawing = new JMenu("Nouveau dessin");
-	JMenu m_loadXML = new JMenu("Charger");
-	JMenu m_saveXML = new JMenu("Sauvegarder");
-	JMenu m_exportSVG = new JMenu("Exporter");
+    JMenu m_Fichier = new JMenu("Fichier");
+    
+    JMenuItem m_newDrawing = new JMenuItem("Nouveau dessin");
+    JMenuItem m_loadXML = new JMenuItem("Charger");
+    JMenuItem m_saveXML = new JMenuItem("Sauvegarder");
+    JMenuItem m_exportSVG = new JMenuItem("Exporter");
     
     
 
@@ -73,6 +75,12 @@ public class GraphicInterface extends JFrame{
 	private void initShapeGrid() {
 		JPanel panneauForme = new JPanel();
 		panneauForme.setLayout(new GridLayout(1,10));
+		JPanel panneauBorderColor = new JPanel();
+		panneauBorderColor.setLayout(new GridLayout(2, 1));
+		JPanel panneauFillColor = new JPanel();
+		panneauFillColor.setLayout(new GridLayout(2, 1));
+		JPanel panneauBorderWidth = new JPanel();
+		panneauBorderWidth.setLayout(new GridLayout(2, 1));
 		
 		this.m_btn_elipse.addActionListener(new ShapeBtnHandler());
 		this.m_btn_line.addActionListener(new ShapeBtnHandler());
@@ -84,9 +92,16 @@ public class GraphicInterface extends JFrame{
         panneauForme.add(this.m_btn_line);
         panneauForme.add(this.m_btn_clear);
         
-        panneauForme.add(this.m_BorderColor);
-        panneauForme.add(this.m_FillColor);
-        panneauForme.add(this.m_BorderWidth);
+        panneauForme.add(panneauBorderColor);
+        panneauForme.add(panneauFillColor);
+        panneauForme.add(panneauBorderWidth);
+        
+        panneauBorderColor.add(new JLabel("Border Color"));
+        panneauFillColor.add(new JLabel("Fill Color"));
+        panneauBorderWidth.add(new JLabel("Line Width"));
+        panneauBorderColor.add(this.m_BorderColor);
+        panneauFillColor.add(this.m_FillColor);
+        panneauBorderWidth.add(this.m_BorderWidth);
     
         this.add(panneauForme, BorderLayout.NORTH);
         
@@ -95,10 +110,12 @@ public class GraphicInterface extends JFrame{
 	
 	private void initMenu() {
 		
-		menuBar.add(m_newDrawing);
-		menuBar.add(m_loadXML);
-		menuBar.add(m_saveXML);
-		menuBar.add(m_exportSVG);
+		m_Fichier.add(m_newDrawing);
+		m_Fichier.add(m_loadXML);
+		m_Fichier.add(m_saveXML);
+		m_Fichier.add(m_exportSVG);
+		
+		menuBar.add(m_Fichier);
 		
 		this.setJMenuBar(menuBar);
 		
@@ -141,27 +158,6 @@ public class GraphicInterface extends JFrame{
 		}
 		
 	}
-	
-	/**
-	 * 
-	 * @author Maximilian
-	 *
-	 */
-//	private class GestLoadXML implements ActionListener {
-//
-//
-//		public void actionPerformed(ActionEvent p_arg0) {
-//			
-//			try {
-//				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).FileWriter();
-//			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//	}
-	
 
 	
 
@@ -222,19 +218,19 @@ public class GraphicInterface extends JFrame{
 		
 		Color chosenColor = null;
 		
-		if(p_selectedColor == 0)
+		if(p_selectedColor == 1)
 			chosenColor = Color.WHITE;
-		else if(p_selectedColor == 1)
-			chosenColor = Color.BLACK;
 		else if(p_selectedColor == 2)
-			chosenColor = Color.BLUE;
+			chosenColor = Color.BLACK;
 		else if(p_selectedColor == 3)
-			chosenColor = Color.RED;
+			chosenColor = Color.BLUE;
 		else if(p_selectedColor == 4)
-			chosenColor = Color.YELLOW;
+			chosenColor = Color.RED;
 		else if(p_selectedColor == 5)
-			chosenColor = Color.GREEN;
+			chosenColor = Color.YELLOW;
 		else if(p_selectedColor == 6)
+			chosenColor = Color.GREEN;
+		else if(p_selectedColor == 7)
 			chosenColor = Color.ORANGE;
 		
 		return chosenColor;
