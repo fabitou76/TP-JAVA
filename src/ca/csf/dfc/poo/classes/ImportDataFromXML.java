@@ -96,19 +96,6 @@ public class ImportDataFromXML implements IImportData {
 		 }
 	 }
 
-	@Override
-	public String getPathToImportFrom() {
-		JFileChooser path = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter (
-										"XML files", "xml");
-		path.setFileFilter(filter);
-		int returnVal = path.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			return path.getSelectedFile().getName();
-		}
-		
-		return null;
-	}
 
 	@Override
 	public void importDataEllipse(Shape p_shape) {

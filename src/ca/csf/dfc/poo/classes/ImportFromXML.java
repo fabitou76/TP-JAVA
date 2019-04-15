@@ -11,14 +11,14 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import ca.csf.dfc.poo.interfaces.IConnectToDB;
-import ca.csf.dfc.poo.interfaces.ICreateShapeFromData;
+import ca.csf.dfc.poo.interfaces.IImportShapes;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
 /**
  * @author Maximilian
  *
  */
-public class CreateShapeFromXML implements ICreateShapeFromData {
+public class ImportFromXML implements IImportShapes {
 	
 	/**
 	 * DONNEES MEMBRES
@@ -32,7 +32,7 @@ public class CreateShapeFromXML implements ICreateShapeFromData {
 	/**
 	 * ctr
 	 */
-	public CreateShapeFromXML() {
+	public ImportFromXML() {
 		this.m_connectToDB = new ConnectionToXMLOnDrive();
 	}
 	

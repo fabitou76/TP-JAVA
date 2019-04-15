@@ -101,7 +101,7 @@ public class  GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-			CreateShapeFromXML m_createShapeFromXML = new CreateShapeFromXML();
+			ImportFromXML m_createShapeFromXML = new ImportFromXML();
 			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
 			m_createShapeFromXML.setShapeList(listShapes);
 			
