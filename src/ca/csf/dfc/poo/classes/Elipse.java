@@ -2,6 +2,12 @@ package ca.csf.dfc.poo.classes;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
+
+import javax.xml.stream.XMLStreamException;
+
+import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IImportData;
 
 public class Elipse implements Shape{
 
@@ -14,9 +20,13 @@ public class Elipse implements Shape{
 	private int m_borderWidth;
 	private Color m_borderColor;
 	
-
-
+	private String m_borderColor = "black";
+	private int m_borderWidth = 2;
+	private String m_fillColor = "black";
 	
+	public Elipse() {
+		this(null,null);
+	}
 	public Elipse(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -26,6 +36,11 @@ public class Elipse implements Shape{
 	public String getName() {
 		// TODO Auto-generated method stub
 		return this.m_nom;
+	}
+	
+	@Override
+	public void setName(String p_name) {
+		this.m_nom = p_name;;
 	}
 
 	@Override
@@ -76,50 +91,51 @@ public class Elipse implements Shape{
 		return this.m_width;
 	}
 
-
-
-
 	@Override
-	public Color getFillColor() {
-		// TODO Auto-generated method stub
-		return this.m_fillColor;
-	}
-
-
-	@Override
-	public void setFillColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_fillColor = p_color;
-	}
-
-
-	@Override
-	public int getBorderWidth() {
-		// TODO Auto-generated method stub
-		return this.m_borderWidth;
-	}
-
-
-	@Override
-	public void setBorderWidth(int p_borderWidth) {
-		// TODO Auto-generated method stub
-		this.m_borderWidth = p_borderWidth;
-		
-	}
-
-
-	@Override
-	public Color getBorderColor() {
-		// TODO Auto-generated method stub
+	public String getBorderColor() {
 		return this.m_borderColor;
 	}
 
+	@Override
+	public int getBorderWidth() {
+		return this.m_borderWidth;
+	}
 
 	@Override
-	public void setBorderColor(Color p_color) {
-		// TODO Auto-generated method stub
-		this.m_borderColor = p_color;
+	public String getFillColor() {
+		return this.m_fillColor;
+	}
+
+	
+	@Override
+	public void export(IExportData p_export) throws XMLStreamException {
+		p_export.exportEllipse(this);
 		
 	}
+
+
+	@Override
+	public void importData(IImportData p_import) throws XMLStreamException {
+		p_import.importDataEllipse(this);
+		
+	}
+	@Override
+	public void setBorderColor(String p_borderColor) {
+		this.m_borderColor = p_borderColor;
+		
+	}
+	@Override
+	public void setBorderWidth(int p_borderWidth) {
+		this.m_borderWidth = p_borderWidth;
+		
+	}
+	@Override
+	public void setFillColor(String p_fillColor) {
+		this.m_fillColor = p_fillColor;
+		
+	}
+	
+	
+
 	
 }

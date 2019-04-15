@@ -1,6 +1,12 @@
 package ca.csf.dfc.poo.classes;
 
 import java.awt.*;
+import java.util.ArrayList;
+
+import javax.xml.stream.XMLStreamException;
+
+import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IImportData;
 
 public class Line implements Shape{
 
@@ -15,6 +21,14 @@ public class Line implements Shape{
 
 	
 	
+	private String m_borderColor ="black";
+	private int m_borderWidth = 1;
+	private String m_fillColor="black";
+	
+	public Line() {
+		this(null,null);
+	}
+	
 	public Line(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -25,6 +39,12 @@ public class Line implements Shape{
 	public String getName() {
 		// TODO Auto-generated method stub
 		return this.m_nom;
+	}
+	
+
+	@Override
+	public void setName(String p_name) {
+		this.m_nom = p_name;;
 	}
 
 	@Override
@@ -74,6 +94,48 @@ public class Line implements Shape{
 		
 		return this.m_width;
 	}
+	
+	@Override
+	public String getBorderColor() {
+		return this.m_borderColor;
+	}
+
+	@Override
+	public int getBorderWidth() {
+		return this.m_borderWidth;
+	}
+
+	@Override
+	public String getFillColor() {
+		return this.m_fillColor;
+	}
+	@Override
+	public void export(IExportData p_export) throws XMLStreamException {
+		p_export.exportLine(this);
+	}
+	
+	@Override
+	public void importData(IImportData p_import) throws XMLStreamException  {
+		p_import.importDataLine(this);	
+	}
+	
+	@Override
+	public void setBorderColor(String p_borderColor) {
+		this.m_borderColor = p_borderColor;
+		
+	}
+	@Override
+	public void setBorderWidth(int p_borderWidth) {
+		this.m_borderWidth = p_borderWidth;
+		
+	}
+	@Override
+	public void setFillColor(String p_fillColor) {
+		this.m_fillColor = p_fillColor;
+		
+	}
+	
+	
 
 
 	@Override

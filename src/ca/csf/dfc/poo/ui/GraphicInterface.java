@@ -8,11 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import java.awt.color.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamException;
 
 import com.sun.prism.paint.Color;
 
@@ -71,11 +75,77 @@ public class  GraphicInterface extends JFrame{
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menuFichier = new JMenu("Fichier");
+		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
+		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
+		menuFichier.add(menuSauvegarderXML);
+		menuFichier.add(menuChargerXML);
 		menuBar.add(menuFichier);
 		this.setJMenuBar(menuBar);
 		
+		menuSauvegarderXML.addActionListener(new GestSaveXML());
+		menuChargerXML.addActionListener(new GestChargerXML());
+	}
+
+	private class GestChargerXML  implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			ImportShapesFromXML importFromXML = new ImportShapesFromXML();
+			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
+			importFromXML.setShapeList(listShapes);
+			
+			try {
+				importFromXML.createShapes();
+			} catch (FileNotFoundException | XMLStreamException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			GraphicInterface.this.m_workSpace.repaint();
+		}
+		
 	}
 	
+	private class GestSaveXML implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			
+			try {
+				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).dataSaver();
+			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
+			System.out.println("sauvegarde en cours");
+			
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @author Maximilian
+	 *
+	 */
+//	private class GestLoadXML implements ActionListener {
+//
+//
+//		public void actionPerformed(ActionEvent p_arg0) {
+//			
+//			try {
+//				new SaveToXML(GraphicInterface.this.m_workSpace.getList()).FileWriter();
+//			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//	}
+	
+
+	
+	//OK
 	private class ShapeBtnHandler implements ActionListener{
 
 		@Override

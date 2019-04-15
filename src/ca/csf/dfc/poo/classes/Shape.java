@@ -1,24 +1,17 @@
 package ca.csf.dfc.poo.classes;
 
 import java.awt.*;
+import java.util.ArrayList;
+
+import javax.xml.stream.XMLStreamException;
+
+import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IImportData;
 
 public interface Shape {
 
-
 	 public String getName() ;
-	 
-	 
-	/*
-	 public int getX1() ;
-	 public int getX2() ;
-	 public int getY1() ;
-	 public int getY2() ;
-	 
-	 public int setX1();
-	 public int setX2();
-	 public int setY1();
-	 public int setY2();
-	 */
+	 public void setName(String p_name);
 	 
 	 public Point getInitialPoint();
 	 public Point getFinalPoint();
@@ -29,19 +22,20 @@ public interface Shape {
 	 public void setWidth(int p_width);
 	 public int getHeight();
 	 public int getWidth();
-	 
-	 public Color getFillColor();
-	 public void setFillColor(Color p_color);
-	 
-	 
+	
+	 public String getBorderColor();
 	 public int getBorderWidth();
+	 public String getFillColor();
+	 
+	 public void setBorderColor(String p_borderColor);
 	 public void setBorderWidth(int p_borderWidth);
+	 public void setFillColor(String p_fillColor);
 	 
-	 public Color getBorderColor();
-	 public void setBorderColor(Color p_color);
+	
 	 
+	 public void export(IExportData p_export) throws XMLStreamException;
+	 public void importData (IImportData p_import) throws XMLStreamException;
 	 
-	 
-	 
+	
 	 
 }
