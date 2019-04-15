@@ -34,8 +34,8 @@ public class Main {
 //		xmlSaver.collectData();
 //		new ImportDataFromXML();
 		
-		//new GraphicInterface().setVisible(true);
-		System.out.print(Color.BLACK.toString());
+		new GraphicInterface().setVisible(true);
+//		System.out.print(Color.BLACK.toString());
 	}
 
 }
