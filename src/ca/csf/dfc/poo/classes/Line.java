@@ -12,7 +12,7 @@ public class Line implements Shape{
 
 	private Point m_initialPoint;
 	private Point m_finalPoint;
-	private String m_nom = "elipse";
+	private String m_nom = "line";
 	private int m_height = 0;
 	private int m_width = 0;
 	private Color m_fillColor;
