@@ -8,8 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.awt.Color;
 import java.util.*;
 import java.awt.color.*;
 
@@ -20,44 +19,64 @@ import javax.xml.stream.XMLStreamException;
 
 import com.sun.prism.paint.Color;
 
-
+<<<<<<< HEAD
 import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
 
 public class  GraphicInterface extends JFrame{
 
 	private static final long serialVersionUID = 1L;
+=======
+//
 
-
+public class  GraphicInterface extends JFrame{
 
 	// TEST POUR HUGO
+>>>>>>> master
 	private WorkSpace m_workSpace = new WorkSpace();
 	
-	JButton m_btn_rectangle = new JButton("Rectangle");
-    JButton m_btn_elipse = new JButton("Elipse");
-    JButton m_btn_line = new JButton("Ligne");
+	JButton m_btn_rectangle = new JButton(new ImageIcon("src/rectangle.png"));
+    JButton m_btn_elipse = new JButton(new ImageIcon("src/ellipse.png"));
+    JButton m_btn_line = new JButton(new ImageIcon("src/line.png"));
     JButton m_btn_clear = new JButton("Clear");
+    
+    String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange"};
+    Integer[] m_BorderWidthOptions = {1, 2, 3, 4, 5};
+    
+    
+    JComboBox m_BorderColor = new JComboBox(m_ColorChoice);
+    JComboBox m_FillColor = new JComboBox(m_ColorChoice);
+    JComboBox m_BorderWidth = new JComboBox(m_BorderWidthOptions);
+    
+    JMenuBar menuBar = new JMenuBar();
+    
+    JMenu m_newDrawing = new JMenu("Nouveau dessin");
+	JMenu m_loadXML = new JMenu("Charger");
+	JMenu m_saveXML = new JMenu("Sauvegarder");
+	JMenu m_exportSVG = new JMenu("Exporter");
+    
     
 
 	public GraphicInterface() {
-  	  super("FenetrePrincipale");
+  	  super("Dessin vectoriel");
+  	  
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setLayout(new BorderLayout());
-      this.add(this.m_workSpace);
-      this.m_workSpace.setSize(150, 150);
-      
+      this.setSize(800, 400);
+      this.setLocationRelativeTo(null);
 
       this.initMenu();
       this.initShapeGrid();
       
-      this.setSize(800, 400);
-      this.setLocationRelativeTo(null);
+      this.add(this.m_workSpace, BorderLayout.CENTER);
+      
+  
       
 	}
 	
 	private void initShapeGrid() {
 		JPanel panneauForme = new JPanel();
-		panneauForme.setLayout(new GridLayout(3,1));
+		panneauForme.setLayout(new GridLayout(1,10));
 		
 		this.m_btn_elipse.addActionListener(new ShapeBtnHandler());
 		this.m_btn_line.addActionListener(new ShapeBtnHandler());
@@ -69,18 +88,22 @@ public class  GraphicInterface extends JFrame{
         panneauForme.add(this.m_btn_line);
         panneauForme.add(this.m_btn_clear);
         
-        this.add(panneauForme, BorderLayout.WEST);
+        panneauForme.add(this.m_BorderColor);
+        panneauForme.add(this.m_FillColor);
+        panneauForme.add(this.m_BorderWidth);
+    
+        this.add(panneauForme, BorderLayout.NORTH);
+        
 	}
-	
+
 	
 	private void initMenu() {
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menuFichier = new JMenu("Fichier");
-		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
-		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
-		menuFichier.add(menuSauvegarderXML);
-		menuFichier.add(menuChargerXML);
-		menuBar.add(menuFichier);
+		
+		menuBar.add(m_newDrawing);
+		menuBar.add(m_loadXML);
+		menuBar.add(m_saveXML);
+		menuBar.add(m_exportSVG);
+		
 		this.setJMenuBar(menuBar);
 		
 		menuSauvegarderXML.addActionListener(new GestSaveXML());
@@ -179,8 +202,54 @@ public class  GraphicInterface extends JFrame{
 			GraphicInterface.this.m_workSpace.getShapeList().clear();
 			GraphicInterface.this.m_workSpace.repaint();
 		}
+		
 	}
-}
 	
+	public Integer getBorderWidth() {
+		return  Integer.valueOf(this.m_BorderWidth.getSelectedItem().toString());
+	}
+	
+	public Color getFillColor(){
+
+		Color chosenColor = getColor(this.m_FillColor.getSelectedIndex());
+	
+		return chosenColor;
+	}
+	
+	public Color getBorderColor(){
+
+		Color chosenColor = getColor(this.m_BorderColor.getSelectedIndex());
+		
+		return chosenColor;
+	}
+	
+	private Color getColor(int p_selectedColor) {
+		
+		Color chosenColor = null;
+		
+		if(p_selectedColor == 0)
+			chosenColor = Color.WHITE;
+		else if(p_selectedColor == 1)
+			chosenColor = Color.BLACK;
+		else if(p_selectedColor == 2)
+			chosenColor = Color.BLUE;
+		else if(p_selectedColor == 3)
+			chosenColor = Color.RED;
+		else if(p_selectedColor == 4)
+			chosenColor = Color.YELLOW;
+		else if(p_selectedColor == 5)
+			chosenColor = Color.GREEN;
+		else if(p_selectedColor == 6)
+			chosenColor = Color.ORANGE;
+		
+		return chosenColor;
+	}
+	
+		
+	
+	
+	
+	
+}
 	
 
