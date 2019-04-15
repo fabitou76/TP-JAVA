@@ -102,6 +102,9 @@ public class GraphicInterface extends JFrame{
 		
 		this.setJMenuBar(menuBar);
 		
+		m_saveXML.addActionListener(new GestSaveXML());
+		m_loadXML.addActionListener(new GestChargerXML());
+		
 
 	}
 
