@@ -38,10 +38,10 @@ public class  GraphicInterface extends JFrame{
   	  super("FenetrePrincipale");
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setLayout(new BorderLayout());
- 
-      this.add(this.m_workSpace, BorderLayout.CENTER);
-
+      this.add(this.m_workSpace);
+      this.m_workSpace.setSize(150, 150);
       
+
       this.initMenu();
       this.initShapeGrid();
       
@@ -49,7 +49,6 @@ public class  GraphicInterface extends JFrame{
       this.setLocationRelativeTo(null);
       
 	}
-	
 	
 	private void initShapeGrid() {
 		JPanel panneauForme = new JPanel();
@@ -109,9 +108,7 @@ public class  GraphicInterface extends JFrame{
 			GraphicInterface.this.m_workSpace.getShapeList().clear();
 			GraphicInterface.this.m_workSpace.repaint();
 		}
-
 	}
-
 }
 	
 	

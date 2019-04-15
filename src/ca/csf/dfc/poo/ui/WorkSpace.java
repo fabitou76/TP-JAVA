@@ -11,9 +11,6 @@ import java.util.List;
 
 import javax.swing.*;
 
-
-
-
 public class WorkSpace extends JPanel{
 
 	private static final long serialVersionUID = 6100091375438707781L;
@@ -39,12 +36,12 @@ public class WorkSpace extends JPanel{
     JLabel m_testP2 = new JLabel("p2");
     //fin
     
-    
 	public WorkSpace() {
 		super();
 		this.setBackground(Color.white);
 		this.m_shapeList = new ArrayList<Shape>();
 		this.addMouseListener(new MouseHandler());
+		
 		
        //Panel test
         JPanel panelTest = new JPanel();
@@ -52,8 +49,9 @@ public class WorkSpace extends JPanel{
         panelTest.add(m_testShapeName);
         panelTest.add(m_testP1);
         panelTest.add(m_testP2);
-        this.add(panelTest, BorderLayout.EAST);
+        this.add(panelTest);
        //fin test
+       
 	}
 	
 	public List<Shape> getShapeList(){
@@ -117,7 +115,7 @@ public class WorkSpace extends JPanel{
 			if(WorkSpace.this.coordinatesAreSet()) {
 				Shape newShape = WorkSpace.this.createShape();
 				WorkSpace.this.addShapeToWorkSpace(newShape);
-				WorkSpace.this.reloadWorkSpace();
+				WorkSpace.this.refreshWorkSpace();
 				WorkSpace.this.resetCoordinates();
 			}
 		}
@@ -129,7 +127,7 @@ public class WorkSpace extends JPanel{
 		}
 	}
 	
-	private boolean coordinatesAreSet() {
+	public boolean coordinatesAreSet() {
 		boolean coordsAreSet = false;
 		if(WorkSpace.this.m_initialPoint != null && WorkSpace.this.m_finalPoint != null) {
 			coordsAreSet = true;
@@ -137,7 +135,7 @@ public class WorkSpace extends JPanel{
 		return coordsAreSet;
 	}
 
-	private Shape createShape() {
+	public Shape createShape() {
 		Shape newShape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
 		newShape.setFillColor(this.m_selectedFillColor);
 		newShape.setBorderWidth(this.m_selectedBorderWidth);
@@ -146,7 +144,7 @@ public class WorkSpace extends JPanel{
 		return newShape;
 	}
 	
-	private void addShapeToWorkSpace(Shape p_shape) {
+	public void addShapeToWorkSpace(Shape p_shape) {
 		this.m_shapeList.add(p_shape);
 		//test
 		System.out.println("--------Début liste workspace---------");
@@ -159,11 +157,11 @@ public class WorkSpace extends JPanel{
 		//fin
 	}
 	
-	private void reloadWorkSpace() {
+	public void refreshWorkSpace() {
 		this.repaint();
 	}
 	
-	private void resetCoordinates(){
+	public void resetCoordinates(){
 		this.m_initialPoint = null;
 		this.m_finalPoint = null;
 	}
@@ -183,7 +181,7 @@ public class WorkSpace extends JPanel{
 				
 				coordX1 = shape.getInitialPoint().x;
 				coordY1 = shape.getInitialPoint().y;
-	
+				
 				height = shape.getHeight();
 				width = shape.getWidth();
 				
@@ -193,7 +191,7 @@ public class WorkSpace extends JPanel{
 				}
 				
 				switch (shape.getName()) {
-				
+					
 					case "rectangle":
 						if(shapeHasFillColor) {
 							g2.setColor(shape.getFillColor());
@@ -227,6 +225,4 @@ public class WorkSpace extends JPanel{
 			}
 		}
 	}
-	
-	
 }
