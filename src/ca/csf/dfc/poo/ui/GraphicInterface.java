@@ -79,6 +79,11 @@ public class GraphicInterface extends JFrame{
 		this.m_btn_rectangle.addActionListener(new ShapeBtnHandler());
 		this.m_btn_clear.addActionListener(new ClearBtnHandler());
 		
+		this.m_BorderColor.addActionListener(new ComboboxHandler());
+		this.m_BorderWidth.addActionListener(new ComboboxHandler());
+		this.m_FillColor.addActionListener(new ComboboxHandler());
+		
+		
         panneauForme.add(this.m_btn_elipse);
         panneauForme.add(this.m_btn_rectangle);
         panneauForme.add(this.m_btn_line);
@@ -162,7 +167,26 @@ public class GraphicInterface extends JFrame{
 //		
 //	}
 	
+	private class ComboboxHandler implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			Object compt = p_arg0.getSource();
+			if(compt.equals(GraphicInterface.this.m_BorderColor)) {
+				GraphicInterface.this.m_workSpace.setSelectedBorderColor(GraphicInterface.this.getBorderColor());
+				
+			}
+			else if (compt.equals(GraphicInterface.this.m_FillColor)) {
 
+				GraphicInterface.this.m_workSpace.setSelectedFillColor(GraphicInterface.this.getFillColor());
+
+			}
+			else if(compt.equals(GraphicInterface.this.m_BorderWidth)){
+				GraphicInterface.this.m_workSpace.setSelectedBorderWidth(GraphicInterface.this.getBorderWidth());
+			
+			}
+		}
+	}
 	
 
 	private class ShapeBtnHandler implements ActionListener{
@@ -183,8 +207,7 @@ public class GraphicInterface extends JFrame{
 				GraphicInterface.this.m_workSpace.setSelectedShape("rectangle");
 				itemSelected = "rectangle";
 			}
-			
-			
+
 			GraphicInterface.this.m_workSpace.m_testShapeName.setText(itemSelected);
 		}
 		
@@ -205,9 +228,9 @@ public class GraphicInterface extends JFrame{
 	}
 	
 	public Color getFillColor(){
-
+		
 		Color chosenColor = getColor(this.m_FillColor.getSelectedIndex());
-	
+		
 		return chosenColor;
 	}
 	
@@ -222,23 +245,25 @@ public class GraphicInterface extends JFrame{
 		
 		Color chosenColor = null;
 		
-		if(p_selectedColor == 0)
+		if(p_selectedColor == 1)
 			chosenColor = Color.WHITE;
-		else if(p_selectedColor == 1)
-			chosenColor = Color.BLACK;
 		else if(p_selectedColor == 2)
-			chosenColor = Color.BLUE;
+			chosenColor = Color.BLACK;
 		else if(p_selectedColor == 3)
-			chosenColor = Color.RED;
+			chosenColor = Color.BLUE;
 		else if(p_selectedColor == 4)
-			chosenColor = Color.YELLOW;
+			chosenColor = Color.RED;
 		else if(p_selectedColor == 5)
-			chosenColor = Color.GREEN;
+			chosenColor = Color.YELLOW;
 		else if(p_selectedColor == 6)
+			chosenColor = Color.GREEN;
+		else if(p_selectedColor == 7)
 			chosenColor = Color.ORANGE;
 		
 		return chosenColor;
 	}
+	
+	
 	
 	
 }
