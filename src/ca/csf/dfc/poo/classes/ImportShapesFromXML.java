@@ -18,13 +18,23 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  * @author Maximilian
  *
  */
-public class ImportFromXML implements IImportShapes {
+public class ImportShapesFromXML implements IImportShapes {
+	
+	private final static String ELM_SHAPE = "shape"; 
+	private final static String ELM_TYPE = "type"; 
+	private final static String ELM_COORD = "coord"; 
+	private final static String ELM_STYLE = "style"; 
+	private final static String ATTR_INIT_POINT = "initialPoint"; 
+	private final static String ATTR_FINAL_POINT = "finalPoint";
+	private final static String ATTR_BORDER_COLOR = "borderColor";
+	private final static String ATTR_BORDER_WIDTH = "borderWidth";
+	private final static String ATTR_FILL_COLOR= "fillColor";
 	
 	/**
 	 * DONNEES MEMBRES
 	 */
 	ConnectionToXMLOnDrive m_connectToDB;
-	IImportData m_importXML;
+	IImportData m_importData;
 	List<Shape> m_ListShapes = null;
 	XMLStreamReader m_xmlDoc;
 	
@@ -32,8 +42,9 @@ public class ImportFromXML implements IImportShapes {
 	/**
 	 * ctr
 	 */
-	public ImportFromXML() {
+	public ImportShapesFromXML() {
 		this.m_connectToDB = new ConnectionToXMLOnDrive();
+//		this.m_importData = new ImportXML(this.m_xmlDoc);
 	}
 	
 
@@ -41,26 +52,59 @@ public class ImportFromXML implements IImportShapes {
 	 * 
 	 * @param p_shapeList
 	 */
+	@Override
 	public void setShapeList (List<Shape> p_shapeList) {
 		this.m_ListShapes = p_shapeList;
 	}
 	
 	public void createShapes() throws FileNotFoundException, XMLStreamException {
+		this.connection();
+		this.checkFile();
+		this.generateShapes();
+	}
+	
+	public void connection() {
 		try {
-			this.m_connectToDB.connect();
+			this.m_connectToDB.connectToDB();
+			this.m_xmlDoc = this.m_connectToDB.getXMLDoc();
+			this.m_importData = new ImportXML(this.m_xmlDoc);
 		} catch (FactoryConfigurationError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		this.create();
-		
 	}
 	
-	
-	public void create() {
-		
+	private void checkFile() throws XMLStreamException {
+		this.m_xmlDoc.next();
+		 if (!this.m_xmlDoc.getLocalName().equals("ListofShapes")) {
+               throw new XMLStreamException(
+                   "Pas la bonne racine : " + this.m_xmlDoc.getLocalName());
+           }		
 	}
+
+	@Override
+	public void generateShapes() throws FileNotFoundException, XMLStreamException, FactoryConfigurationError {
+		this.m_xmlDoc.next();
+		
+		 while(this.m_xmlDoc.isStartElement()) {
+			 //lire quelle forme il faut créer
+			 this.m_xmlDoc.getLocalName();
+			 String shapeType  = this.m_xmlDoc.getAttributeValue("", ELM_TYPE);
+			 
+			 switch(shapeType) {
+			 case "rectangle":
+				 this.m_ListShapes.add(this.m_importData.importDataRectangle(new Rectangle()));
+				 
+				 break;
+			 case "elipse":
+				 this.m_ListShapes.add(this.m_importData.importDataEllipse(new Elipse()));
+				 break;
+			 case"line":
+				 this.m_ListShapes.add(this.m_importData.importDataLine(new Line()));
+			 }			 
+		 }
+	}
+	
 	
 	
 	

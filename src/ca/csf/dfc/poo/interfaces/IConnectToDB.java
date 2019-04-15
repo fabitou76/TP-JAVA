@@ -17,5 +17,6 @@ public interface IConnectToDB {
 	public void  selectDataFolder();
 	public void connectToDB() throws FileNotFoundException, XMLStreamException, FactoryConfigurationError;
 	public void closeConnection() throws XMLStreamException;
+	void connect() throws FileNotFoundException, XMLStreamException, FactoryConfigurationError;
 
 }

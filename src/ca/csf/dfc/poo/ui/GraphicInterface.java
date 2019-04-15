@@ -101,19 +101,19 @@ public class  GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-			ImportFromXML m_createShapeFromXML = new ImportFromXML();
+			ImportShapesFromXML importFromXML = new ImportShapesFromXML();
 			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getList();
-			m_createShapeFromXML.setShapeList(listShapes);
+			importFromXML.setShapeList(listShapes);
 			
 			try {
-				m_createShapeFromXML.createShapes();
+				importFromXML.createShapes();
 			} catch (FileNotFoundException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 			
-//			GraphicInterface.this.m_workSpace.repaint();
+			GraphicInterface.this.m_workSpace.repaint();
 		}
 		
 	}

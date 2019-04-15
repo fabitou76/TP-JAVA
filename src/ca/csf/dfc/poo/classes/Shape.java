@@ -11,6 +11,7 @@ import ca.csf.dfc.poo.interfaces.IImportData;
 public interface Shape {
 
 	 public String getName() ;
+	 public void setName(String p_name);
 	 
 	 public Point getInitialPoint();
 	 public Point getFinalPoint();
@@ -26,12 +27,15 @@ public interface Shape {
 	 public int getBorderWidth();
 	 public String getFillColor();
 	 
-	 public void toExport(IExportData p_modelExportation );
-	 public void toImport(IImportData p_modelImportation);
+	 public void setBorderColor(String p_borderColor);
+	 public void setBorderWidth(int p_borderWidth);
+	 public void setFillColor(String p_fillColor);
+	 
+	
 	 
 	 public void export(IExportData p_export) throws XMLStreamException;
-	 public void importData (IImportData p_import);
+	 public void importData (IImportData p_import) throws XMLStreamException;
 	 
-	 public ArrayList getData();
+	
 	 
 }

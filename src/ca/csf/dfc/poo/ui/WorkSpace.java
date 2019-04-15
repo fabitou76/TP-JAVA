@@ -175,10 +175,10 @@ public class WorkSpace extends JPanel{
 			
 		}
 	}
-	/*
+	
 	public void refresh() {
 		this.repaint();
 		
 	}
-	*/
+	
 }

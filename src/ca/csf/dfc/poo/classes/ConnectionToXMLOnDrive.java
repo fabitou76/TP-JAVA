@@ -36,10 +36,10 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 		return this.m_xmlDoc;
 	}
 	
-	public void connect() {
+	public void connectToDB() {
 		this.selectDataFolder();
 		try {
-			this.connectToDB();
+			this.connect();
 		} catch (FileNotFoundException | XMLStreamException | FactoryConfigurationError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,11 +51,11 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	public void selectDataFolder() {
 		//utiliser JFileChooser
 		
-		this.m_pathToFolder = "dataXML.xml";
+		this.m_pathToFolder = "data.xml";
 	}
 
 	@Override
-	public void connectToDB()throws FileNotFoundException, XMLStreamException, FactoryConfigurationError  {
+	public void connect()throws FileNotFoundException, XMLStreamException, FactoryConfigurationError  {
 		 FileReader input=new FileReader(new File(m_pathToFolder));
 		 this.m_xmlDoc = XMLInputFactory.newInstance().createXMLStreamReader(input);
 	}

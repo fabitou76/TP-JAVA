@@ -20,6 +20,9 @@ public class Rectangle implements Shape{
 	private int m_borderWidth = 2;
 	private String m_fillColor = "black";
 	
+	public Rectangle() {
+		this(null,null);
+	}
 	public Rectangle(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -29,6 +32,11 @@ public class Rectangle implements Shape{
 	public String getName() {
 		// TODO Auto-generated method stub
 		return this.m_nom;
+	}
+	
+	@Override
+	public void setName(String p_name) {
+		this.m_nom = p_name;;
 	}
 
 	@Override
@@ -94,31 +102,8 @@ public class Rectangle implements Shape{
 		return this.m_fillColor;
 	}
 
-	@Override
-	public void toExport(IExportData p_modelExportation) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void toImport(IImportData p_modelImportation) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	public ArrayList getData() {
-		
-		ArrayList dataRectangle = new ArrayList();
-		dataRectangle.add(this.getName());
-		dataRectangle.add(this.getInitialPoint().x+";"+this.getInitialPoint().y);
-//		ArrayList [] dataRectangle = {this.getName(),
-//						this.getInitialPoint().x+";"+this.getInitialPoint().y,
-//						this.getFinalPoint().x+";"+this.getFinalPoint().y,
-//						this.getBorderColor(),
-//						Integer.toString(this.getBorderWidth()),
-//						this.getFillColor()};
-		return dataRectangle;
-	}
+
 
 	@Override
 	public void export(IExportData p_export) throws XMLStreamException {
@@ -129,11 +114,26 @@ public class Rectangle implements Shape{
 	}
 
 	@Override
-	public void importData(IImportData p_import) {
+	public void importData(IImportData p_import) throws XMLStreamException {
 		p_import.importDataRectangle(this);
 		
 	}
 	
+	@Override
+	public void setBorderColor(String p_borderColor) {
+		this.m_borderColor = p_borderColor;
+		
+	}
+	@Override
+	public void setBorderWidth(int p_borderWidth) {
+		this.m_borderWidth = p_borderWidth;
+		
+	}
+	@Override
+	public void setFillColor(String p_fillColor) {
+		this.m_fillColor = p_fillColor;
+		
+	}
 	
 	
 	

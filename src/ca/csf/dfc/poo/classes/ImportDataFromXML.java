@@ -98,21 +98,19 @@ public class ImportDataFromXML implements IImportData {
 
 
 	@Override
-	public void importDataEllipse(Shape p_shape) {
-		// TODO Auto-generated method stub
+	public Elipse importDataEllipse(Elipse p_shape) {
+		return null;
 		
 	}
 
 	@Override
-	public void importDataLine(Shape p_shape) {
-		// TODO Auto-generated method stub
-		
+	public Line importDataLine(Line p_shape) {
+		return null;
 	}
 
 	@Override
-	public void importDataRectangle(Shape p_shape) {
-		// TODO Auto-generated method stub
-		
+	public Rectangle importDataRectangle(Rectangle p_shape) {
+		return null;
 	}
 
 	
