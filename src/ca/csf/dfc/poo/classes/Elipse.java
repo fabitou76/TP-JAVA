@@ -37,7 +37,7 @@ public class Elipse implements Shape{
 	
 	@Override
 	public void setName(String p_name) {
-		this.m_nom = p_name;;
+		this.m_nom = p_name;
 	}
 
 	@Override

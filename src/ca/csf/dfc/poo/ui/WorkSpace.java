@@ -42,8 +42,8 @@ public class WorkSpace extends JPanel{
 		this.setBackground(Color.white);
 		this.m_shapeList = new ArrayList<Shape>();
 		this.addMouseListener(new MouseHandler());
-
-	
+			
+		
        //Panel test
         JPanel panelTest = new JPanel();
         panelTest.setLayout(new GridLayout(3,1));
@@ -94,7 +94,8 @@ public class WorkSpace extends JPanel{
 			// TODO Auto-generated method stub
 			
 		}
-
+		
+		
 		@Override
 		public void mousePressed(MouseEvent p_arg0) {
 		
@@ -130,6 +131,7 @@ public class WorkSpace extends JPanel{
 			
 		}
 	}
+	
 	
 
 	private boolean coordinatesAreSet() {
@@ -204,6 +206,7 @@ public class WorkSpace extends JPanel{
 				}
 				
 				switch (shape.getName()) {
+				
 				
 					case "rectangle":
 						if(shapeHasFillColor) {
