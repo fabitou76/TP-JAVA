@@ -10,7 +10,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import ca.csf.dfc.poo.classes.Line;
-import ca.csf.dfc.poo.classes.ImportDataFromXML;
+//import ca.csf.dfc.poo.classes.ImportDataFromXML;
 import ca.csf.dfc.poo.classes.Rectangle;
 import ca.csf.dfc.poo.classes.ExportDataInXML;
 import ca.csf.dfc.poo.classes.Shape;
