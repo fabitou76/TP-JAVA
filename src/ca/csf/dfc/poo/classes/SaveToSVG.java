@@ -78,6 +78,15 @@ public class SaveToSVG implements ISaveData {
 					xmlDoc.writeAttribute("Width","à définir");
 					xmlDoc.writeAttribute("height","à définir");
 					
+					xmlDoc.writeStartElement("title", "Exemple simple de figure SVG");
+						xmlDoc.writeStartElement("desc", "Cette figure est constituée d'un rectangle, d'une ellipse"+
+						"et d'un segment de droite");
+						
+						xmlDoc.writeEndElement();//desc
+
+					xmlDoc.writeEndElement();//title
+					
+					
 					for (Shape oneShape : this.m_ListShape) {
 						oneShape.export(format);
 					}
