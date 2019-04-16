@@ -56,7 +56,7 @@ public class SaveToSVG implements ISaveData {
 
 	@Override
 	public void selectFolder() { 
-		this.setPath("D:\\Eclipse\\dataSVG.svg");
+		this.setPath("dataSVG.svg");
 		
 	}
 

@@ -30,6 +30,8 @@ public class ExportDatainSVG implements IExportData {
 		String x2 = Integer.toString(p_Line.getFinalPoint().x);
 		String y2 = Integer.toString(p_Line.getFinalPoint().y);
 		String stroke = p_Line.getFillColor().toString();
+		String fill = p_Line.getFillColor().toString();
+		String strokeWidth = Integer.toString(p_Line.getBorderWidth());
 		 
 		
 		m_xmlDoc.writeStartElement("line");
@@ -38,6 +40,8 @@ public class ExportDatainSVG implements IExportData {
 			m_xmlDoc.writeAttribute("x2", y1);
 			m_xmlDoc.writeAttribute("y2", y2);
 			m_xmlDoc.writeAttribute("stroke", stroke);
+			m_xmlDoc.writeAttribute("fill", fill);
+			m_xmlDoc.writeAttribute("stroke-width", strokeWidth);
 		m_xmlDoc.writeEndElement();
 	}
 
@@ -51,6 +55,8 @@ public class ExportDatainSVG implements IExportData {
 		String x = Integer.toString(p_Rectangle.getFinalPoint().x);
 		String y = Integer.toString(p_Rectangle.getFinalPoint().y);
 		String fill = p_Rectangle.getFillColor().toString();
+		String stroke = p_Rectangle.getBorderColor().toString();
+		String strokeWidth = Integer.toString(p_Rectangle.getBorderWidth());
 		 
 		
 		m_xmlDoc.writeStartElement("rect");
@@ -59,16 +65,32 @@ public class ExportDatainSVG implements IExportData {
 			m_xmlDoc.writeAttribute("x", x);
 			m_xmlDoc.writeAttribute("y", y);
 			m_xmlDoc.writeAttribute("fill", fill);
+			m_xmlDoc.writeAttribute("stroke", stroke);
+			m_xmlDoc.writeAttribute("stroke-width", strokeWidth);
 		m_xmlDoc.writeEndElement();
 		
 	}
 
 	@Override
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException {
-		 String cs = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x));
-		 String cy = Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y));
-//		 String 
-//		 String r = ()
+		 String rx = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x));
+		 String ry = Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y));
+		 String cx = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x) / 2);
+		 String cy =  Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y) / 2);
+		 String fill = p_Ellipse.getFillColor().toString();
+		 String stroke = p_Ellipse.getBorderColor().toString();
+		 String strokeWidth = Integer.toString(p_Ellipse.getBorderWidth());
+		 
+		 m_xmlDoc.writeStartElement("ellipse");
+			m_xmlDoc.writeAttribute("cx", cx);
+			m_xmlDoc.writeAttribute("cy", cy);
+			m_xmlDoc.writeAttribute("rx", rx);
+			m_xmlDoc.writeAttribute("ry", ry);
+			m_xmlDoc.writeAttribute("fill", fill);
+			m_xmlDoc.writeAttribute("stroke-width", strokeWidth);
+			m_xmlDoc.writeAttribute("stroke", stroke);
+		m_xmlDoc.writeEndElement();
+		 
 		
 	}
 
