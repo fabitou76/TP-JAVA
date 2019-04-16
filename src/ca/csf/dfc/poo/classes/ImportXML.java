@@ -44,37 +44,39 @@ public class ImportXML implements IImportData {
 	@Override
 	public Line importDataLine(Line p_shape) throws XMLStreamException {
 		p_shape.setName("line");
-		this.m_xmlDoc.next();
-		
-		 m_xmlDoc.getLocalName();//devrait etre coord
-		 
-		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
-		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
-		 
-		 Point initPt = new Point(Integer.parseInt(point1[0]),Integer.parseInt(point1[1]));
-		 Point finalPt = new Point(Integer.parseInt(point2[0]),Integer.parseInt(point2[1]));;
-		 int width = Integer.parseInt(point2[0]) - Integer.parseInt(point1[0]);
-		 int heigth = Integer.parseInt(point2[1]) - Integer.parseInt(point1[1]);
-		 p_shape.setWidth(width);
-		 p_shape.setHeight(heigth);
-		 
-		 
-		 p_shape.setIntialPoint(initPt);
-		 p_shape.setFinalPoint(finalPt);
-		 
-		 m_xmlDoc.next(); m_xmlDoc.next();
-		 String style = m_xmlDoc.getLocalName();//devrait etre style
-		 
-		 p_shape.setBorderColor(Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR))));
-		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
-
-		 Color color = m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR) == "" ? new Color(1f,0f,0f,.0f):
-			 Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
-		 p_shape.setFillColor(color);
-		 
-		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
-		 
-		 System.out.println("ok pour line");
+//		this.m_xmlDoc.next();
+//		
+//		 m_xmlDoc.getLocalName();//devrait etre coord
+//		 
+//		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
+//		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
+//		 
+//		 Point initPt = new Point(Integer.parseInt(point1[0]),Integer.parseInt(point1[1]));
+//		 Point finalPt = new Point(Integer.parseInt(point2[0]),Integer.parseInt(point2[1]));;
+//		 int width = Integer.parseInt(point2[0]) - Integer.parseInt(point1[0]);
+//		 int heigth = Integer.parseInt(point2[1]) - Integer.parseInt(point1[1]);
+//		 p_shape.setWidth(width);
+//		 p_shape.setHeight(heigth);
+//		 
+//		 
+//		 p_shape.setIntialPoint(initPt);
+//		 p_shape.setFinalPoint(finalPt);
+//		 
+//		 m_xmlDoc.next(); m_xmlDoc.next();
+//		 String style = m_xmlDoc.getLocalName();//devrait etre style
+//		 
+//		 p_shape.setBorderColor(Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR))));
+//		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
+//
+//		 Color color = m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR) == "" ? new Color(1f,0f,0f,.0f):
+//			 Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
+//		 p_shape.setFillColor(color);
+//		 
+//		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
+//		 
+//		 System.out.println("ok pour line");
+		this.generateShapeFromXML(p_shape);
+		 System.out.println("ok pour la ligne");
 		 return p_shape;
 	}
 	
@@ -84,36 +86,39 @@ public class ImportXML implements IImportData {
 	@Override
 	public Elipse importDataEllipse(Elipse p_shape) throws XMLStreamException {
 		p_shape.setName("elipse");
-		this.m_xmlDoc.next();
-		m_xmlDoc.getLocalName();//devrait etre coord
+//		this.m_xmlDoc.next();
+//		m_xmlDoc.getLocalName();//devrait etre coord
+//		 
+//		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
+//		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
+//		 
+//		 int width = Integer.parseInt(point2[0]) - Integer.parseInt(point1[0]);
+//		 int heigth = Integer.parseInt(point2[1]) - Integer.parseInt(point1[1]);
+//		 p_shape.setWidth(width);
+//		 p_shape.setHeight(heigth);
+//		 
+//		 Point initPt = new Point(Integer.parseInt(point1[0]),Integer.parseInt(point1[1]));
+//		 Point finalPt = new Point(Integer.parseInt(point2[0]),Integer.parseInt(point2[1]));;
+//		 
+//		 p_shape.setIntialPoint(initPt);
+//		 p_shape.setFinalPoint(finalPt);
+//		 
+//		 m_xmlDoc.next(); m_xmlDoc.next();
+//		 String style = m_xmlDoc.getLocalName();//devrait etre style
+//		 
+//		 p_shape.setBorderColor(Color.decode(("#"+m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR))));
+//		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
+//
+//		 Color color = m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR) == "" ? new Color(1f,0f,0f,.0f):
+//			 Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
+//		 p_shape.setFillColor(color);
+//		 
+//		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
+//		 
+//		 System.out.println("ok pour ellipse");
 		 
-		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
-		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
-		 
-		 int width = Integer.parseInt(point2[0]) - Integer.parseInt(point1[0]);
-		 int heigth = Integer.parseInt(point2[1]) - Integer.parseInt(point1[1]);
-		 p_shape.setWidth(width);
-		 p_shape.setHeight(heigth);
-		 
-		 Point initPt = new Point(Integer.parseInt(point1[0]),Integer.parseInt(point1[1]));
-		 Point finalPt = new Point(Integer.parseInt(point2[0]),Integer.parseInt(point2[1]));;
-		 
-		 p_shape.setIntialPoint(initPt);
-		 p_shape.setFinalPoint(finalPt);
-		 
-		 m_xmlDoc.next(); m_xmlDoc.next();
-		 String style = m_xmlDoc.getLocalName();//devrait etre style
-		 
-		 p_shape.setBorderColor(Color.decode(("#"+m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR))));
-		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
-
-		 Color color = m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR) == "" ? new Color(1f,0f,0f,.0f):
-			 Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
-		 p_shape.setFillColor(color);
-		 
-		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
-		 
-		 System.out.println("ok pour ellipse");
+		this.generateShapeFromXML(p_shape);
+		 System.out.println("ok pour l'ellipse");
 		 
 		 return p_shape;
 	}
@@ -124,9 +129,45 @@ public class ImportXML implements IImportData {
 	@Override
 	public Rectangle importDataRectangle(Rectangle p_shape) throws XMLStreamException {
 		p_shape.setName("rectangle");
+//		this.m_xmlDoc.next();
+//		
+//		 m_xmlDoc.getLocalName();//devrait etre coord
+//		 
+//		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
+//		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
+//		 
+//		 Point initPt = new Point(Integer.parseInt(point1[0]),Integer.parseInt(point1[1]));
+//		 Point finalPt = new Point(Integer.parseInt(point2[0]),Integer.parseInt(point2[1]));
+//		 int width = Integer.parseInt(point2[0]) - Integer.parseInt(point1[0]);
+//		 int heigth = Integer.parseInt(point2[1]) - Integer.parseInt(point1[1]);
+//		 p_shape.setWidth(width);
+//		 p_shape.setHeight(heigth);
+//		 
+//		 
+//		 p_shape.setIntialPoint(initPt);
+//		 p_shape.setFinalPoint(finalPt);
+//		 
+//		 m_xmlDoc.next(); m_xmlDoc.next();
+//		 String style = m_xmlDoc.getLocalName();//devrait etre style
+//		 
+//		 p_shape.setBorderColor(Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_BORDER_COLOR))));
+//		 p_shape.setBorderWidth(Integer.parseInt(m_xmlDoc.getAttributeValue("", ATTR_BORDER_WIDTH)));
+//		
+//		 Color color = m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR) == "" ? new Color(1f,0f,0f,.0f):
+//			 Color.decode("#"+(m_xmlDoc.getAttributeValue("", ATTR_FILL_COLOR)));
+//		 p_shape.setFillColor(color);
+//		 
+//		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
+		 
+		this.generateShapeFromXML(p_shape);
+		 System.out.println("ok pour rectangle");
+		 return p_shape;
+	}
+	
+	public void generateShapeFromXML(Shape p_shape) throws XMLStreamException {
 		this.m_xmlDoc.next();
 		
-		m_xmlDoc.getLocalName();//devrait etre coord
+		 m_xmlDoc.getLocalName();//devrait etre coord
 		 
 		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
 		 String [] point2 = m_xmlDoc.getAttributeValue("", ATTR_FINAL_POINT).split(";");
@@ -153,12 +194,7 @@ public class ImportXML implements IImportData {
 		 p_shape.setFillColor(color);
 		 
 		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
-		 
-		 System.out.println("ok pour rectangle");
-		 return p_shape;
 	}
-	
-	
 
 
 }
