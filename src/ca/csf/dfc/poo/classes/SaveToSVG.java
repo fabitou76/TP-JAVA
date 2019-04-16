@@ -66,7 +66,7 @@ public class SaveToSVG implements ISaveData {
 			XMLStreamWriter xmlDoc = null;
 			ExportDatainSVG format = new ExportDatainSVG();
 			
-			FileWriter outputWriter = new FileWriter(new File(this.m_Path));
+			FileWriter outputWriter = new FileWriter(new File("dataSVG.svg"));
 			xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 			format.setXMLStreamWriter(xmlDoc);
 			
@@ -78,9 +78,8 @@ public class SaveToSVG implements ISaveData {
 					xmlDoc.writeAttribute("Width","à définir");
 					xmlDoc.writeAttribute("height","à définir");
 					
-					xmlDoc.writeStartElement("title", "Exemple simple de figure SVG");
-						xmlDoc.writeStartElement("desc", "Cette figure est constituée d'un rectangle, d'une ellipse"+
-						"et d'un segment de droite");
+					xmlDoc.writeStartElement("title");
+						xmlDoc.writeStartElement("desc");
 						
 						xmlDoc.writeEndElement();//desc
 

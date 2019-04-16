@@ -30,7 +30,7 @@ public class ExportDatainSVG implements IExportData {
 		String x2 = Integer.toString(p_Line.getFinalPoint().x);
 		String y2 = Integer.toString(p_Line.getFinalPoint().y);
 		String stroke = p_Line.getFillColor().toString();
-		String fill = p_Line.getFillColor().toString();
+		String fill = p_Line.getFillColor() == null ? "": p_Line.getFillColor().toString() ;
 		String strokeWidth = Integer.toString(p_Line.getBorderWidth());
 		 
 		
@@ -54,7 +54,7 @@ public class ExportDatainSVG implements IExportData {
 		String height= Integer.toString(p_Rectangle.getHeight());
 		String x = Integer.toString(p_Rectangle.getFinalPoint().x);
 		String y = Integer.toString(p_Rectangle.getFinalPoint().y);
-		String fill = p_Rectangle.getFillColor().toString();
+		String fill = p_Rectangle.getFillColor() == null ? "": p_Rectangle.getFillColor().toString() ;
 		String stroke = p_Rectangle.getBorderColor().toString();
 		String strokeWidth = Integer.toString(p_Rectangle.getBorderWidth());
 		 
@@ -77,7 +77,7 @@ public class ExportDatainSVG implements IExportData {
 		 String ry = Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y));
 		 String cx = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x) / 2);
 		 String cy =  Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y) / 2);
-		 String fill = p_Ellipse.getFillColor().toString();
+		 String fill = p_Ellipse.getFillColor() == null ? "": p_Ellipse.getFillColor().toString() ;
 		 String stroke = p_Ellipse.getBorderColor().toString();
 		 String strokeWidth = Integer.toString(p_Ellipse.getBorderWidth());
 		 
