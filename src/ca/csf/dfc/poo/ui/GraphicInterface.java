@@ -154,12 +154,7 @@ public class GraphicInterface extends JFrame{
 	private class GestSaveXML implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-ArrayList<Shape> a = GraphicInterface.this.m_workSpace.getShapeList();
-			
-			
-			String color2 = Integer.toHexString(a.get(0).getBorderColor().getRGB() & 0xffffff);
-			System.out.println("color2 :" + color2);
-			System.out.println(Color.decode("#"+color2));
+
 			try {
 				new SaveToXML(GraphicInterface.this.m_workSpace.getShapeList()).dataSaver();
 			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
