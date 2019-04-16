@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?xml version="1.0" ?><ListofShapes><shape type="rectangle"><coord initialPoint="174;36" finalPoint="415;152"></coord><style borderColor="ff" borderWidth="1" fillColor="ff00"></style></shape><shape type="elipse"><coord initialPoint="87;72" finalPoint="280;211"></coord><style borderColor="ff" borderWidth="1" fillColor="ffffff"></style></shape></ListofShapes>
+=======
+<?xml version="1.0" ?><ListofShapes><shape type="ellipse"><coord initialPoint="156;84" finalPoint="383;196"></coord><style borderColor="black" borderWidth="0" fillColor=""></style></shape></ListofShapes>
+>>>>>>> Max_XML

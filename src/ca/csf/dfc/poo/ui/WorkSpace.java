@@ -55,9 +55,17 @@ public class WorkSpace extends JPanel{
 
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
+=======
+	
+	public ArrayList<Shape> getShapeList(){
+		return this.m_shapeList;
+	}
+	
+>>>>>>> Max_XML
 	
 	public void setSelectedFillColor(Color p_color) {
 		this.m_selectedFillColor = p_color;
@@ -71,8 +79,47 @@ public class WorkSpace extends JPanel{
 		this.m_selectedBorderColor = p_color;
 	}
 	
+<<<<<<< HEAD
 	public void setSelectedShape(String p_shapeType) {
 		this.m_selectedShape = p_shapeType;
+=======
+	
+	@Override
+	protected void paintComponent(Graphics p_Graphic) {
+		super.paintComponent(p_Graphic);		
+		if(!this.m_shapeList.isEmpty()) {
+			for(Shape shape : this.m_shapeList) {
+				
+				int coordX2, coordY2, width, height,coordX1,coordY1;
+				switch (shape.getName()) {
+				case "rectangle":
+					height = shape.getHeight();
+					width = shape.getWidth();
+					coordX1 = shape.getInitialPoint().x;
+					coordY1 = shape.getInitialPoint().y;
+					p_Graphic.drawRect(coordX1,coordY1, width, height);
+					break;
+				case "line":
+					coordX1 = shape.getInitialPoint().x;
+					coordY1 = shape.getInitialPoint().y;
+					coordX2 = shape.getFinalPoint().x;
+					coordY2 = shape.getFinalPoint().y;
+					p_Graphic.drawLine(coordX1, coordY1, coordX2, coordY2);
+					break;
+				case "ellipse":
+					height = shape.getHeight();
+					width = shape.getWidth();
+					coordX1 = shape.getInitialPoint().x;
+					coordY1 = shape.getInitialPoint().y;
+					p_Graphic.drawOval(coordX1,coordY1, width, height);
+				default:
+					break;
+				
+				}
+			}
+		}
+		
+>>>>>>> Max_XML
 	}
 	
 	private class MouseHandler implements MouseListener{
@@ -132,6 +179,7 @@ public class WorkSpace extends JPanel{
 		}
 	}
 	
+<<<<<<< HEAD
 	
 
 	private boolean coordinatesAreSet() {
@@ -248,4 +296,9 @@ public class WorkSpace extends JPanel{
 			
 		
 	
+=======
+	public void refresh() {
+		this.repaint();
+	}
+>>>>>>> Max_XML
 }

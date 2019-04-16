@@ -24,6 +24,10 @@ public class Rectangle implements Shape{
 	public Rectangle() {
 		this(null,null);
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> Max_XML
 	public Rectangle(Point p_initialPoint, Point p_finalPoint) {
 		this.m_initialPoint = p_initialPoint;
 		this.m_finalPoint = p_finalPoint;
@@ -103,6 +107,32 @@ public class Rectangle implements Shape{
 		return this.m_fillColor;
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public Point createPoint(int p_x, int p_y) {
+
+		return new Point(p_x,p_y);
+	}
+
+	@Override
+	public String setBorderColor(String p_borderColor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setBorderWidth(int p_BorderColor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String setFillColor(String p_setFillColor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+>>>>>>> Max_XML
 	
 	@Override
 	public void export(IExportData p_export) throws XMLStreamException {
