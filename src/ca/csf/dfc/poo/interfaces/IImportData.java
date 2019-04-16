@@ -16,10 +16,10 @@ import ca.csf.dfc.poo.classes.Shape;
  *
  */
 public interface IImportData {
+
 	Elipse importDataEllipse(Elipse p_shape) throws XMLStreamException;
 	Line importDataLine(Line p_shape) throws XMLStreamException;
 	Rectangle importDataRectangle(Rectangle p_shape) throws XMLStreamException;
 	
-
 
 }

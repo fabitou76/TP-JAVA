@@ -17,10 +17,10 @@ import ca.csf.dfc.poo.interfaces.IImportData;
  */
 public class ImportXML implements IImportData {
 	
-	private final static String ELM_SHAPE = "shape"; 
-	private final static String ELM_TYPE = "type"; 
-	private final static String ELM_COORD = "coord"; 
-	private final static String ELM_STYLE = "style"; 
+//	private final static String ELM_SHAPE = "shape"; 
+//	private final static String ELM_TYPE = "type"; 
+//	private final static String ELM_COORD = "coord"; 
+//	private final static String ELM_STYLE = "style"; 
 	private final static String ATTR_INIT_POINT = "initialPoint"; 
 	private final static String ATTR_FINAL_POINT = "finalPoint";
 	private final static String ATTR_BORDER_COLOR = "borderColor";
