@@ -16,6 +16,7 @@ import ca.csf.dfc.poo.classes.Shape;
 import javafx.scene.shape.Ellipse;
 
 /**
+ * Interface pour formater les données des objets Shape dans un format particulier (ex: XML,SCG, etc.) 
  * @author Maximilian
  *
  */
