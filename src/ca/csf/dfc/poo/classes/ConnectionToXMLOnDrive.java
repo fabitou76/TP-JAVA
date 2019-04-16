@@ -51,7 +51,7 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	public void selectDataFolder() {
 		//utiliser JFileChooser
 		
-		this.m_pathToFolder = "data.xml";
+		this.m_pathToFolder = "D:\\Eclipse\\data.xml";
 	}
 
 	@Override

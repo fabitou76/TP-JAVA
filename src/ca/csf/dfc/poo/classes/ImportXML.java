@@ -82,7 +82,6 @@ public class ImportXML implements IImportData {
 	public Elipse importDataEllipse(Elipse p_shape) throws XMLStreamException {
 		p_shape.setName("elipse");
 		this.m_xmlDoc.next();
-		Color.getColor("yellow");
 		m_xmlDoc.getLocalName();//devrait etre coord
 		 
 		 String [] point1 =  m_xmlDoc.getAttributeValue("", ATTR_INIT_POINT).split(";");
