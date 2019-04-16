@@ -77,8 +77,9 @@ public class ExportDataInXML implements IExportData  {
 				color = Integer.toHexString(p_Rectangle.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Rectangle.getBorderWidth()));
-				color = p_Rectangle.getFillColor() == null ? "" : Integer.toHexString(p_Rectangle.getFillColor().getRGB());
-				color = hexa(color);
+				color = p_Rectangle.getFillColor() == null ? "" : Integer.toHexString(p_Rectangle.getFillColor().getRGB()& 0xffffff);
+//				if (color != null)
+//					color = hexa(color);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
 				
 				
@@ -106,8 +107,9 @@ public class ExportDataInXML implements IExportData  {
 				color = Integer.toHexString(p_Line.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
-				color = p_Line.getFillColor() == null ? "" : Integer.toHexString(p_Line.getFillColor().getRGB());
-				color = hexa(color);
+				color = p_Line.getFillColor() == null ? "" : Integer.toHexString(p_Line.getFillColor().getRGB()& 0xffffff);
+//				if (color != null)
+//					color = hexa(color);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
 
 			m_xmlDoc.writeEndElement();
@@ -135,8 +137,9 @@ public class ExportDataInXML implements IExportData  {
 				color = Integer.toHexString(p_Ellipse.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
-				color = p_Ellipse.getFillColor() == null ? "" : Integer.toHexString(p_Ellipse.getFillColor().getRGB());
-				color = hexa(color);
+				color = p_Ellipse.getFillColor() == null ? "" : Integer.toHexString(p_Ellipse.getFillColor().getRGB()& 0xffffff);
+//				if (color != null)
+//					color = hexa(color);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
 
 			m_xmlDoc.writeEndElement();
