@@ -126,10 +126,31 @@ public class GraphicInterface extends JFrame{
 		
 		m_saveXML.addActionListener(new GestSaveXML());
 		m_loadXML.addActionListener(new GestChargerXML());
+		m_exportSVG.addActionListener(new GestExportSVG());
 		
 
 	}
+	
+	/**
+	 * 
+	 * @author Maximilian
+	 *
+	 */
+	
+	private class GestExportSVG implements ActionListener{
 
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			try {
+				new SaveToSVG(GraphicInterface.this.m_workSpace.getShapeList()).dataSaver();
+			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
+			System.out.println("sauvegarde en cours");
+		}
+		
+	}
 
 	private class GestChargerXML  implements ActionListener{
 
