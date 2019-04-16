@@ -30,21 +30,12 @@ public class Main {
 //		Line line1 = new Line(p1,p2);
 //		shapes.add(rect1);
 //		shapes.add(line1);
-<<<<<<< HEAD
-=======
-		new GraphicInterface().setVisible(true);
-		
->>>>>>> Max_XML
 //		IExportData xmlSaver = new ExportDataInXML(shapes);
 //		xmlSaver.collectData();
 //		new ImportDataFromXML();
 		
-<<<<<<< HEAD
 		new GraphicInterface().setVisible(true);
 //		System.out.print(Color.BLACK.toString());
-=======
-		
->>>>>>> Max_XML
 	}
 
 }
