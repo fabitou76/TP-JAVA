@@ -70,19 +70,19 @@ public class ExportDataInXML implements IExportData  {
 			//	xmlDoc.writeEndElement();
 		
 		//		element de style
-<<<<<<< HEAD
+
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor().toString());
-				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_shapeData.getBorderWidth()));
-				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_shapeData.getFillColor().toString());
-=======
+				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Rectangle.getBorderColor().toString());
+				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Rectangle.getBorderWidth()));
+				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Rectangle.getFillColor().toString());
+				
 			m_xmlDoc.writeStartElement(ELM_STYLE);
 				color = Integer.toHexString(p_Rectangle.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Rectangle.getBorderWidth()));
 				color = p_Rectangle.getFillColor() == null ? "" : Integer.toHexString(p_Rectangle.getFillColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, "");
->>>>>>> Develop
+
 			m_xmlDoc.writeEndElement();
 		m_xmlDoc.writeEndElement();
 	}
@@ -103,53 +103,50 @@ public class ExportDataInXML implements IExportData  {
 			
 			//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-<<<<<<< HEAD
-			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor().toString());
-			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_shapeData.getBorderWidth()));
-			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_shapeData.getFillColor().toString());
-=======
+
+			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Line.getBorderColor().toString());
+			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
+			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Line.getFillColor().toString());
+
 				color = Integer.toHexString(p_Line.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
 				color = p_Line.getFillColor() == null ? "" : Integer.toHexString(p_Line.getFillColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
->>>>>>> Develop
+
 			m_xmlDoc.writeEndElement();
 		m_xmlDoc.writeEndElement();
 	}
 	
 	@Override
-<<<<<<< HEAD
-	public void exportEllipse(Elipse p_shapeData) throws XMLStreamException {
-=======
+
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException {
 		String color = null;
->>>>>>> Develop
 		m_xmlDoc.writeStartElement(ELM_SHAPE);
-			m_xmlDoc.writeAttribute(ELM_TYPE, p_shapeData.getName());
+			m_xmlDoc.writeAttribute(ELM_TYPE, p_Ellipse.getName());
 		
 		//element de position
 			m_xmlDoc.writeStartElement(ELM_COORD);
-				m_xmlDoc.writeAttribute(ATTR_INIT_POINT, Integer.toString(p_shapeData.getInitialPoint().x)+
-							";"+Integer.toString(p_shapeData.getInitialPoint().y));
-				m_xmlDoc.writeAttribute(ATTR_FINAL_POINT, Integer.toString(p_shapeData.getFinalPoint().x)+
-							";"+Integer.toString(p_shapeData.getFinalPoint().y));
+				m_xmlDoc.writeAttribute(ATTR_INIT_POINT, Integer.toString(p_Ellipse.getInitialPoint().x)+
+							";"+Integer.toString(p_Ellipse.getInitialPoint().y));
+				m_xmlDoc.writeAttribute(ATTR_FINAL_POINT, Integer.toString(p_Ellipse.getFinalPoint().x)+
+							";"+Integer.toString(p_Ellipse.getFinalPoint().y));
 			m_xmlDoc.writeEndElement();
 				
 			
 			//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-<<<<<<< HEAD
-			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_shapeData.getBorderColor().toString());
-			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_shapeData.getBorderWidth()));
-			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_shapeData.getFillColor().toString());
-=======
+
+			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Ellipse.getBorderColor().toString());
+			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
+			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Ellipse.getFillColor().toString());
+
 				color = Integer.toHexString(p_Ellipse.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
 				color = p_Ellipse.getFillColor() == null ? "" : Integer.toHexString(p_Ellipse.getFillColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
->>>>>>> Develop
+
 			m_xmlDoc.writeEndElement();
 		m_xmlDoc.writeEndElement();
 		
