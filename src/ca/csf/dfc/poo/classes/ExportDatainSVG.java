@@ -67,8 +67,8 @@ public class ExportDatainSVG implements IExportData {
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException {
 		 String cs = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x));
 		 String cy = Integer.toString((p_Ellipse.getFinalPoint().y) - (p_Ellipse.getInitialPoint().y));
-		 String 
-		 String r = ()
+//		 String 
+//		 String r = ()
 		
 	}
 

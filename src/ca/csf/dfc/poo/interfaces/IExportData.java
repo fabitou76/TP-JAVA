@@ -21,35 +21,12 @@ import javafx.scene.shape.Ellipse;
  *
  */
 public interface IExportData {
-<<<<<<< Updated upstream
-//	public void SaveData();
-//	public String getFolderPath();
-//	public void collectData();
-//	public void writeDataInDocument();
-//	public List<Shape> getShapeList();
+
+
 	
 	public void exportRectangle(Rectangle p_Rectangle) throws XMLStreamException;
 	public void exportLine(Line p_Line) throws XMLStreamException;
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException;
 	public void setXMLStreamWriter(XMLStreamWriter p_xmlDoc); // a supprimer la référence ici à un format en particulier. rendre plus générique 
-	
-=======
-	public void SaveData();
-	public String getFolderPath();
-	public void collectData();
-	public void writeDataInDocument();
-	public List<Shape> getShapeList();
-	public String getPathToSave();
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
-//	public void SaveData();
-//	public String getFolderPath();
-//	public void collectData();
-//	public void writeDataInDocument();
-//	public List<Shape> getShapeList();
-//	public String getPathToSave();
 
 }

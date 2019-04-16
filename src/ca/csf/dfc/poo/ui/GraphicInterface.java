@@ -129,15 +129,10 @@ public class GraphicInterface extends JFrame{
 		
 
 	}
-<<<<<<< Updated upstream
+
 
 	private class GestChargerXML  implements ActionListener{
-=======
-	
-//	public String getFileName
-	
-	private class GestSaveXML implements ActionListener {
->>>>>>> Stashed changes
+
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
@@ -169,10 +164,6 @@ public class GraphicInterface extends JFrame{
 				e.printStackTrace();
 			};
 			System.out.println("sauvegarde en cours");
-			
-			
-			
-			
 		}
 		
 	}

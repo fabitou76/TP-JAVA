@@ -151,30 +151,14 @@ public class ExportDataInXML implements IExportData  {
 		return p_hex.substring(2,p_hex.length());
 	}
 
-	@Override
-	public String getPathToSave() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-	
-	
-	
+//	
+//	
+//	@Override
+//	public List<Shape> getShapeList() {
+//		return this.m_ListShape;
+//	}
 
-<<<<<<< Updated upstream
-=======
-	@Override
-	public List<Shape> getShapeList() {
-		return this.m_ListShape;
-	}
-
-	@Override
-	public String getPathToSave() {
-		// TODO Auto-generated method stub
-		return null;
-	}
->>>>>>> Stashed changes
-	
 	
 		
 }//class
