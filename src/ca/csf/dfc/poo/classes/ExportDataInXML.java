@@ -70,12 +70,6 @@ public class ExportDataInXML implements IExportData  {
 			//	xmlDoc.writeEndElement();
 		
 		//		element de style
-
-			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Rectangle.getBorderColor().toString());
-				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Rectangle.getBorderWidth()));
-				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Rectangle.getFillColor().toString());
-				
 			m_xmlDoc.writeStartElement(ELM_STYLE);
 				color = Integer.toHexString(p_Rectangle.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
@@ -102,12 +96,7 @@ public class ExportDataInXML implements IExportData  {
 			m_xmlDoc.writeEndElement();
 			
 			//		element de style
-			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-
-			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Line.getBorderColor().toString());
-			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
-			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Line.getFillColor().toString());
-
+			m_xmlDoc.writeStartElement(ELM_STYLE);	
 				color = Integer.toHexString(p_Line.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
@@ -135,12 +124,7 @@ public class ExportDataInXML implements IExportData  {
 				
 			
 			//		element de style
-			m_xmlDoc.writeStartElement(ELM_STYLE);								    
-
-			m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, p_Ellipse.getBorderColor().toString());
-			m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
-			m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, p_Ellipse.getFillColor().toString());
-
+			m_xmlDoc.writeStartElement(ELM_STYLE);		
 				color = Integer.toHexString(p_Ellipse.getBorderColor().getRGB()& 0xffffff);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Ellipse.getBorderWidth()));
