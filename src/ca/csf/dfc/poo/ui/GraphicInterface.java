@@ -62,7 +62,7 @@ public class GraphicInterface extends JFrame{
       this.setLayout(new BorderLayout());
       this.setSize(800, 400);
       this.setLocationRelativeTo(null);
-
+      
       this.initMenu();
       this.initShapeGrid();
       

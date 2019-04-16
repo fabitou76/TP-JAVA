@@ -1,4 +1,1 @@
-<<<<<<< HEAD
-=======
-<?xml version="1.0" ?><ListofShapes><shape type="elipse"><coord initialPoint="154;66" finalPoint="494;170"></coord><style borderColor="java.awt.Color[r=0,g=0,b=0]" borderWidth="1" fillColor=""></style></shape><shape type="rectangle"><coord initialPoint="254;89" finalPoint="314;127"></coord><style borderColor="java.awt.Color[r=0,g=0,b=0]" borderWidth="1" fillColor=""></style></shape></ListofShapes>
->>>>>>> Develop
+<?xml version="1.0" ?><ListofShapes><shape type="elipse"><coord initialPoint="77;32" finalPoint="376;233"></coord><style borderColor="0" borderWidth="1" fillColor=""></style></shape><shape type="elipse"><coord initialPoint="243;44" finalPoint="416;170"></coord><style borderColor="0" borderWidth="1" fillColor=""></style></shape><shape type="rectangle"><coord initialPoint="244;72" finalPoint="360;168"></coord><style borderColor="0" borderWidth="1" fillColor=""></style></shape><shape type="rectangle"><coord initialPoint="557;60" finalPoint="636;159"></coord><style borderColor="0" borderWidth="1" fillColor="0"></style></shape></ListofShapes>

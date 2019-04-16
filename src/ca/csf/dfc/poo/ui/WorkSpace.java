@@ -64,16 +64,32 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedBorderWidth(int p_width) {
+		if(p_width < 1 || p_width > 5) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderWidth = p_width;
 	}
 	
 	public void setSelectedBorderColor(Color p_color) {
+		if(p_color == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderColor = p_color;
 	}
 	
 	public void setSelectedShape(String p_shapeType) {
+
 		this.m_selectedShape = p_shapeType;
 	}
+	
+	public void setInitialPoint(Point p_point) {
+		this.m_initialPoint = p_point;
+	}
+	
+	public void setFinalPoint(Point p_point) {
+		this.m_finalPoint = p_point;
+	}
+	
 	
 	private class MouseHandler implements MouseListener{
 
@@ -134,7 +150,7 @@ public class WorkSpace extends JPanel{
 	
 	
 
-	private boolean coordinatesAreSet() {
+	public boolean coordinatesAreSet() {
 
 		boolean coordsAreSet = false;
 		if(WorkSpace.this.m_initialPoint != null && WorkSpace.this.m_finalPoint != null) {
@@ -144,7 +160,7 @@ public class WorkSpace extends JPanel{
 	}
 
 
-	private Shape createShape() {
+	public Shape createShape() {
 
 		Shape newShape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
 		newShape.setFillColor(this.m_selectedFillColor);
@@ -155,7 +171,7 @@ public class WorkSpace extends JPanel{
 	}
 	
 
-	private void addShapeToWorkSpace(Shape p_shape) {
+	public void addShapeToWorkSpace(Shape p_shape) {
 
 		this.m_shapeList.add(p_shape);
 		//test
