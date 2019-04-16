@@ -25,7 +25,6 @@ public interface Shape {
 	
 	 public Color getBorderColor();
 	 public int getBorderWidth();
-<<<<<<< HEAD
 	 public Color getFillColor();
 	 
 	 public void setBorderColor(Color p_borderColor);
@@ -39,13 +38,4 @@ public interface Shape {
 	 
 	
 	 
-=======
-	 public String getFillColor();
-	 public String setBorderColor(String p_borderColor);
-	 public int setBorderWidth(int borderWidth);
-	 public String setFillColor(String fillColor);
-	 
-	 
-	 public Point createPoint(int p_x,int p_y);
->>>>>>> Max_XML
 }

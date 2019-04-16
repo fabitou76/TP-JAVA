@@ -18,10 +18,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
-<<<<<<< HEAD
 
-=======
->>>>>>> Max_XML
 
 
 
@@ -34,20 +31,10 @@ public class GraphicInterface extends JFrame{
 
 	private WorkSpace m_workSpace = new WorkSpace();
 	
-<<<<<<< HEAD
 	JButton m_btn_rectangle = new JButton(new ImageIcon("src/rectangle.png"));
     JButton m_btn_elipse = new JButton(new ImageIcon("src/ellipse.png"));
     JButton m_btn_line = new JButton(new ImageIcon("src/line.png"));
     JButton m_btn_clear = new JButton("Clear");
-=======
-	
-	
-	JButton m_btn_rectangle = new JButton("Rectangle");
-    JButton m_btn_elipse = new JButton("Ellipse");
-    JButton m_btn_line = new JButton("Ligne");
-    //private Point m_initialPoint;
-    //private Point m_finalPoint;
->>>>>>> Max_XML
     
     String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange"};
     Integer[] m_BorderWidthOptions = {1, 2, 3, 4, 5};
@@ -127,7 +114,6 @@ public class GraphicInterface extends JFrame{
 
 	
 	private void initMenu() {
-<<<<<<< HEAD
 		
 		m_Fichier.add(m_newDrawing);
 		m_Fichier.add(m_loadXML);
@@ -143,32 +129,6 @@ public class GraphicInterface extends JFrame{
 		m_exportSVG.addActionListener(new GestExportSVG());
 		
 
-=======
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menuFichier = new JMenu("Fichier");
-		JMenuItem menuSauvegarderXML = new JMenuItem("Sauvegarder XML");
-		JMenuItem menuChargerXML = new JMenuItem("Charger XML");
-		menuFichier.add(menuSauvegarderXML);
-		menuFichier.add(menuChargerXML);
-		menuBar.add(menuFichier);
-		this.setJMenuBar(menuBar);
-		
-		menuSauvegarderXML.addActionListener(new GestSaveXML());
-		menuChargerXML.addActionListener(new GestLoadXML());
-		
-	}
-	
-	private class GestSaveXML implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent p_arg0) {
-			
-			new ExportDataInXML(GraphicInterface.this.m_workSpace.getShapeList()).collectData();
-			System.out.println("sauvegarde en cours");
-			
-		}
-		
->>>>>>> Max_XML
 	}
 	
 	/**
@@ -176,7 +136,6 @@ public class GraphicInterface extends JFrame{
 	 * @author Maximilian
 	 *
 	 */
-<<<<<<< HEAD
 	
 	private class GestExportSVG implements ActionListener{
 
@@ -211,21 +170,6 @@ public class GraphicInterface extends JFrame{
 			
 			
 			GraphicInterface.this.m_workSpace.repaint();
-=======
-	private class GestLoadXML implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent p_arg0) {
-			
-			try {
-				new ImportDataFromXML(GraphicInterface.this.m_workSpace.getShapeList()).loadDataXML();
-			} catch (FactoryConfigurationError | XMLStreamException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			GraphicInterface.this.m_workSpace.refresh();
-			
->>>>>>> Max_XML
 		}
 		
 	}

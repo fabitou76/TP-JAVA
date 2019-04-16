@@ -23,7 +23,7 @@ public class ShapeFactory {
 			newShape = new Line(p_initialPoint, p_finalPoint);
 			break;
 		case "elipse" : 
-			newShape = new Ellipse(p_initialPoint, p_finalPoint);
+			newShape = new Elipse(p_initialPoint, p_finalPoint);
 			break;
 		default:
 			newShape = null;
