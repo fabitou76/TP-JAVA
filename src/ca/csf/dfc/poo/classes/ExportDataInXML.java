@@ -147,6 +147,12 @@ public class ExportDataInXML implements IExportData  {
 	String hexa(String p_hex) {
 		return p_hex.substring(2,p_hex.length());
 	}
+
+	@Override
+	public String getPathToSave() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
