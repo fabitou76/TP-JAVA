@@ -47,7 +47,7 @@ public class SaveToXML implements ISaveData {
 			XMLStreamWriter xmlDoc = null;
 			ExportDataInXML format = new ExportDataInXML();
 			
-			FileWriter outputWriter = new FileWriter(new File("data.xml"));
+			FileWriter outputWriter = new FileWriter(new File("D:\\Eclipse\\data.xml"));
 			xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 			format.setXMLStreamWriter(xmlDoc);
 			
