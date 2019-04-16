@@ -40,6 +40,9 @@ public interface IExportData {
 	public void writeDataInDocument();
 	public List<Shape> getShapeList();
 	public String getPathToSave();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 //	public void SaveData();

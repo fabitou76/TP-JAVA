@@ -161,6 +161,19 @@ public class ExportDataInXML implements IExportData  {
 	
 	
 
+<<<<<<< Updated upstream
+=======
+	@Override
+	public List<Shape> getShapeList() {
+		return this.m_ListShape;
+	}
+
+	@Override
+	public String getPathToSave() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+>>>>>>> Stashed changes
 	
 	
 		
