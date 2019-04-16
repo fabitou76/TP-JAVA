@@ -63,39 +63,40 @@ public class SaveToSVG implements ISaveData {
 	@Override
 	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {
 		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
-			XMLStreamWriter xmlDoc = null;
+			XMLStreamWriter svgDoc = null;
 			ExportDatainSVG format = new ExportDatainSVG();
 			
-			FileWriter outputWriter = new FileWriter(new File("dataSVG.svg"));
-			xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
-			format.setXMLStreamWriter(xmlDoc);
+			FileWriter outputWriter = new FileWriter(new File("dataSVG.xml"));
+			svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+			format.setXMLStreamWriter(svgDoc);
 			
 			// DEBUT ECRITURE DOCUMENT SVG
-			xmlDoc.writeStartDocument();
-				xmlDoc.writeStartElement("svg");
-					xmlDoc.writeAttribute("xmlns", "https://www.w3.org/2000/svg");
-					xmlDoc.writeAttribute("version","1.1");
-					xmlDoc.writeAttribute("Width","à définir");
-					xmlDoc.writeAttribute("height","à définir");
+			svgDoc.writeStartDocument();
+				svgDoc.writeStartElement("svg");
+					svgDoc.writeAttribute("xmlns", "https://www.w3.org/2000/svg");
+					svgDoc.writeAttribute("version","1.1");
+					svgDoc.writeAttribute("Width","à définir");
+					svgDoc.writeAttribute("height","à définir");
 					
-					xmlDoc.writeStartElement("title");
-						xmlDoc.writeStartElement("desc");
+					svgDoc.writeStartElement("title");
+					svgDoc.writeEndElement();//title
+						svgDoc.writeStartElement("desc");
 						
-						xmlDoc.writeEndElement();//desc
+						svgDoc.writeEndElement();//desc
 
-					xmlDoc.writeEndElement();//title
+					
 					
 					
 					for (Shape oneShape : this.m_ListShape) {
 						oneShape.export(format);
 					}
 					
-				xmlDoc.writeEndElement();
-			xmlDoc.writeEndDocument();
+			svgDoc.writeEndElement();
+			svgDoc.writeEndDocument();
 			
-			xmlDoc.flush();
-			xmlDoc.close();
-			xmlDoc = null;
+			svgDoc.flush();
+			svgDoc.close();
+			svgDoc = null;
 		}
 	}
 
