@@ -138,13 +138,30 @@ public class GraphicInterface extends JFrame{
 	 *
 	 */
 	
+	
+	private class GestSaveXML implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			
+			try {
+				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
+				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
+			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
+			System.out.println("sauvegarde en cours");
+		}
+		
+	}
 	private class GestExportSVG implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			try {
 				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
-				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
+				FormatDataToSVG test = new FormatDataToSVG(listOfShapes);
+				new SaveShapes(test).saveData();
 			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -176,21 +193,7 @@ public class GraphicInterface extends JFrame{
 		
 	}
 	
-	private class GestSaveXML implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent p_arg0) {
-			
-			try {
-				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
-				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
-			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			};
-			System.out.println("sauvegarde en cours");
-		}
-		
-	}
+	
 	private class ComboboxHandler implements ActionListener{
 		
 		@Override
