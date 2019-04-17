@@ -14,39 +14,6 @@ import ca.csf.dfc.poo.classes.Shape;
 
 class TestWorkSpace {
 
-	/*
-	private ArrayList<Shape> getTestShapeList(){
-		WorkSpace ws = new WorkSpace();
-		
-		Point initialPoint1 = new Point();
-		Point finalPoint1 = new Point();
-		initialPoint1.setLocation(34,56);
-		finalPoint1.setLocation(56, 78);
-
-		Shape rect = new Rectangle(initialPoint1,finalPoint1);
-
-		Point initialPoint2 = new Point();
-		Point finalPoint2 = new Point();
-		initialPoint2.setLocation(56,89);
-		finalPoint2.setLocation(78, 67);
-		
-		Shape line = new Line(initialPoint2,finalPoint2);
-		
-		Point initialPoint3 = new Point();
-		Point finalPoint3 = new Point();
-		initialPoint3.setLocation(56,89);
-		finalPoint3.setLocation(78, 67);
-		
-		Shape elipse= new Elipse(initialPoint3,finalPoint3);
-		
-		ws.addShapeToWorkSpace(rect);
-		ws.addShapeToWorkSpace(line);
-		ws.addShapeToWorkSpace(elipse);
-		
-		
-		return ws.getShapeList();
-	}
-	*/
 	
 	private WorkSpace workSpaceForTest() {
 		WorkSpace ws = new WorkSpace();
@@ -70,7 +37,7 @@ class TestWorkSpace {
 	@Test
 	void testAddShapeToWorkSpace() {
 		
-WorkSpace ws = new WorkSpace();
+		WorkSpace ws = new WorkSpace();
 		
 		Point initialPoint1 = new Point();
 		Point finalPoint1 = new Point();
@@ -151,6 +118,12 @@ WorkSpace ws = new WorkSpace();
 			assertTrue(s != null);
 		}
 		
+		
+		assertSame(liste.get(0),rect);
+		assertSame(liste.get(1),line);
+		assertSame(liste.get(2),elipse);
+		
+		
 		assertTrue(liste.get(0).getName() == "rectangle");
 		assertTrue(liste.get(1).getName() == "line");
 		assertTrue(liste.get(2).getName() == "elipse");
@@ -192,6 +165,7 @@ WorkSpace ws = new WorkSpace();
 		assertTrue(rect2.getBorderWidth() == 5);
 		
 		assertThrows(IllegalArgumentException.class, () -> ws.setSelectedBorderWidth(7));
+		assertThrows(IllegalArgumentException.class, () -> ws.setSelectedBorderWidth(-2));
 		
 		
 
@@ -248,7 +222,20 @@ WorkSpace ws = new WorkSpace();
 		assertTrue(ws.getInitialPoint().x == 56);
 		assertTrue(ws.getInitialPoint().y == 89);
 		
+		initialPoint.setLocation(-1, 5);
+		assertThrows(IllegalArgumentException.class, () -> ws.setInitialPoint(initialPoint));
 		
+		initialPoint.setLocation(4, -3);
+		assertThrows(IllegalArgumentException.class, () -> ws.setInitialPoint(initialPoint));
+		
+		Point initialPoint2 = new Point();
+		initialPoint2.setLocation(667,89);
+		ws.setInitialPoint(initialPoint2);
+		
+		assertSame(initialPoint2,ws.getInitialPoint());
+		assertTrue(ws.getInitialPoint().x == 667);
+		assertTrue(ws.getInitialPoint().y == 89);
+
 	}
 	@Test
 	void testSetFinalPoint() {
@@ -262,6 +249,20 @@ WorkSpace ws = new WorkSpace();
 		assertTrue(ws.getFinalPoint().x == 34);
 		assertTrue(ws.getFinalPoint().y == 77);
 		
+		finalPoint.setLocation(-1, 5);
+		assertThrows(IllegalArgumentException.class, () -> ws.setInitialPoint(finalPoint));
+		
+		finalPoint.setLocation(4, -3);
+		assertThrows(IllegalArgumentException.class, () -> ws.setInitialPoint(finalPoint));
+		
+		Point finalPoint2 = new Point();
+		finalPoint2.setLocation(45,67);
+		ws.setFinalPoint(finalPoint2);
+		
+		assertSame(finalPoint2,ws.getFinalPoint());
+		assertTrue(ws.getFinalPoint().x == 45);
+		assertTrue(ws.getFinalPoint().y == 67);
+		
 
 	}
 	@Test
@@ -273,6 +274,9 @@ WorkSpace ws = new WorkSpace();
 		finalPoint.setLocation(78, 67);
 		ws.setInitialPoint(initialPoint);
 		ws.setFinalPoint(finalPoint);
+		
+		assertSame(ws.getFinalPoint(),finalPoint);
+		assertSame(ws.getInitialPoint(),initialPoint);
 		
 		ws.resetCoordinates();
 		
@@ -293,7 +297,8 @@ WorkSpace ws = new WorkSpace();
 		
 		assertTrue(ws.coordinatesAreSet());
 		
-		ws.setFinalPoint(null);
+
+		ws.setInitialPoint(null);
 		
 		assertFalse(ws.coordinatesAreSet());
 		
@@ -306,15 +311,20 @@ WorkSpace ws = new WorkSpace();
 	}
 	@Test
 	void createShape() {
-		WorkSpace ws = this.workSpaceForTest();
-		
+		WorkSpace ws = new WorkSpace();
+		Point initialPoint = new Point();
+		Point finalPoint = new Point();
+		initialPoint.setLocation(56,89);
+		finalPoint.setLocation(78, 67);
+		ws.setInitialPoint(initialPoint);
+		ws.setFinalPoint(finalPoint);
 		ws.setSelectedShape("elipse");
 		
 		Shape elipse = ws.createShape();
 		
 		assertTrue(elipse != null);
 		assertTrue(elipse.getName() == "elipse");
-		
+
 		ws.setSelectedShape("line");
 		
 		Shape line = ws.createShape();

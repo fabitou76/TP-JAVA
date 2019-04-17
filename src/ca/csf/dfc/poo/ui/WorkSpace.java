@@ -78,18 +78,28 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedShape(String p_shapeType) {
-		if(p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line" &&
-		   p_shapeType == null) {
+		if((p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line")
+		   || p_shapeType == null) {
 			throw new IllegalArgumentException();
 		}
 		this.m_selectedShape = p_shapeType;
 	}
 	
 	public void setInitialPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
 		this.m_initialPoint = p_point;
 	}
 	
 	public void setFinalPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
 		this.m_finalPoint = p_point;
 	}
 	
@@ -129,14 +139,14 @@ public class WorkSpace extends JPanel{
 				Point point = new Point();
 				point.x = p_arg0.getX();
 				point.y = p_arg0.getY();
-				WorkSpace.this.m_initialPoint = point;
+				WorkSpace.this.setInitialPoint(point);
 				WorkSpace.this.m_testP1.setText(WorkSpace.this.m_initialPoint.toString()); //test
 			}
 			else if (WorkSpace.this.m_finalPoint == null) {
 				Point point = new Point();
 				point.x = p_arg0.getX();
 				point.y = p_arg0.getY();
-				WorkSpace.this.m_finalPoint = point;
+				WorkSpace.this.setFinalPoint(point);
 				WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
 			}
 			
