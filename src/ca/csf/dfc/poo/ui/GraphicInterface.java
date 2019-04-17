@@ -147,7 +147,6 @@ public class GraphicInterface extends JFrame{
 				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
 				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
 			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			};
 			System.out.println("sauvegarde en cours");
@@ -160,8 +159,7 @@ public class GraphicInterface extends JFrame{
 		public void actionPerformed(ActionEvent p_arg0) {
 			try {
 				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
-				FormatDataToSVG test = new FormatDataToSVG(listOfShapes);
-				new SaveShapes(test).saveData();
+				new SaveShapes(new FormatDataToSVG(listOfShapes)).saveData();
 			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
