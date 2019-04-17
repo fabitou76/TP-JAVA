@@ -25,7 +25,7 @@ import ca.csf.dfc.poo.interfaces.IExportData;
  * @author Maximilian
  *
  */
-public class ExportDataInXML implements IExportData  {
+public class FormatDataToXML implements IExportData  {
 	
 	
 	private final static String ELM_SHAPE = "shape"; 
@@ -44,7 +44,7 @@ public class ExportDataInXML implements IExportData  {
 	 * ctr par initialisation
 	 * @param p_Shape : liste des formes affichées sur le workspace
 	 */
-	public ExportDataInXML() {
+	public FormatDataToXML() {
 		
 	}
 	/**
