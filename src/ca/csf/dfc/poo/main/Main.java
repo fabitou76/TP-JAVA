@@ -19,7 +19,7 @@ public class Main {
 //		Line line1 = new Line(p1,p2);
 //		shapes.add(rect1);
 //		shapes.add(line1);
-//		IExportData xmlSaver = new FormatDataToXML(shapes);
+//		IFormatDataAndSave xmlSaver = new FormatDataToXML(shapes);
 //		xmlSaver.collectData();
 //		new ImportDataFromXML();
 		

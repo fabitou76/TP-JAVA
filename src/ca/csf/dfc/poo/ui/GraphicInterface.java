@@ -178,10 +178,11 @@ public class GraphicInterface extends JFrame{
 	private class GestSaveXML implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-
+			
 			try {
-				new SaveToXML(GraphicInterface.this.m_workSpace.getShapeList()).dataSaver();
-			} catch (XMLStreamException | FactoryConfigurationError | IOException e) {
+				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
+				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
+			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			};
