@@ -3,29 +3,28 @@
  */
 package ca.csf.dfc.poo.classes;
 
-//import java.io.File;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
-//import javax.xml.parsers.DocumentBuilder;
-//import javax.xml.parsers.DocumentBuilderFactory;
-//import javax.xml.stream.FactoryConfigurationError;
-//import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLOutputFactory;
+
+
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 //import com.sun.xml.internal.txw2.Document;
 
-import ca.csf.dfc.poo.interfaces.IExportData;
-//import javafx.scene.shape.Ellipse;
+import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
+
 
 /**
  * @author Maximilian
  *
  */
-public class ExportDataInXML implements IExportData  {
+public class FormatDataToXML implements IFormatDataAndSave  {
 	
 	
 	private final static String ELM_SHAPE = "shape"; 
@@ -40,23 +39,60 @@ public class ExportDataInXML implements IExportData  {
 	
 	private XMLStreamWriter m_xmlDoc;
 	
+	private ArrayList<Shape> m_listOfShapes = null;
+	
 	/**
 	 * ctr par initialisation
 	 * @param p_Shape : liste des formes affichées sur le workspace
 	 */
-	public ExportDataInXML() {
-		
+	public FormatDataToXML(ArrayList<Shape> p_listOfShapes) {
+		this.m_listOfShapes = p_listOfShapes;
 	}
 	/**
+	 * @throws IOException 
+	 * @throws FactoryConfigurationError 
+	 * @throws XMLStreamException 
 	 * 
 	 */
-	public void setXMLStreamWriter(XMLStreamWriter p_xmlDoc) {
-		this.m_xmlDoc = p_xmlDoc;
+	
+	@Override
+	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
+		if (!p_folderName.endsWith(".xml")) {
+			p_folderName += ".xml";
+		}
+		FileWriter outputWriter = new FileWriter(new File(p_folderName));
+		this.m_xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+		
+		// DEBUT ECRITURE DOCUMENT XML
+		m_xmlDoc.writeStartDocument();
+			m_xmlDoc.writeStartElement("ListofShapes");
+				for (Shape oneShape : this.m_listOfShapes) {
+					oneShape.export(this);
+				}
+			m_xmlDoc.writeEndElement();
+		m_xmlDoc.writeEndDocument();
+
+		m_xmlDoc.flush();
+		m_xmlDoc.close();
+		m_xmlDoc = null;
 	}
+	
+	@Override
+	public ArrayList<Shape> getShapeList() {
+		return this.m_listOfShapes;
+	}
+	
+//	public void setXMLStreamWriter(XMLStreamWriter p_xmlDoc) {
+//		this.m_xmlDoc = p_xmlDoc;
+//	}
 ////////////////
-/// solution pour conserver Color.color de JavaD2 en XML trouvée notamment et vice versa : 
+/// solution pour conserver Color.color de JavaD2 en XML et vice versa trouvée notamment  : 
 ///	https://www.javalobby.org/java/forums/t19183.html
 ///////////////	
+	
+	
+	
+	
 	@Override
 	public void exportRectangle(Rectangle p_Rectangle) throws XMLStreamException {
 		String color = null;
@@ -147,17 +183,12 @@ public class ExportDataInXML implements IExportData  {
 		
 	}
 	
-	String hexa(String p_hex) {
-		return p_hex.substring(2,p_hex.length());
-	}
-
-	
-//	
-//	
-//	@Override
-//	public List<Shape> getShapeList() {
-//		return this.m_ListShape;
+//	String hexa(String p_hex) {
+//		return p_hex.substring(2,p_hex.length());
 //	}
+	
+	
+	
 
 	
 		

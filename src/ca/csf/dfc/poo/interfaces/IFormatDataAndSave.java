@@ -3,9 +3,11 @@
  */
 package ca.csf.dfc.poo.interfaces;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
@@ -20,13 +22,14 @@ import javafx.scene.shape.Ellipse;
  * @author Maximilian
  *
  */
-public interface IExportData {
+public interface IFormatDataAndSave {
 
 
 	
 	public void exportRectangle(Rectangle p_Rectangle) throws XMLStreamException;
 	public void exportLine(Line p_Line) throws XMLStreamException;
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException;
-	public void setXMLStreamWriter(XMLStreamWriter p_xmlDoc); // a supprimer la référence ici à un format en particulier. rendre plus générique 
+	public ArrayList<Shape> getShapeList();
+	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError;
 
 }

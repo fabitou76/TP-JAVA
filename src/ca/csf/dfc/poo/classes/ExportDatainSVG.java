@@ -3,22 +3,22 @@
  */
 package ca.csf.dfc.poo.classes;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import ca.csf.dfc.poo.interfaces.IExportData;
-import javafx.scene.shape.Ellipse;
+import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 
 /**
  * Classe formatant les données de chaque forme pour une sauvegarde en SVG 
  * @author Maximilian
  *
  */
-public class ExportDatainSVG implements IExportData {
+public class ExportDatainSVG implements IFormatDataAndSave {
 	private XMLStreamWriter m_xmlDoc;
 
 
@@ -95,9 +95,25 @@ public class ExportDatainSVG implements IExportData {
 	}
 
 
-	@Override
+	
 	public void setXMLStreamWriter(XMLStreamWriter p_xmlDoc) {
 		this.m_xmlDoc = p_xmlDoc;
+		
+	}
+
+
+
+	@Override
+	public ArrayList<Shape> getShapeList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
+		// TODO Auto-generated method stub
 		
 	}
 

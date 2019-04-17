@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -51,7 +54,26 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	public void selectDataFolder() {
 		//utiliser JFileChooser
 		
-		this.m_pathToFolder = "data.xml";
+		
+		
+		
+		String folderName = null;
+		
+		JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		fileChooser.setDialogTitle("Sélectionnez un fichier");
+		fileChooser.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("xml file | svg file","xml", "svg");
+//		fileChooser.setFileFilter(new FileNameExtensionFilter("xml file","xml"));
+		fileChooser.addChoosableFileFilter(filter);
+		int returnValue = fileChooser.showOpenDialog(fileChooser);
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			folderName = (fileChooser.getSelectedFile().getPath());
+			if (!folderName.endsWith(".xml")){
+				folderName += ".xml";
+			}
+			this.m_pathToFolder = folderName;
+		}
+			
 	}
 
 	@Override
