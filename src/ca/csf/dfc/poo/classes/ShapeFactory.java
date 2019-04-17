@@ -18,19 +18,9 @@ public class ShapeFactory {
 		int height = p_finalPoint.y - p_initialPoint.y;
 		int width = p_finalPoint.x - p_initialPoint.x;
 		
-		if((height < 0 && width < 0)) {
-			Point temp;
-			temp = p_initialPoint;
-			p_initialPoint = p_finalPoint;
-			p_finalPoint = p_initialPoint;
-		}
-		else if (height < 0) {
-			p_initialPoint.y = p_finalPoint.y;
-		}
-		else if(width < 0) {
-			p_initialPoint.x = p_finalPoint.x;
-			p_initialPoint.y = p_finalPoint.y - (p_finalPoint.y - p_initialPoint.y);
-		}
+		Point adjustedCoords[] = this.coordinatesAdjustment(p_initialPoint, p_finalPoint);
+		p_initialPoint = adjustedCoords[0];
+		p_finalPoint = adjustedCoords[1];
 
 		switch(p_shapeName.toLowerCase()) {
 		case "rectangle" :
@@ -45,13 +35,34 @@ public class ShapeFactory {
 		default:
 			newShape = null;
 		}
-
 		newShape.setHeight(Math.abs(height));
 		newShape.setWidth(Math.abs(width));
 		return newShape;
-		
-		
+
 	}
 	
-	
+	private Point[] coordinatesAdjustment(Point p_initialPoint, Point p_finalPoint) {
+		
+		
+		int height = p_finalPoint.y - p_initialPoint.y;
+		int width = p_finalPoint.x - p_initialPoint.x;
+		
+		if((height < 0 && width < 0)) {
+			Point temp;
+			temp = p_initialPoint;
+			p_initialPoint = p_finalPoint;
+			p_finalPoint = p_initialPoint;
+		}
+		else if (height < 0) {
+			p_initialPoint.y = p_finalPoint.y;
+		}
+		else if(width < 0) {
+			p_initialPoint.x = p_finalPoint.x;
+			p_initialPoint.y = p_finalPoint.y - (p_finalPoint.y - p_initialPoint.y);
+		}
+		
+		Point adjustedCoords[] = {p_initialPoint, p_finalPoint};
+		return adjustedCoords;
+	}
+
 }
