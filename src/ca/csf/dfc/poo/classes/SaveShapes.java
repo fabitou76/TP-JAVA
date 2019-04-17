@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -43,8 +45,11 @@ public class SaveShapes implements ISaveData {
 	
 	@Override
 	public void saveData() throws IOException, XMLStreamException, FactoryConfigurationError {
-		String folderName = selectFolder();
+		String folderName = null;
 		if (this.m_ListShapes != null && !this.m_ListShapes.isEmpty()) {
+			folderName = selectFolder();
+			}
+		if (folderName != null ) {
 			m_formatDataAndSave.formatAndSave(folderName);
 		}
 		
@@ -53,8 +58,26 @@ public class SaveShapes implements ISaveData {
 
 	@Override
 	public String selectFolder() {
-		return "data.xml";
+		String folderName = null;
+		
+		JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		fileChooser.setDialogTitle("Sélectionnez un dossier");
+		fileChooser.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("xml file","xml");
+//		fileChooser.setFileFilter(new FileNameExtensionFilter("xml file","xml"));
+		fileChooser.addChoosableFileFilter(filter);
+		int returnValue = fileChooser.showSaveDialog(fileChooser);
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			folderName = (fileChooser.getSelectedFile().getPath());
+		}
+		return folderName;
 	}
+	
+
+	
+	
+	
+	
 
 	@Override
 	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {

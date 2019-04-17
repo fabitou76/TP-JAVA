@@ -57,7 +57,7 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	
 	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
-		FileWriter outputWriter = new FileWriter(new File("data.xml"));
+		FileWriter outputWriter = new FileWriter(new File(p_folderName+".xml"));
 		this.m_xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 		
 		// DEBUT ECRITURE DOCUMENT XML
