@@ -66,7 +66,7 @@ public class SaveToSVG implements ISaveData {
 			XMLStreamWriter svgDoc = null;
 			ExportDatainSVG format = new ExportDatainSVG();
 			
-			FileWriter outputWriter = new FileWriter(new File("dataSVG.xml"));
+			FileWriter outputWriter = new FileWriter(new File("dataSVG.svg"));
 			svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 			format.setXMLStreamWriter(svgDoc);
 			
