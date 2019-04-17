@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -43,43 +45,55 @@ public class SaveShapes implements ISaveData {
 	
 	@Override
 	public void saveData() throws IOException, XMLStreamException, FactoryConfigurationError {
-		String folderName = selectFolder();
+		
 		if (this.m_ListShapes != null && !this.m_ListShapes.isEmpty()) {
-			m_formatDataAndSave.formatAndSave(folderName);
+			selectFolder();
+			}
+		if (this.getPath() != null ) {
+			m_formatDataAndSave.formatAndSave(this.getPath());
 		}
 		
 		
 	}
 
 	@Override
-	public String selectFolder() {
-		return "data.xml";
+	public void selectFolder() {
+		String folderName = null;
+		
+		JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		fileChooser.setDialogTitle("Sélectionnez un dossier");
+		fileChooser.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("xml file | svg file","xml", "svg");
+//		fileChooser.setFileFilter(new FileNameExtensionFilter("xml file","xml"));
+		fileChooser.addChoosableFileFilter(filter);
+		int returnValue = fileChooser.showSaveDialog(fileChooser);
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			folderName = (fileChooser.getSelectedFile().getPath());
+			this.setPath(folderName);
+		}
+		
+	}
+	
+
+	
+	
+	
+	
+
+	/**
+	 * Retourne le path
+	 * @return the path
+	 */
+	public String getPath() {
+		return this.m_Path;
 	}
 
-	@Override
-	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {
-//		if (this.m_ListShapes != null && !this.m_ListShapes.isEmpty()) {
-//			XMLStreamWriter xmlDoc = null;
-//			
-			
-			
-//			FileWriter outputWriter = new FileWriter(new File("data.xml"));
-//			XMLStreamWriter xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
-//			format.setXMLStreamWriter(xmlDoc);
-			
-//			// DEBUT ECRITURE DOCUMENT XML
-//			xmlDoc.writeStartDocument();
-//				xmlDoc.writeStartElement("ListofShapes");
-//					for (Shape oneShape : this.m_ListShape) {
-//						oneShape.export(format);
-//					}
-//				xmlDoc.writeEndElement();
-//			xmlDoc.writeEndDocument();
-//			
-//			xmlDoc.flush();
-//			xmlDoc.close();
-//			xmlDoc = null;
-//		}
+	/**
+	 *Pour modifier le path
+	 *@param p_path Nouvelle valeur 
+	 */
+	public void setPath(String p_path) {
+		this.m_Path = p_path;
 	}
 
 	

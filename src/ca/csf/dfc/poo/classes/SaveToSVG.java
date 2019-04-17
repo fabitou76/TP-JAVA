@@ -15,13 +15,14 @@ import javax.xml.stream.XMLStreamWriter;
 
 import java.util.List;
 
+import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 import ca.csf.dfc.poo.interfaces.ISaveData;
 
 /**
  * @author Maximilian
  *
  */
-public class SaveToSVG implements ISaveData {
+public class SaveToSVG   {
 
 	/**
 	 * DONNEES MEMBRES
@@ -53,57 +54,50 @@ public class SaveToSVG implements ISaveData {
 		this.m_Path = p_path;
 	}
 
-	@Override
-	public String selectFolder() { 
-		this.setPath("dataSVG.svg");
-		return null;
+//	@Override
+//	public void selectFolder() { 
+//		this.setPath("dataSVG.svg");
 		
 	}
 
-	@Override
-	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {
-		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
-			XMLStreamWriter svgDoc = null;
-			ExportDatainSVG format = new ExportDatainSVG();
-			
-			FileWriter outputWriter = new FileWriter(new File("dataSVG.svg"));
-			svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
-			format.setXMLStreamWriter(svgDoc);
-			
-			// DEBUT ECRITURE DOCUMENT SVG
-			svgDoc.writeStartDocument();
-				svgDoc.writeStartElement("svg");
-					svgDoc.writeAttribute("xmlns", "https://www.w3.org/2000/svg");
-					svgDoc.writeAttribute("version","1.1");
-					svgDoc.writeAttribute("Width","à définir");
-					svgDoc.writeAttribute("height","à définir");
-					
-					svgDoc.writeStartElement("title");
-					svgDoc.writeEndElement();//title
-						svgDoc.writeStartElement("desc");
-						
-						svgDoc.writeEndElement();//desc
+//	@Override
+//	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException {
+//		if (this.m_ListShape != null && !this.m_ListShape.isEmpty()) {
+//			XMLStreamWriter svgDoc = null;
+//			ExportDatainSVG format = new ExportDatainSVG();
+//			
+//			FileWriter outputWriter = new FileWriter(new File("dataSVG.svg"));
+//			svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
+//			format.setXMLStreamWriter(svgDoc);
+//			
+//			// DEBUT ECRITURE DOCUMENT SVG
+//			svgDoc.writeStartDocument();
+//				svgDoc.writeStartElement("svg");
+//					svgDoc.writeAttribute("xmlns", "https://www.w3.org/2000/svg");
+//					svgDoc.writeAttribute("version","1.1");
+//					svgDoc.writeAttribute("Width","à définir");
+//					svgDoc.writeAttribute("height","à définir");
+//					
+//					svgDoc.writeStartElement("title");
+//					svgDoc.writeEndElement();//title
+//						svgDoc.writeStartElement("desc");
+//						
+//						svgDoc.writeEndElement();//desc
+//
+//					
+//					
+//					
+//					for (Shape oneShape : this.m_ListShape) {
+//						oneShape.export(format);
+//					}
+//					
+//			svgDoc.writeEndElement();
+//			svgDoc.writeEndDocument();
+//			
+//			svgDoc.flush();
+//			svgDoc.close();
+//			svgDoc = null;
+//		}
+//	}
 
-					
-					
-					
-					for (Shape oneShape : this.m_ListShape) {
-						oneShape.export(format);
-					}
-					
-			svgDoc.writeEndElement();
-			svgDoc.writeEndDocument();
-			
-			svgDoc.flush();
-			svgDoc.close();
-			svgDoc = null;
-		}
-	}
 
-	@Override
-	public void saveData() {
-		// TODO Auto-generated method stub
-		
-	}
-
-}

@@ -13,8 +13,7 @@ import javax.xml.stream.XMLStreamException;
  *
  */
 public interface ISaveData {
-	public String selectFolder();
-	public void dataSaver() throws XMLStreamException, FactoryConfigurationError, IOException;
+	public void selectFolder();
 	public void saveData() throws IOException, XMLStreamException, FactoryConfigurationError;
 
 }
