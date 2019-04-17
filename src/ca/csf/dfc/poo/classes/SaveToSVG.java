@@ -54,8 +54,9 @@ public class SaveToSVG implements ISaveData {
 	}
 
 	@Override
-	public void selectFolder() { 
+	public String selectFolder() { 
 		this.setPath("dataSVG.svg");
+		return null;
 		
 	}
 
@@ -97,6 +98,12 @@ public class SaveToSVG implements ISaveData {
 			svgDoc.close();
 			svgDoc = null;
 		}
+	}
+
+	@Override
+	public void saveData() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import javax.xml.stream.XMLStreamException;
 
-import ca.csf.dfc.poo.interfaces.IExportData;
+import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
 public interface Shape {
@@ -33,7 +33,7 @@ public interface Shape {
 	 
 	
 	 
-	 public void export(IExportData p_export) throws XMLStreamException;
+	 public void export(IFormatDataAndSave p_export) throws XMLStreamException;
 	 public void importData (IImportData p_import) throws XMLStreamException;
 	 
 	
