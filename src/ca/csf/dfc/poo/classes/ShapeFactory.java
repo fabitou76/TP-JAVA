@@ -15,6 +15,20 @@ public class ShapeFactory {
 	
 	public Shape createShape(String p_shapeName, Point p_initialPoint, Point p_finalPoint) {
 		Shape newShape;
+		int height = p_finalPoint.y - p_initialPoint.y;
+		int width = p_finalPoint.x - p_initialPoint.x;
+		
+		if(height < 0 && width < 0) {
+			Point temp;
+			temp = p_initialPoint;
+			p_initialPoint = p_finalPoint;
+			p_finalPoint = p_initialPoint;
+		}
+		else if (height < 0) {
+			p_initialPoint.y = p_finalPoint.y;
+		}
+		
+		
 		switch(p_shapeName.toLowerCase()) {
 		case "rectangle" :
 			newShape = new Rectangle(p_initialPoint, p_finalPoint);
@@ -28,12 +42,9 @@ public class ShapeFactory {
 		default:
 			newShape = null;
 		}
-		//Oups, j'attribue une hauteur et un largeur à la ligne..p-e mieux de 
-		//déterminer la hauteur et la largeur dans le paintComponent
-		int height = p_finalPoint.y - p_initialPoint.y;
-		int width = p_finalPoint.x - p_initialPoint.x;
-		newShape.setHeight(height);
-		newShape.setWidth(width);
+
+		newShape.setHeight(Math.abs(height));
+		newShape.setWidth(Math.abs(width));
 		return newShape;
 		
 		
