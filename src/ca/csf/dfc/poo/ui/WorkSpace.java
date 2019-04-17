@@ -64,15 +64,51 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedBorderWidth(int p_width) {
+		if(p_width < 1 || p_width > 5) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderWidth = p_width;
 	}
 	
 	public void setSelectedBorderColor(Color p_color) {
+		if(p_color == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderColor = p_color;
 	}
 	
 	public void setSelectedShape(String p_shapeType) {
+		if((p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line")
+		   || p_shapeType == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedShape = p_shapeType;
+	}
+	
+	public void setInitialPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
+		this.m_initialPoint = p_point;
+	}
+	
+	public void setFinalPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
+		this.m_finalPoint = p_point;
+	}
+	
+	public Point getInitialPoint() {
+		return this.m_initialPoint;
+	}
+	
+	public Point getFinalPoint() {
+		return this.m_finalPoint;
 	}
 	
 	private class MouseHandler implements MouseListener{
@@ -103,14 +139,14 @@ public class WorkSpace extends JPanel{
 				Point point = new Point();
 				point.x = p_arg0.getX();
 				point.y = p_arg0.getY();
-				WorkSpace.this.m_initialPoint = point;
+				WorkSpace.this.setInitialPoint(point);
 				WorkSpace.this.m_testP1.setText(WorkSpace.this.m_initialPoint.toString()); //test
 			}
 			else if (WorkSpace.this.m_finalPoint == null) {
 				Point point = new Point();
 				point.x = p_arg0.getX();
 				point.y = p_arg0.getY();
-				WorkSpace.this.m_finalPoint = point;
+				WorkSpace.this.setFinalPoint(point);
 				WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
 			}
 			
@@ -134,7 +170,7 @@ public class WorkSpace extends JPanel{
 	
 	
 
-	private boolean coordinatesAreSet() {
+	public boolean coordinatesAreSet() {
 
 		boolean coordsAreSet = false;
 		if(WorkSpace.this.m_initialPoint != null && WorkSpace.this.m_finalPoint != null) {
@@ -144,7 +180,7 @@ public class WorkSpace extends JPanel{
 	}
 
 
-	private Shape createShape() {
+	public Shape createShape() {
 
 		Shape newShape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
 		newShape.setFillColor(this.m_selectedFillColor);
@@ -154,19 +190,15 @@ public class WorkSpace extends JPanel{
 		return newShape;
 	}
 	
-
-	private void addShapeToWorkSpace(Shape p_shape) {
-
-		this.m_shapeList.add(p_shape);
-		//test
-		System.out.println("--------Début liste workspace---------");
-		for(Shape s: this.m_shapeList) {
-			System.out.println("-"+s.toString());
-			System.out.println(s.getInitialPoint().toString() + "  " + s.getFinalPoint().toString());
-			System.out.println("Hauteur:" + s.getHeight() + " " + "Largeur:" + s.getWidth());
+	
+	public void addShapeToWorkSpace(Shape p_shape) {
+		
+		if(p_shape == null) {
+			throw new IllegalArgumentException();
 		}
-		System.out.println("--------Fin liste workspace---------");
-		//fin
+		
+		this.m_shapeList.add(p_shape);
+
 	}
 	
 
