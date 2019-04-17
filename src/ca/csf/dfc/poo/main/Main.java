@@ -4,17 +4,6 @@ package ca.csf.dfc.poo.main;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 
-import com.sun.prism.paint.Color;
-
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-import ca.csf.dfc.poo.classes.Line;
-//import ca.csf.dfc.poo.classes.ImportDataFromXML;
-import ca.csf.dfc.poo.classes.Rectangle;
-import ca.csf.dfc.poo.classes.ExportDataInXML;
-import ca.csf.dfc.poo.classes.Shape;
-import ca.csf.dfc.poo.interfaces.IExportData;
 import ca.csf.dfc.poo.ui.*;
 
 public class Main {

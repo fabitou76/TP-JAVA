@@ -6,14 +6,13 @@ package ca.csf.dfc.poo.classes;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
 
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import java.lang.Object;
+
 import java.util.List;
 
 import ca.csf.dfc.poo.interfaces.ISaveData;

@@ -3,15 +3,11 @@
  */
 package ca.csf.dfc.poo.classes;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import ca.csf.dfc.poo.interfaces.IExportData;
-import javafx.scene.shape.Ellipse;
 
 /**
  * Classe formatant les données de chaque forme pour une sauvegarde en SVG 
