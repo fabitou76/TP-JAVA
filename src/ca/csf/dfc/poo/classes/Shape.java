@@ -10,14 +10,14 @@ import ca.csf.dfc.poo.interfaces.IImportData;
 
 public abstract class Shape {
 
-	private static final int DEFAULT_WIDTH = 0;
-	private static final int DEFAULT_HEIGHT = 0;
+	//private static final int DEFAULT_WIDTH = 0;
+	//private static final int DEFAULT_HEIGHT = 0;
 	
 	private Point m_initialPoint;
 	private Point m_finalPoint;
 	private String m_nom = "rectangle";
-	private int m_height = DEFAULT_HEIGHT;
-	private int m_width = DEFAULT_WIDTH;
+	private int m_height;
+	private int m_width;
 	private Color m_fillColor;
 	private int m_borderWidth;
 	private Color m_borderColor;
