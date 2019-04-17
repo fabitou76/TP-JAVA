@@ -78,7 +78,10 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedShape(String p_shapeType) {
-
+		if(p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line" &&
+		   p_shapeType == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedShape = p_shapeType;
 	}
 	
@@ -90,6 +93,13 @@ public class WorkSpace extends JPanel{
 		this.m_finalPoint = p_point;
 	}
 	
+	public Point getInitialPoint() {
+		return this.m_initialPoint;
+	}
+	
+	public Point getFinalPoint() {
+		return this.m_finalPoint;
+	}
 	
 	private class MouseHandler implements MouseListener{
 
@@ -170,19 +180,15 @@ public class WorkSpace extends JPanel{
 		return newShape;
 	}
 	
-
+	
 	public void addShapeToWorkSpace(Shape p_shape) {
-
-		this.m_shapeList.add(p_shape);
-		//test
-		System.out.println("--------Début liste workspace---------");
-		for(Shape s: this.m_shapeList) {
-			System.out.println("-"+s.toString());
-			System.out.println(s.getInitialPoint().toString() + "  " + s.getFinalPoint().toString());
-			System.out.println("Hauteur:" + s.getHeight() + " " + "Largeur:" + s.getWidth());
+		
+		if(p_shape == null) {
+			throw new IllegalArgumentException();
 		}
-		System.out.println("--------Fin liste workspace---------");
-		//fin
+		
+		this.m_shapeList.add(p_shape);
+
 	}
 	
 
