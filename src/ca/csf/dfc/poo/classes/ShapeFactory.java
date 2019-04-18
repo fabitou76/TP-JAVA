@@ -18,9 +18,11 @@ public class ShapeFactory {
 		int height = p_finalPoint.y - p_initialPoint.y;
 		int width = p_finalPoint.x - p_initialPoint.x;
 		
-		Point adjustedCoords[] = this.coordinatesAdjustment(p_initialPoint, p_finalPoint);
-		p_initialPoint = adjustedCoords[0];
-		p_finalPoint = adjustedCoords[1];
+		if(p_shapeName != "line") {
+			Point adjustedCoords[] = this.coordinatesAdjustment(p_initialPoint, p_finalPoint);
+			p_initialPoint = adjustedCoords[0];
+			p_finalPoint = adjustedCoords[1];
+		}
 
 		switch(p_shapeName.toLowerCase()) {
 		case "rectangle" :
