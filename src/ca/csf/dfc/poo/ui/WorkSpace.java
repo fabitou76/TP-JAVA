@@ -4,13 +4,16 @@ import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
 
 import java.awt.*;
-import java.awt.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Ellipse2D;
 import java.util.*;
-
+import java.util.List;
 
 import javax.swing.*;
+
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 
 public class WorkSpace extends JPanel{
 
@@ -24,6 +27,7 @@ public class WorkSpace extends JPanel{
 	private Point m_initialPoint;
 	private Point m_finalPoint;
 	private ShapeFactory m_shapeFactory = new ShapeFactory();
+	private Shape selectedShape;
 	
 	private String m_selectedShape = DEFAULT_SHAPE;
 	private int m_selectedBorderWidth = DEFAULT_BORDER_WIDTH;
@@ -42,8 +46,8 @@ public class WorkSpace extends JPanel{
 		this.setBackground(Color.white);
 		this.m_shapeList = new ArrayList<Shape>();
 		this.addMouseListener(new MouseHandler());
-
-	
+			
+		
        //Panel test
         JPanel panelTest = new JPanel();
         panelTest.setLayout(new GridLayout(3,1));
@@ -64,17 +68,63 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedBorderWidth(int p_width) {
+		if(p_width < 1 || p_width > 5) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderWidth = p_width;
 	}
 	
 	public void setSelectedBorderColor(Color p_color) {
+		if(p_color == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedBorderColor = p_color;
 	}
 	
 	public void setSelectedShape(String p_shapeType) {
+		if((p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line" && p_shapeType != "select")
+		   || p_shapeType == null) {
+			throw new IllegalArgumentException();
+		}
 		this.m_selectedShape = p_shapeType;
 	}
 	
+	public void setInitialPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
+		this.m_initialPoint = p_point;
+	}
+	
+	public void setFinalPoint(Point p_point) {
+		if(p_point != null) {
+			if(p_point.x < 0 || p_point.y < 0) {
+				throw new IllegalArgumentException();
+			}
+		}
+		this.m_finalPoint = p_point;
+	}
+	
+	public Point getInitialPoint() {
+		return this.m_initialPoint;
+	}
+	
+	public Point getFinalPoint() {
+		return this.m_finalPoint;
+	}
+	
+	public Shape getSelectedShape() {
+		return this.selectedShape;
+	}
+
+	public void clearShapeSelection() {
+		this.selectedShape = null;
+		this.repaint();
+		System.out.println("No shape selected");
+	}
+
 	private class MouseHandler implements MouseListener{
 
 		@Override
@@ -94,33 +144,60 @@ public class WorkSpace extends JPanel{
 			// TODO Auto-generated method stub
 			
 		}
-
+		
 		@Override
 		public void mousePressed(MouseEvent p_arg0) {
 		
-			if(WorkSpace.this.m_initialPoint == null) {
-				Point point = new Point();
-				point.x = p_arg0.getX();
-				point.y = p_arg0.getY();
-				WorkSpace.this.m_initialPoint = point;
-				WorkSpace.this.m_testP1.setText(WorkSpace.this.m_initialPoint.toString()); //test
+			if ("select".equals(WorkSpace.this.m_selectedShape))
+			{
+				List<Shape> shapeList = WorkSpace.this.getShapeList();
+				
+				for (Shape shape : shapeList) {
+					java.awt.Shape drawnShape = null;
+					
+					if (shape.getName().equals("rectangle")) {
+						drawnShape = new Rectangle2D.Double(shape.getInitialPoint().getX(), shape.getInitialPoint().getY(), shape.getWidth(), shape.getHeight());
+					} else if (shape.getName().equals("line")) {
+						drawnShape = new Line2D.Double(shape.getInitialPoint().getX(), shape.getInitialPoint().getY(), shape.getFinalPoint().getX(), shape.getFinalPoint().getY()).getBounds2D();
+					} else if (shape.getName().equals("elipse")) {
+						drawnShape = new Ellipse2D.Double(shape.getInitialPoint().getX(), shape.getInitialPoint().getY(), shape.getWidth(), shape.getHeight());
+					} 
+					
+					if (drawnShape != null && drawnShape.contains(p_arg0.getX(), p_arg0.getY())) {
+						WorkSpace.this.selectedShape = shape;
+						WorkSpace.this.repaint();
+						System.out.println("Shape Selected: " + shape.getName());
+						return;
+					}
+					
+					WorkSpace.this.clearShapeSelection();
+				}
 			}
-			else if (WorkSpace.this.m_finalPoint == null) {
-				Point point = new Point();
-				point.x = p_arg0.getX();
-				point.y = p_arg0.getY();
-				WorkSpace.this.m_finalPoint = point;
-				WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
-			}
-			
-			if(WorkSpace.this.coordinatesAreSet()) {
-				Shape newShape = WorkSpace.this.createShape();
-				WorkSpace.this.addShapeToWorkSpace(newShape);
-
-				WorkSpace.this.refreshWorkSpace();
-			
-
-				WorkSpace.this.resetCoordinates();
+			else
+			{
+				if(WorkSpace.this.m_initialPoint == null) {
+					Point point = new Point();
+					point.x = p_arg0.getX();
+					point.y = p_arg0.getY();
+					WorkSpace.this.setInitialPoint(point);
+					WorkSpace.this.m_testP1.setText(WorkSpace.this.m_initialPoint.toString()); //test
+				}
+				else if (WorkSpace.this.m_finalPoint == null) {
+					Point point = new Point();
+					point.x = p_arg0.getX();
+					point.y = p_arg0.getY();
+					WorkSpace.this.setFinalPoint(point);
+					WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
+				}
+				
+				if(WorkSpace.this.coordinatesAreSet()) {
+					Shape newShape = WorkSpace.this.createShape();
+					WorkSpace.this.addShapeToWorkSpace(newShape);
+	
+					WorkSpace.this.refreshWorkSpace();
+	
+					WorkSpace.this.resetCoordinates();
+				}
 			}
 		}
 
@@ -131,8 +208,9 @@ public class WorkSpace extends JPanel{
 		}
 	}
 	
+	
 
-	private boolean coordinatesAreSet() {
+	public boolean coordinatesAreSet() {
 
 		boolean coordsAreSet = false;
 		if(WorkSpace.this.m_initialPoint != null && WorkSpace.this.m_finalPoint != null) {
@@ -142,7 +220,7 @@ public class WorkSpace extends JPanel{
 	}
 
 
-	private Shape createShape() {
+	public Shape createShape() {
 
 		Shape newShape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
 		newShape.setFillColor(this.m_selectedFillColor);
@@ -152,19 +230,15 @@ public class WorkSpace extends JPanel{
 		return newShape;
 	}
 	
-
-	private void addShapeToWorkSpace(Shape p_shape) {
-
-		this.m_shapeList.add(p_shape);
-		//test
-		System.out.println("--------Début liste workspace---------");
-		for(Shape s: this.m_shapeList) {
-			System.out.println("-"+s.toString());
-			System.out.println(s.getInitialPoint().toString() + "  " + s.getFinalPoint().toString());
-			System.out.println("Hauteur:" + s.getHeight() + " " + "Largeur:" + s.getWidth());
+	
+	public void addShapeToWorkSpace(Shape p_shape) {
+		
+		if(p_shape == null) {
+			throw new IllegalArgumentException();
 		}
-		System.out.println("--------Fin liste workspace---------");
-		//fin
+		
+		this.m_shapeList.add(p_shape);
+
 	}
 	
 
@@ -177,7 +251,12 @@ public class WorkSpace extends JPanel{
 		this.m_finalPoint = null;
 	}
 
-
+	public void removeShape(Shape shape) {
+		if (this.m_shapeList.contains(shape)) {
+			this.m_shapeList.remove(shape);
+			this.repaint();
+		}
+	}
 	
 	@Override
 	protected void paintComponent(Graphics p_Graphic) {
@@ -205,6 +284,7 @@ public class WorkSpace extends JPanel{
 				
 				switch (shape.getName()) {
 				
+				
 					case "rectangle":
 						if(shapeHasFillColor) {
 							g2.setColor(shape.getFillColor());
@@ -212,6 +292,7 @@ public class WorkSpace extends JPanel{
 						}
 						g2.setColor(shape.getBorderColor());
 						p_Graphic.drawRect(coordX1,coordY1, width, height);
+						
 						break;
 						
 					case "line":
@@ -234,6 +315,12 @@ public class WorkSpace extends JPanel{
 					default:
 						break;
 					
+				}
+				
+				if (selectedShape != null && shape.equals(selectedShape)) {
+					g2.setColor(Color.GRAY);
+					g2.setStroke(new BasicStroke(5, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
+					p_Graphic.drawRect(coordX1-5,coordY1-5, width+10, height+10);
 				}
 			}
 		}
