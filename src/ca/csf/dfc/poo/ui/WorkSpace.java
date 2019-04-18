@@ -15,6 +15,13 @@ import javax.swing.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 
+
+/**
+ * WorkSpace est la surface sur laquelle l'utilisateur peut dessiner
+ * 
+ * @author Hugo
+ *
+ */
 public class WorkSpace extends JPanel{
 
 	private static final long serialVersionUID = 6100091375438707781L;
@@ -59,14 +66,28 @@ public class WorkSpace extends JPanel{
 
 	}
 	
+	/**
+	 * 
+	 * @return La liste des formes 
+	 */
 	public ArrayList<Shape> getShapeList(){
 		return this.m_shapeList;
 	}
 	
+	/**
+	 * Modifie la couleur de remplissage selectionnee
+	 * 
+	 * @param p_color
+	 */
 	public void setSelectedFillColor(Color p_color) {
 		this.m_selectedFillColor = p_color;
 	}
 	
+	/**
+	 * Modifie la largeur de bordure selectionnee
+	 * @param p_width
+	 * @throws IllegalArgumentException si la largeur sélectionnée est <1 ou >5
+	 */
 	public void setSelectedBorderWidth(int p_width) {
 		if(p_width < 1 || p_width > 5) {
 			throw new IllegalArgumentException();
@@ -74,6 +95,11 @@ public class WorkSpace extends JPanel{
 		this.m_selectedBorderWidth = p_width;
 	}
 	
+	/**
+	 * Modifie la couleur de bordure sélectionnée
+	 * @param p_color
+	 * @throws IllegalArgumentException si p_color est null
+	 */
 	public void setSelectedBorderColor(Color p_color) {
 		if(p_color == null) {
 			throw new IllegalArgumentException();
@@ -81,6 +107,11 @@ public class WorkSpace extends JPanel{
 		this.m_selectedBorderColor = p_color;
 	}
 	
+	/**
+	 * Definit le type de forme de la forme selectionnee
+	 * @param p_shapeType
+	 * @throws IllegalArgumentException si une forme en parametre n'existe pas
+	 */
 	public void setSelectedShape(String p_shapeType) {
 		if((p_shapeType != "rectangle" && p_shapeType != "elipse" && p_shapeType != "line" && p_shapeType != "select")
 		   || p_shapeType == null) {
@@ -89,6 +120,11 @@ public class WorkSpace extends JPanel{
 		this.m_selectedShape = p_shapeType;
 	}
 	
+	/**
+	 * Definit le point initial d'une forme
+	 * @param p_point
+	 *  @throws IllegalArgumentException  si x ou y sont plus petits que 0 
+	 */
 	public void setInitialPoint(Point p_point) {
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
@@ -98,6 +134,11 @@ public class WorkSpace extends JPanel{
 		this.m_initialPoint = p_point;
 	}
 	
+	/**
+	 * Definit le point final d'une forme
+	 * @param p_point
+	 * @throws IllegalArgumentException  si x ou y sont plus petits que 0 
+	 */
 	public void setFinalPoint(Point p_point) {
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
@@ -106,25 +147,44 @@ public class WorkSpace extends JPanel{
 		}
 		this.m_finalPoint = p_point;
 	}
-	
+	/**
+	 * Retourne le point initial d'une forme
+	 * @return m_initialPoint
+	 */
 	public Point getInitialPoint() {
 		return this.m_initialPoint;
 	}
 	
+	/**
+	 * Retourne le point final d'une forme
+	 * @return m_finalPoint
+	 */
 	public Point getFinalPoint() {
 		return this.m_finalPoint;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Shape getSelectedShape() {
 		return this.selectedShape;
 	}
 
+	/**
+	 * 
+	 */
 	public void clearShapeSelection() {
 		this.selectedShape = null;
 		this.repaint();
 		System.out.println("No shape selected");
 	}
 
+	/**
+	 * 
+	 * @author Hugo
+	 *
+	 */
 	private class MouseHandler implements MouseListener{
 
 		@Override
@@ -209,7 +269,10 @@ public class WorkSpace extends JPanel{
 	}
 	
 	
-
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean coordinatesAreSet() {
 
 		boolean coordsAreSet = false;
@@ -219,7 +282,10 @@ public class WorkSpace extends JPanel{
 		return coordsAreSet;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Shape createShape() {
 
 		Shape newShape = this.m_shapeFactory.createShape(this.m_selectedShape, this.m_initialPoint, this.m_finalPoint);
@@ -230,7 +296,10 @@ public class WorkSpace extends JPanel{
 		return newShape;
 	}
 	
-	
+	/**
+	 * 
+	 * @param p_shape
+	 */
 	public void addShapeToWorkSpace(Shape p_shape) {
 		
 		if(p_shape == null) {
@@ -241,16 +310,25 @@ public class WorkSpace extends JPanel{
 
 	}
 	
-
+/**
+ * 
+ */
 	public void refreshWorkSpace() {
 		this.repaint();
 	}
 	
+	/**
+	 * 
+	 */
 	public void resetCoordinates(){
 		this.m_initialPoint = null;
 		this.m_finalPoint = null;
 	}
 
+	/**
+	 * 
+	 * @param shape
+	 */
 	public void removeShape(Shape shape) {
 		if (this.m_shapeList.contains(shape)) {
 			this.m_shapeList.remove(shape);
