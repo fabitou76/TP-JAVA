@@ -44,22 +44,26 @@ public abstract class Shape {
 
 
 	public void setIntialPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_initialPoint = p_point;
 		
 	}
 
 
 	public void setFinalPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_finalPoint = p_point;
 		
 	}
@@ -114,7 +118,7 @@ public abstract class Shape {
 	}
 	
 	public void setBorderWidth(int p_borderWidth) {
-		if(p_borderWidth < 0.25) {
+		if(p_borderWidth < 0) {
 			throw new IllegalArgumentException();
 		}
 		

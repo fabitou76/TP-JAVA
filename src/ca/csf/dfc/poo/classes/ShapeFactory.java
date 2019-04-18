@@ -39,7 +39,7 @@ public class ShapeFactory {
 			break;
 		}
 		
-		if(newShape != null) {
+		if(newShape != null && newShape.getName() != "line") {
 			System.out.println(Math.abs(height));
 			System.out.println(Math.abs(width));
 			

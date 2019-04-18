@@ -2,6 +2,7 @@ package ca.csf.dfc.poo.classes.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.Color;
 import java.awt.Point;
 
 import org.junit.jupiter.api.Test;
@@ -99,9 +100,10 @@ class TestElipse {
 		
 		assertTrue(elipse.getWidth() == 545);
 		
+		/*
 		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(0));
 		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(-1));
-		
+		*/
 	}
 	@Test
 	void testElipseSetHeight() {
@@ -114,30 +116,57 @@ class TestElipse {
 		
 		elipse.setHeight(45);
 		
-		assertTrue(elipse.getHeight() == 23);
+		assertTrue(elipse.getHeight() == 45);
 		
+		/*
 		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(0));
 		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(-1));
+		*/
 	}
 	@Test
 	void testElipseSetBorderColor() {
 		Shape elipse = new Elipse();
 		
+		elipse.setBorderColor(Color.black);
 		
+		assertTrue(elipse.getBorderColor() == Color.black);
 		
+		elipse.setBorderColor(Color.green);
 		
-		
+		assertTrue(elipse.getBorderColor() == Color.green);
 		
 		
 	}
 	@Test
 	void testElipseSetBorderWidth() {
+		Shape elipse = new Elipse();
+		
+		elipse.setBorderWidth(1);
+		
+		assertTrue(elipse.getBorderWidth() == 1);
+		
+		elipse.setBorderWidth(5);
+		
+		assertTrue(elipse.getBorderWidth() == 5);
+		
+		assertThrows(IllegalArgumentException.class, () -> elipse.setBorderWidth(-1));
+		
 		
 		
 		
 	}
 	@Test
 	void testElipseSetFillColor() {
+		Shape elipse = new Elipse();
+		
+		elipse.setFillColor(Color.black);
+		
+		assertTrue(elipse.getFillColor() == Color.black);
+		
+		elipse.setFillColor(Color.green);
+		
+		assertTrue(elipse.getFillColor() == Color.green);
+		
 		
 	}
 }
