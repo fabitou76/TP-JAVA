@@ -34,6 +34,8 @@ public class SaveShapes implements ISaveData {
 	ArrayList<Shape> m_ListShapes;
 	IFormatDataAndSave m_formatDataAndSave = null;
 	
+	
+
 	/**
 	 * ctr
 	 */
@@ -74,7 +76,29 @@ public class SaveShapes implements ISaveData {
 		
 	}
 	
+	public String getM_Path() {
+		return m_Path;
+	}
 
+	public void setM_Path(String m_Path) {
+		this.m_Path = m_Path;
+	}
+
+	public ArrayList<Shape> getM_ListShapes() {
+		return m_ListShapes;
+	}
+
+	public void setM_ListShapes(ArrayList<Shape> m_ListShapes) {
+		this.m_ListShapes = m_ListShapes;
+	}
+
+	public IFormatDataAndSave getM_formatDataAndSave() {
+		return m_formatDataAndSave;
+	}
+
+	public void setM_formatDataAndSave(IFormatDataAndSave m_formatDataAndSave) {
+		this.m_formatDataAndSave = m_formatDataAndSave;
+	}
 	
 	
 	
