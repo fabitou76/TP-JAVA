@@ -73,8 +73,8 @@ public class GraphicInterface extends JFrame{
     JMenuItem m_exportSVG = new JMenuItem("Exporter");
     
     /**
-     *  Constructeur par d�faut 
-     *  @see 
+     *  Constructeur par defaut
+     *  @see initMenu() , initShapeGrid()
      */
 	public GraphicInterface() {
   	  super("Dessin vectoriel");
@@ -90,12 +90,13 @@ public class GraphicInterface extends JFrame{
       this.add(this.m_workSpace, BorderLayout.CENTER);
 	}
 	
-	/*
+	/**
 	 *  initShapeGrid()  
 	 *  
-	 * Initialise les boutons n�cessaires dans l'interface graphique
-	 * ainsi que leur disposition 
-	 * Utilis� dans le constructeur.
+	 * Initialise les boutons necessaires dans l'interface graphique ainsi que leur disposition 
+	 * 
+	 * @param Aucun
+	 * @return Rien
 	 */
 	private void initShapeGrid() {
 		JPanel panneauForme = new JPanel();
@@ -165,11 +166,13 @@ public class GraphicInterface extends JFrame{
         
 	}
 	
-	/*
-	 * Nom: initMenu() 
+	/**
+	 * initMenu() 
 	 * 
 	 * Initialise la barre de menu dans l'interface graphique
 	 * 
+	 * @param Aucun
+	 * @return Rien
 	 */
 	private void initMenu() {
 		
@@ -206,7 +209,63 @@ public class GraphicInterface extends JFrame{
 		this.m_btn_size_down.setEnabled(true);
 	}
 
+	/**
+	 * @param Aucun
+	 * @return la largeur de bordure selectionnee dans le combobox m_BorderWidth (Integer)
+	 */
+	public Integer getBorderWidth() {
+		return  Integer.valueOf(this.m_BorderWidth.getSelectedItem().toString());
+	}
 	
+	/**
+	 * @param Aucun
+	 * @return la couleur de remplissage selectionnee dans le combobox m_FillColor (Color)
+	 * @see getColor()
+	 */
+	public Color getFillColor(){
+		
+		Color chosenColor = getColor(this.m_FillColor.getSelectedIndex());
+		
+		return chosenColor;
+	}
+	
+	/**
+	 * @param Aucun
+	 * @return la couleur de remplissage selectionnee dans le combobox m_BorderColor (Color)
+	 * @see getColor()
+	 */
+	public Color getBorderColor(){
+
+		Color chosenColor = getColor(this.m_BorderColor.getSelectedIndex());
+		
+		return chosenColor;
+	}
+	
+	/**
+	 * @param int p_selectedColor 
+	 * @return la couleur correspondant � l'index s�lectionn�
+	 */
+	private Color getColor(int p_selectedColor) {
+		
+		Color chosenColor = null;
+		
+		if(p_selectedColor == 1)
+			chosenColor = Color.WHITE;
+		else if(p_selectedColor == 2)
+			chosenColor = Color.BLACK;
+		else if(p_selectedColor == 3)
+			chosenColor = Color.BLUE;
+		else if(p_selectedColor == 4)
+			chosenColor = Color.RED;
+		else if(p_selectedColor == 5)
+			chosenColor = Color.YELLOW;
+		else if(p_selectedColor == 6)
+			chosenColor = Color.GREEN;
+		else if(p_selectedColor == 7)
+			chosenColor = Color.ORANGE;
+		
+		return chosenColor;
+	}
 	
 	/**
 	 *  GestSaveXML
@@ -273,10 +332,10 @@ public class GraphicInterface extends JFrame{
 		}
 	}
 	
-	/*
+	/**
 	 * ComboboxHandler
 	 * 
-	 * Cette classe permet � l'espace de travail d'avoir acc�s aux �l�ments s�lectionn�s dans les comboBox:
+	 * Cette classe permet � l'espace de travail d'avoir acces aux elements selectionnes dans les comboBox:
 	 * - Couleur de la bordure
 	 * - Couleur de remplissage
 	 * - Grosseur de la bordure
@@ -314,7 +373,7 @@ public class GraphicInterface extends JFrame{
 		}
 	}
 	
-	/*
+	/**
 	 * ShapeSizeHandler
 	 * 
 	 * 
@@ -438,6 +497,11 @@ public class GraphicInterface extends JFrame{
 		
 	}
 	
+	/**
+	 * implements Action Listener, 
+	 * vide la liste de formes et r�initialise m_workSpace
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	private class ClearBtnHandler implements ActionListener{
 
 		@Override
@@ -469,49 +533,6 @@ public class GraphicInterface extends JFrame{
 		}
 	}
 	/* Fabio */
-	
-	public Integer getBorderWidth() {
-		return  Integer.valueOf(this.m_BorderWidth.getSelectedItem().toString());
-	}
-	
-	public Color getFillColor(){
-		
-		Color chosenColor = getColor(this.m_FillColor.getSelectedIndex());
-		
-		return chosenColor;
-	}
-	
-	public Color getBorderColor(){
-
-		Color chosenColor = getColor(this.m_BorderColor.getSelectedIndex());
-		
-		return chosenColor;
-	}
-	
-	private Color getColor(int p_selectedColor) {
-		
-		Color chosenColor = null;
-		
-		if(p_selectedColor == 1)
-			chosenColor = Color.WHITE;
-		else if(p_selectedColor == 2)
-			chosenColor = Color.BLACK;
-		else if(p_selectedColor == 3)
-			chosenColor = Color.BLUE;
-		else if(p_selectedColor == 4)
-			chosenColor = Color.RED;
-		else if(p_selectedColor == 5)
-			chosenColor = Color.YELLOW;
-		else if(p_selectedColor == 6)
-			chosenColor = Color.GREEN;
-		else if(p_selectedColor == 7)
-			chosenColor = Color.ORANGE;
-		
-		return chosenColor;
-	}
-	
-	
-	
 	
 }
 
