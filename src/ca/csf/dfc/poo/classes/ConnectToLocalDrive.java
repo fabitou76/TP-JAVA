@@ -23,8 +23,8 @@ import ca.csf.dfc.poo.interfaces.IConnectToDB;
  */
 public class ConnectToLocalDrive implements IConnectToDB {
 	
-	XMLStreamReader m_xmlDoc;
-	String m_pathToFolder = null;
+	private XMLStreamReader m_xmlDoc;
+	private String m_pathToFolder = null;
 	
 	/**
 	 * ctr

@@ -27,8 +27,8 @@ class SaveShapesOnLocalDriveTests {
 		SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToXML(list));		
 		
 		//Agir & Auditer
-//		assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
-		assertSame(test1.getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
+		assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
+		
 	}
 	
 	//verifier que la liste passée en paramètres est attribuée à la bonne variable
