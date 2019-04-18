@@ -1,5 +1,8 @@
 package ca.csf.dfc.poo.classes;
 
+/**
+ * Classe représentant une forme avec un nom, un point initial et un point final  
+ */
 
 import java.awt.Point;
 import java.util.*;
@@ -10,9 +13,19 @@ import ca.csf.dfc.poo.classes.*;
 
 public class ShapeFactory {
 	
+	/**
+	 * Ctr
+	 */
 	public ShapeFactory() {
 	}
 	
+	/**
+	 * Constructeur d'initialisation pour créer un new shape
+	 * @param 1 p_shapeName nom du shape
+	 * @param 2 p_initialPoint point initial du shape
+	 * @param 3 p_finalPoint point final du shape
+	 * @return un new shape
+	 */
 	public Shape createShape(String p_shapeName, Point p_initialPoint, Point p_finalPoint) {
 		Shape newShape;
 		int height = p_finalPoint.y - p_initialPoint.y;
@@ -47,6 +60,12 @@ public class ShapeFactory {
 
 	}
 	
+	/**
+	 * Pour ajuster les coordonnées du shape
+	 * @param 1 p_initialPoint point initial du shape
+	 * @param 2 p_finalPoint point final du shape
+	 * @return les coordonnés ajustée
+	 */
 	private Point[] coordinatesAdjustment(Point p_initialPoint, Point p_finalPoint) {
 		
 		
@@ -70,5 +89,4 @@ public class ShapeFactory {
 		Point adjustedCoords[] = {p_initialPoint, p_finalPoint};
 		return adjustedCoords;
 	}
-
 }

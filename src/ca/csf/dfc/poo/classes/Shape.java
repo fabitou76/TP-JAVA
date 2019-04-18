@@ -1,5 +1,9 @@
 package ca.csf.dfc.poo.classes;
 
+/**
+ * Classe représentant un shape  
+ */
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -13,20 +17,59 @@ public abstract class Shape {
 	//private static final int DEFAULT_WIDTH = 0;
 	//private static final int DEFAULT_HEIGHT = 0;
 	
+	/**
+	 * Le point initial d'un shape
+	 */
 	private Point m_initialPoint;
+	
+	/**
+	 * Le point final d'un shape
+	 */
 	private Point m_finalPoint;
+	
+	/**
+	 * Le nom d'un shape
+	 */
 	private String m_nom = "rectangle";
+	
+	/**
+	 * L'hauteur d'un shape
+	 */
 	private int m_height;
+	
+	/**
+	 * La largeur d'un shape
+	 */
 	private int m_width;
+	
+	/**
+	 * La couleur de ?remplissage? d'un shape
+	 */
 	private Color m_fillColor;
+	
+	/**
+	 * La taile de bordure d'un shape
+	 */
 	private int m_borderWidth;
+	
+	/**
+	 * La couleur de bordure d'un shape
+	 */
 	private Color m_borderColor;
 	
+	
+	/**
+	 * Pour returner le nom
+	 * @return le nom
+	 */
 	public String getName() {
 		return this.m_nom;
 	}
 	
-	
+	/**
+	 * Pour modifier le nom
+	 * @param p_name le nom 'a modifier
+	 */
 	public void setName(String p_name) {
 		if(p_name == null || p_name.isEmpty()) {
 			throw new IllegalArgumentException();
@@ -34,17 +77,26 @@ public abstract class Shape {
 		this.m_nom = p_name;;
 	}
 
-
+	/**
+	 * Pour returner le point initial
+	 * @return le point initial
+	 */
 	public Point getInitialPoint() {
 		return this.m_initialPoint;
 	}
 
-
+	/**
+	 * Pour returner le point final
+	 * @return le point final
+	 */
 	public Point getFinalPoint() {
 		return this.m_finalPoint;
 	}
 
-
+	/**
+	 * Pour modifier le point initial
+	 * @param p_point le point a modifier
+	 */
 	public void setIntialPoint(Point p_point) {
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
@@ -55,7 +107,10 @@ public abstract class Shape {
 		
 	}
 
-
+	/**
+	 * Pour modifier le point final
+	 * @param p_point le point a modifier
+	 */
 	public void setFinalPoint(Point p_point) {
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
@@ -66,16 +121,21 @@ public abstract class Shape {
 		
 	}
 
-
+	/**
+	 * Pour modifier la hauteur
+	 * @param p_height le point a modifier
+	 */
 	public void setHeight(int p_height) {
 		if(p_height < 1) {
 			throw new IllegalArgumentException();
 		}
 		this.m_height = p_height;
-		
 	}
 
-	
+	/**
+	 * Pour modifier la largeur
+	 * @param p_width la largeur a modifier
+	 */
 	public void setWidth(int p_width) {
 		if(p_width < 1) {
 			throw new IllegalArgumentException();
@@ -84,52 +144,76 @@ public abstract class Shape {
 		
 	}
 
-
+	/**
+	 * Pour returner la hauteur
+	 * @return le hauteur
+	 */
 	public int getHeight() {
 	
 		return this.m_height;
 	}
 
-	
+	/**
+	 * Pour returner la largeur
+	 * @return le largeur
+	 */
 	public int getWidth() {
 		
 		return this.m_width;
 	}
 
-
+	/**
+	 * Pour returner la couleur de la bordure
+	 * @return la couleur de la bordure
+	 */
 	public Color getBorderColor() {
 		return this.m_borderColor;
 	}
 
-	
+	/**
+	 * Pour returner la largeur de la bordure
+	 * @return la largeur de la bordure
+	 */
 	public int getBorderWidth() {
 		return this.m_borderWidth;
 	}
 
-
+	/**
+	 * Pour returner la couleur de la remplissage
+	 * @return la couleur de la remplissage
+	 */
 	public Color getFillColor() {
 		return this.m_fillColor;
 	}
-
 	
-
-	
+	/**
+	 * Pour modifier la couleur de la bordure
+	 * @param p_borderColor la couleur a modifier
+	 */
 	public void setBorderColor(Color p_borderColor) {
 		this.m_borderColor = p_borderColor;
 		
 	}
 	
+	/**
+	 * Pour modifier la largeur de la bordure
+	 * @param p_borderWidth la largeur a modifier
+	 */
 	public void setBorderWidth(int p_borderWidth) {
 		this.m_borderWidth = p_borderWidth;
 		
 	}
-
+	
+	/**
+	 * Pour modifier la couleur de remplissage
+	 * @param p_fillColor la couleur de remplissage a modifier
+	 */
 	public void setFillColor(Color p_fillColor) {
 		this.m_fillColor = p_fillColor;
 		
 	}
 	 
-
+	
 	public abstract void export(IFormatDataAndSave p_export) throws XMLStreamException;
 	public abstract void importData(IGenerateShapes p_import) throws XMLStreamException;
 	
