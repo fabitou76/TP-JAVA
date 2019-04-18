@@ -12,7 +12,7 @@ import javax.xml.stream.XMLStreamReader;
 
 import ca.csf.dfc.poo.interfaces.IConnectToDB;
 import ca.csf.dfc.poo.interfaces.IImportShapes;
-import ca.csf.dfc.poo.interfaces.IImportData;
+import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 
 /**
  * @author Maximilian
@@ -33,8 +33,8 @@ public class ImportShapesFromXML implements IImportShapes {
 	/**
 	 * DONNEES MEMBRES
 	 */
-	ConnectionToXMLOnDrive m_connectToDB;
-	IImportData m_importData;
+	IConnectToDB m_connectToDB;
+	IGenerateShapes m_importData;
 	List<Shape> m_ListShapes = null;
 	XMLStreamReader m_xmlDoc;
 	
@@ -43,8 +43,8 @@ public class ImportShapesFromXML implements IImportShapes {
 	 * ctr
 	 */
 	public ImportShapesFromXML() {
-		this.m_connectToDB = new ConnectionToXMLOnDrive();
-//		this.m_importData = new ImportXML(this.m_xmlDoc);
+		this.m_connectToDB = new ConnectToLocalDrive();
+		this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
 	}
 	
 
@@ -57,18 +57,40 @@ public class ImportShapesFromXML implements IImportShapes {
 		this.m_ListShapes = p_shapeList;
 	}
 	
-	public void createShapes() throws FileNotFoundException, XMLStreamException {
+	public void createShapes() {
 		this.connection();
-		this.checkFile();
-		this.generateShapes();
+		try {
+			this.checkFile();
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			this.generateShapes();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void connection() {
 		try {
 			this.m_connectToDB.connectToDB();
 			this.m_xmlDoc = this.m_connectToDB.getXMLDoc();
-			this.m_importData = new ImportXML(this.m_xmlDoc);
+			this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
 		} catch (FactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

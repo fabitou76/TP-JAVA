@@ -44,11 +44,10 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 			if (!p_folderName.endsWith(".svg")) {
 				p_folderName += ".svg";
 			}
-			ExportDatainSVG format = new ExportDatainSVG();
 			
 			FileWriter outputWriter = new FileWriter(new File(p_folderName));
 			this.m_svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
-			format.setXMLStreamWriter(this.m_svgDoc);
+//			format.setXMLStreamWriter(this.m_svgDoc);
 			
 			// DEBUT ECRITURE DOCUMENT SVG
 			this.m_svgDoc.writeStartDocument();
@@ -65,7 +64,7 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 			this.m_svgDoc.writeEndElement();//desc
 					
 					for (Shape oneShape : this.m_listOfShapes) {
-						oneShape.export(format);
+						oneShape.export(this);
 					}
 					
 					this.m_svgDoc.writeEndElement();

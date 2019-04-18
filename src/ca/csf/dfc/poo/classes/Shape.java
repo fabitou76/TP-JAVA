@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.xml.stream.XMLStreamException;
 
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
-import ca.csf.dfc.poo.interfaces.IImportData;
+import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 
 public abstract class Shape {
 
@@ -131,7 +131,7 @@ public abstract class Shape {
 	 
 
 	public abstract void export(IFormatDataAndSave p_export) throws XMLStreamException;
-	public abstract void importData(IImportData p_import) throws XMLStreamException;
+	public abstract void importData(IGenerateShapes p_import) throws XMLStreamException;
 	
 	 
 }

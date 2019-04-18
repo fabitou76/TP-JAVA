@@ -18,13 +18,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
-import ca.csf.dfc.poo.interfaces.ISaveData;
+import ca.csf.dfc.poo.interfaces.ISaveShapes;
 
 /**
  * @author Maximilian
  *
  */
-public class SaveShapes implements ISaveData {
+public class SaveShapesOnLocalDrive implements ISaveShapes {
 	
 	/**
 	 * DONNEES MEMBRES
@@ -34,10 +34,12 @@ public class SaveShapes implements ISaveData {
 	ArrayList<Shape> m_ListShapes;
 	IFormatDataAndSave m_formatDataAndSave = null;
 	
+	
+
 	/**
 	 * ctr
 	 */
-	public SaveShapes(IFormatDataAndSave p_formatDataAndSave) {
+	public SaveShapesOnLocalDrive(IFormatDataAndSave p_formatDataAndSave) {
 		this.m_formatDataAndSave = p_formatDataAndSave;
 		this.m_ListShapes = this.m_formatDataAndSave.getShapeList();
 		
@@ -74,7 +76,29 @@ public class SaveShapes implements ISaveData {
 		
 	}
 	
+	public String getM_Path() {
+		return m_Path;
+	}
 
+	public void setM_Path(String m_Path) {
+		this.m_Path = m_Path;
+	}
+
+	public ArrayList<Shape> getM_ListShapes() {
+		return m_ListShapes;
+	}
+
+	public void setM_ListShapes(ArrayList<Shape> m_ListShapes) {
+		this.m_ListShapes = m_ListShapes;
+	}
+
+	public IFormatDataAndSave getM_formatDataAndSave() {
+		return m_formatDataAndSave;
+	}
+
+	public void setM_formatDataAndSave(IFormatDataAndSave m_formatDataAndSave) {
+		this.m_formatDataAndSave = m_formatDataAndSave;
+	}
 	
 	
 	

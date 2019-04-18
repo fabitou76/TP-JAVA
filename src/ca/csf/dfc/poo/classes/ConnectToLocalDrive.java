@@ -21,7 +21,7 @@ import ca.csf.dfc.poo.interfaces.IConnectToDB;
  * @author Maximilian
  *
  */
-public class ConnectionToXMLOnDrive implements IConnectToDB {
+public class ConnectToLocalDrive implements IConnectToDB {
 	
 	XMLStreamReader m_xmlDoc;
 	String m_pathToFolder = null;
@@ -30,7 +30,7 @@ public class ConnectionToXMLOnDrive implements IConnectToDB {
 	 * ctr
 	 */
 	
-	public ConnectionToXMLOnDrive() {
+	public ConnectToLocalDrive() {
 		
 	}
 	

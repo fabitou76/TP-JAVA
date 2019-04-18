@@ -9,13 +9,13 @@ import java.awt.Point;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import ca.csf.dfc.poo.interfaces.IImportData;
+import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 
 /**
  * @author Maximilian
  *
  */
-public class ImportXML implements IImportData {
+public class GenerateShapesXML implements IGenerateShapes {
 	
 //	private final static String ELM_SHAPE = "shape"; 
 //	private final static String ELM_TYPE = "type"; 
@@ -33,9 +33,11 @@ public class ImportXML implements IImportData {
 	/**
 	 * ctr
 	 */
-	public ImportXML (XMLStreamReader p_xmlDoc) {
+	public GenerateShapesXML (XMLStreamReader p_xmlDoc) {
 		this.m_xmlDoc = p_xmlDoc;
 	}
+	
+	
 	
 
 	/**
@@ -44,6 +46,10 @@ public class ImportXML implements IImportData {
 	@Override
 	public Line importDataLine(Line p_shape) throws XMLStreamException {
 		p_shape.setName("line");
+		
+		this.generateShapeFromXML(p_shape);
+		 System.out.println("ok pour la ligne");
+		 return p_shape;
 //		this.m_xmlDoc.next();
 //		
 //		 m_xmlDoc.getLocalName();//devrait etre coord
@@ -75,9 +81,7 @@ public class ImportXML implements IImportData {
 //		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
 //		 
 //		 System.out.println("ok pour line");
-		this.generateShapeFromXML(p_shape);
-		 System.out.println("ok pour la ligne");
-		 return p_shape;
+		
 	}
 	
 	/**
@@ -160,7 +164,7 @@ public class ImportXML implements IImportData {
 //		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
 		 
 		this.generateShapeFromXML(p_shape);
-		 System.out.println("ok pour rectangle");
+		 
 		 return p_shape;
 	}
 	
@@ -194,7 +198,7 @@ public class ImportXML implements IImportData {
 		 p_shape.setFillColor(color);
 		 
 		 m_xmlDoc.next();m_xmlDoc.next();m_xmlDoc.next();
-	}
+	}	
 
 
 }
