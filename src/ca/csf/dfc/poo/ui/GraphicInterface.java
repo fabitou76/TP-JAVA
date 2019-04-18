@@ -1,4 +1,3 @@
-
 package ca.csf.dfc.poo.ui;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -25,6 +24,11 @@ import javax.xml.stream.XMLStreamException;
 import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
 
+/*
+ * Ce fichier contient l'interface graphique
+ * 
+ * @author Laurence, Hugo , Maximilian, Fabio
+ */
 
 public class GraphicInterface extends JFrame{
 
@@ -67,8 +71,10 @@ public class GraphicInterface extends JFrame{
     JMenuItem m_saveXML = new JMenuItem("Sauvegarder");
     JMenuItem m_exportSVG = new JMenuItem("Exporter");
     
-    
-
+    /**
+     *  Constructeur par défaut 
+     *  @see 
+     */
 	public GraphicInterface() {
   	  super("Dessin vectoriel");
   	  
@@ -81,11 +87,15 @@ public class GraphicInterface extends JFrame{
       this.initShapeGrid();
       
       this.add(this.m_workSpace, BorderLayout.CENTER);
-      
-  
-      
 	}
 	
+	/*
+	 *  initShapeGrid()  
+	 *  
+	 * Initialise les boutons nécessaires dans l'interface graphique
+	 * ainsi que leur disposition 
+	 * Utilisé dans le constructeur.
+	 */
 	private void initShapeGrid() {
 		JPanel panneauForme = new JPanel();
 		panneauForme.setLayout(new GridLayout(1,10));
@@ -154,6 +164,29 @@ public class GraphicInterface extends JFrame{
         
 	}
 	
+	/*
+	 * Nom: initMenu() 
+	 * 
+	 * Initialise la barre de menu dans l'interface graphique
+	 * 
+	 */
+	private void initMenu() {
+		
+		m_Fichier.add(m_newDrawing);
+		m_Fichier.add(m_loadXML);
+		m_Fichier.add(m_saveXML);
+		m_Fichier.add(m_exportSVG);
+		
+		menuBar.add(m_Fichier);
+		
+		this.setJMenuBar(menuBar);
+		
+		m_saveXML.addActionListener(new GestSaveXML());
+		m_loadXML.addActionListener(new GestChargerXML());
+		m_exportSVG.addActionListener(new GestExportSVG());
+	}
+	
+	
 	protected void disableEditShapeFields() {
 		this.m_btn_up.setEnabled(false);
 		this.m_btn_down.setEnabled(false);
@@ -173,31 +206,14 @@ public class GraphicInterface extends JFrame{
 	}
 
 	
-	private void initMenu() {
-		
-		m_Fichier.add(m_newDrawing);
-		m_Fichier.add(m_loadXML);
-		m_Fichier.add(m_saveXML);
-		m_Fichier.add(m_exportSVG);
-		
-		menuBar.add(m_Fichier);
-		
-		this.setJMenuBar(menuBar);
-		
-		m_saveXML.addActionListener(new GestSaveXML());
-		m_loadXML.addActionListener(new GestChargerXML());
-		m_exportSVG.addActionListener(new GestExportSVG());
-		
-
-	}
 	
 	/**
-	 * 
+	 *  GestSaveXML
+	 *  
+	 *  Sauvegarde les formes crées dans l'espace de travail (WorkSpace) au format XML
+	 *  
 	 * @author Maximilian
-	 *
 	 */
-	
-	
 	private class GestSaveXML implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
@@ -212,6 +228,14 @@ public class GraphicInterface extends JFrame{
 		}
 		
 	}
+	
+	/**
+	 *  GestExportSVG
+	 *  
+	 *  Exporte les formes crées dans l'espace de travail (WorkSpace) au format SVG
+	 *  
+	 * @author Maximilian
+	 */
 	private class GestExportSVG implements ActionListener{
 
 		@Override
@@ -225,11 +249,16 @@ public class GraphicInterface extends JFrame{
 			};
 			System.out.println("sauvegarde en cours");
 		}
-		
 	}
 
+	/**
+	 *  GestChargerXML
+	 *  
+	 *  Importe les formes d'un document XML et les affiches dans le workspace
+	 *  
+	 * @author Maximilian
+	 */
 	private class GestChargerXML  implements ActionListener{
-
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
@@ -244,13 +273,18 @@ public class GraphicInterface extends JFrame{
 				e.printStackTrace();
 			}
 			
-			
 			GraphicInterface.this.m_workSpace.repaint();
 		}
-		
 	}
 	
-	
+	/*
+	 * ComboboxHandler
+	 * 
+	 * Cette classe permet à l'espace de travail d'avoir accès aux éléments sélectionnés dans les comboBox:
+	 * - Couleur de la bordure
+	 * - Couleur de remplissage
+	 * - Grosseur de la bordure
+	 */
 	private class ComboboxHandler implements ActionListener{
 		
 		@Override
@@ -284,7 +318,11 @@ public class GraphicInterface extends JFrame{
 		}
 	}
 	
-	
+	/*
+	 * ShapeSizeHandler
+	 * 
+	 * 
+	 */
 	private class ShapeSizeHandler implements ActionListener {
 
 		@Override

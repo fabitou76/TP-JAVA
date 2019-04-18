@@ -8,6 +8,13 @@ import javax.xml.stream.XMLStreamException;
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 import ca.csf.dfc.poo.interfaces.IImportData;
 
+/*
+ * Classe abstraite Shape
+ * 
+ * Défini les données membres et les méthodes des formes
+ * 
+ * Auteur: Hugo
+ */
 public abstract class Shape {
 
 	//private static final int DEFAULT_WIDTH = 0;
@@ -22,11 +29,18 @@ public abstract class Shape {
 	private int m_borderWidth;
 	private Color m_borderColor;
 	
+	/*
+	 * getName 
+	 * retourne le nom (String)
+	 */
 	public String getName() {
 		return this.m_nom;
 	}
 	
-	
+	/*
+	 * Remplace m_nom par le string en paramètre
+	 * ne retourne rien
+	 */
 	public void setName(String p_name) {
 		if(p_name == null || p_name.isEmpty()) {
 			throw new IllegalArgumentException();
@@ -34,12 +48,16 @@ public abstract class Shape {
 		this.m_nom = p_name;;
 	}
 
-
+	/*
+	 * Retourne le point (coordonnés) du premier clic de la souris dans le workspace
+	 */
 	public Point getInitialPoint() {
 		return this.m_initialPoint;
 	}
 
-
+	/*
+	 * Retourne le point (coordonnés) du deuxième clic de la souris dans le workspace
+	 */
 	public Point getFinalPoint() {
 		return this.m_finalPoint;
 	}
