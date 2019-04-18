@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <interface id="1" language="java" name="ca.csf.dfc.poo.interfaces.IConnectToDB" project="TP-JAVA" 
-    file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/IConnectToDB.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="357" y="765"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <interface id="2" language="java" name="ca.csf.dfc.poo.interfaces.IFormatDataAndSave" project="TP-JAVA" 
+  <interface id="1" language="java" name="ca.csf.dfc.poo.interfaces.IFormatDataAndSave" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/IFormatDataAndSave.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="909" y="550"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -19,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="3" language="java" name="ca.csf.dfc.poo.interfaces.IGenerateShapes" project="TP-JAVA" 
+  <interface id="2" language="java" name="ca.csf.dfc.poo.interfaces.IGenerateShapes" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/IGenerateShapes.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="232" x="483" y="446"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -28,7 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="4" language="java" name="ca.csf.dfc.poo.interfaces.IImportShapes" project="TP-JAVA" 
+  <interface id="3" language="java" name="ca.csf.dfc.poo.interfaces.IImportShapes" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/IImportShapes.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="114" y="483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="5" language="java" name="ca.csf.dfc.poo.interfaces.ISaveShapes" project="TP-JAVA" 
+  <interface id="4" language="java" name="ca.csf.dfc.poo.interfaces.ISaveShapes" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/ISaveShapes.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1193" y="316"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,16 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="6" language="java" name="ca.csf.dfc.poo.classes.ConnectToLocalDrive" project="TP-JAVA" 
-    file="/TP-JAVA/src/ca/csf/dfc/poo/classes/ConnectToLocalDrive.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="182" x="261" y="446"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="ca.csf.dfc.poo.classes.FormatDataToSVG" project="TP-JAVA" 
+  <class id="5" language="java" name="ca.csf.dfc.poo.classes.FormatDataToSVG" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/classes/FormatDataToSVG.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="992" y="122"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="ca.csf.dfc.poo.classes.FormatDataToXML" project="TP-JAVA" 
+  <class id="6" language="java" name="ca.csf.dfc.poo.classes.FormatDataToXML" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/classes/FormatDataToXML.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="760" y="207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="ca.csf.dfc.poo.classes.GenerateShapesXML" project="TP-JAVA" 
+  <class id="7" language="java" name="ca.csf.dfc.poo.classes.GenerateShapesXML" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/classes/GenerateShapesXML.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="502" y="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="ca.csf.dfc.poo.classes.ImportShapesFromXML" project="TP-JAVA" 
+  <class id="8" language="java" name="ca.csf.dfc.poo.classes.ImportShapesFromXML" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/classes/ImportShapesFromXML.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="213" y="199"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,9 +73,27 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="ca.csf.dfc.poo.classes.SaveShapesOnLocalDrive" project="TP-JAVA" 
+  <class id="9" language="java" name="ca.csf.dfc.poo.classes.SaveShapesOnLocalDrive" project="TP-JAVA" 
     file="/TP-JAVA/src/ca/csf/dfc/poo/classes/SaveShapesOnLocalDrive.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1210" y="550"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="10" language="java" name="ca.csf.dfc.poo.interfaces.IConnectToDB" project="TP-JAVA" 
+    file="/TP-JAVA/src/ca/csf/dfc/poo/interfaces/IConnectToDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="341" y="531"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="ca.csf.dfc.poo.classes.ConnectToLocalDrive" project="TP-JAVA" 
+    file="/TP-JAVA/src/ca/csf/dfc/poo/classes/ConnectToLocalDrive.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="367" y="744"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -104,49 +104,49 @@
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
-  <realization id="13">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="14">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="15" name="m_importData"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="17">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <realization id="18">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="19">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="20" name="m_formatDataAndSave"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+  <association id="13">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="14" name="m_importData"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="23" name="m_connectToDB"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="25">    
+  <realization id="16">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="17">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
+  <association id="18">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="19" name="m_connectToDB"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="22" name="m_formatDataAndSave"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="24">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="25">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
   <realization id="26">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
