@@ -18,8 +18,12 @@ import javax.xml.stream.XMLStreamReader;
 import ca.csf.dfc.poo.interfaces.IConnectToDB;
 
 /**
- * @author Maximilian
- *
+ * Classe permettant une connexion à un document XML sur le disque dur local pour en permettre l'importation de données
+ * 
+ * CRITIQUE : la faiblesse  de cette classe est qu'elle a 2 objectifs : se connecter EN LOCAL (seulement)  pour accéder 
+ * à d'un document en XML (seulement).
+ * Il aurait fallu découpler connection et type de fichier lu de sorte à permettre à différents modules de lecture de fichier (XML, SVG, JASON, etc)
+ * de n'avoir à faire qu'à une classe par type de support 
  */
 public class ConnectToLocalDrive implements IConnectToDB {
 	
@@ -27,7 +31,7 @@ public class ConnectToLocalDrive implements IConnectToDB {
 	private String m_pathToFolder = null;
 	
 	/**
-	 * ctr
+	 * constructeur
 	 */
 	
 	public ConnectToLocalDrive() {

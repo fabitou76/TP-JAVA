@@ -12,6 +12,7 @@ import javax.xml.stream.XMLStreamException;
 import ca.csf.dfc.poo.classes.Shape;
 
 /**
+ * Interface servant de base initiale pour lancer un processus de chargement de formes stockées sur un support
  * @author Maximilian
  *
  */
