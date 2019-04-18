@@ -10,6 +10,7 @@ import ca.csf.dfc.poo.classes.Line;
 import ca.csf.dfc.poo.classes.Rectangle;
 
 /**
+ * Interface permettant  d'importer les données de formes pour ensuite les générer sous formes d'objet Shape
  * @author Maximilian
  *
  */
