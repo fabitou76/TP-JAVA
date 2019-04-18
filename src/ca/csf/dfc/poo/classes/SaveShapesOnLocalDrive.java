@@ -76,26 +76,50 @@ public class SaveShapesOnLocalDrive implements ISaveShapes {
 		
 	}
 	
+	/**
+	 * Pour returner le path.
+	 * @return le path
+	 */
 	public String getM_Path() {
 		return m_Path;
 	}
-
+	
+	/**
+	 * Pour modifier le path.
+	 * @param m_Path le path
+	 */
 	public void setM_Path(String m_Path) {
 		this.m_Path = m_Path;
 	}
-
+	
+	/**
+	 * Pour returner une liste de shapes.
+	 * @return la liste de shapes
+	 */
 	public ArrayList<Shape> getM_ListShapes() {
 		return m_ListShapes;
 	}
-
+	
+	/**
+	 * Pour modifier la liste de shapes
+	 * @param m_ListShapes la liste de shapes
+	 */
 	public void setM_ListShapes(ArrayList<Shape> m_ListShapes) {
 		this.m_ListShapes = m_ListShapes;
 	}
-
+	
+	/**
+	 * Pour returner type de formatage du fichier
+	 * @return le type de formatage
+	 */
 	public IFormatDataAndSave getM_formatDataAndSave() {
 		return m_formatDataAndSave;
 	}
-
+	
+	/**
+	 * Pour modifier le type de formatage
+	 * @param m_formatDataAndSave le type de formatage
+	 */
 	public void setM_formatDataAndSave(IFormatDataAndSave m_formatDataAndSave) {
 		this.m_formatDataAndSave = m_formatDataAndSave;
 	}

@@ -246,8 +246,19 @@ public class WorkSpace extends JPanel{
 					Point point = new Point();
 					point.x = p_arg0.getX();
 					point.y = p_arg0.getY();
-					WorkSpace.this.setFinalPoint(point);
-					WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
+					
+					if (point.x > WorkSpace.this.m_initialPoint.x && point.y > WorkSpace.this.m_initialPoint.y) {
+
+						WorkSpace.this.setFinalPoint(point);
+						WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
+					} else {
+
+						WorkSpace.this.m_initialPoint = null;
+						WorkSpace.this.m_finalPoint = null;
+						WorkSpace.this.m_testP1.setText(""); //test
+						WorkSpace.this.m_testP2.setText(""); //test
+					}
+					
 				}
 				
 				if(WorkSpace.this.coordinatesAreSet()) {
@@ -323,6 +334,9 @@ public class WorkSpace extends JPanel{
 	public void resetCoordinates(){
 		this.m_initialPoint = null;
 		this.m_finalPoint = null;
+		
+		WorkSpace.this.m_testP1.setText(""); //test
+		WorkSpace.this.m_testP2.setText(""); //test
 	}
 
 	/**

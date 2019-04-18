@@ -89,6 +89,9 @@ public class ImportShapesFromXML implements IImportShapes {
 		}
 	}
 	
+	/**
+	 * Pour faire la connection
+	 */
 	public void connection() {
 		try {
 			this.m_connectToDB.connectToDB();
@@ -109,6 +112,10 @@ public class ImportShapesFromXML implements IImportShapes {
 		}
 	}
 	
+	/**
+	 * Pour vérifier le fichier à importer
+	 * @throws XMLStreamException si jamais le fichier une erreur 
+	 */
 	private void checkFile() throws XMLStreamException {
 		this.m_xmlDoc.next();
 		 if (!this.m_xmlDoc.getLocalName().equals("ListofShapes")) {
@@ -117,6 +124,9 @@ public class ImportShapesFromXML implements IImportShapes {
            }		
 	}
 
+	/**
+	 * Pour génerer les shapes  
+	 */
 	@Override
 	public void generateShapes() throws FileNotFoundException, XMLStreamException, FactoryConfigurationError {
 		this.m_xmlDoc.next();
