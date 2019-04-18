@@ -36,9 +36,13 @@ public class ShapeFactory {
 			break;
 		default:
 			newShape = null;
+			break;
 		}
-		newShape.setHeight(Math.abs(height));
-		newShape.setWidth(Math.abs(width));
+		
+		if(newShape != null) {
+			newShape.setHeight(Math.abs(height));
+			newShape.setWidth(Math.abs(width));
+		}
 		return newShape;
 
 	}
