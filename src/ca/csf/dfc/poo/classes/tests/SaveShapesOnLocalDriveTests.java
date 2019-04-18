@@ -20,14 +20,15 @@ class SaveShapesOnLocalDriveTests {
 	//verifier que la classe passée en paramètre est la bonne et 
 	//est attribuée à la bonne variable : cas pour XML
 	
-	void ctrInit_casFormatDataToXML_normal() {
+	void ctrInit_appelDeFormatDataToXML_normal() {
 		//Arranger
 		
 		ArrayList<Shape> list = null;   
 		SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToXML(list));		
 		
 		//Agir & Auditer
-		assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
+//		assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
+		assertSame(test1.getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
 	}
 	
 	//verifier que la liste passée en paramètres est attribuée à la bonne variable

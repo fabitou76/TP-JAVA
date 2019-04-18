@@ -58,9 +58,7 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	
 	@Override
 	public String checkFileExtension(String p_folderName) {
-		if (! p_folderName.endsWith(".xml")){
-			p_folderName +=".xml";
-		}
+		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" : p_folderName;
 		return p_folderName;
 	}
 	
