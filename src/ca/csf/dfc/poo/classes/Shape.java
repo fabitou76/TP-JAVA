@@ -17,12 +17,10 @@ import ca.csf.dfc.poo.interfaces.IGenerateShapes;
  */
 public abstract class Shape {
 
-	//private static final int DEFAULT_WIDTH = 0;
-	//private static final int DEFAULT_HEIGHT = 0;
 	
 	private Point m_initialPoint;
 	private Point m_finalPoint;
-	private String m_nom = "rectangle";
+	private String m_nom;
 	private int m_height;
 	private int m_width;
 	private Color m_fillColor;
@@ -64,40 +62,40 @@ public abstract class Shape {
 
 
 	public void setIntialPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_initialPoint = p_point;
 		
 	}
 
 
 	public void setFinalPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_finalPoint = p_point;
 		
 	}
 
 
 	public void setHeight(int p_height) {
-		if(p_height < 1) {
-			throw new IllegalArgumentException();
-		}
+
+		
 		this.m_height = p_height;
 		
 	}
 
 	
 	public void setWidth(int p_width) {
-		if(p_width < 1) {
-			throw new IllegalArgumentException();
-		}
 		this.m_width = p_width;
 		
 	}
@@ -138,6 +136,10 @@ public abstract class Shape {
 	}
 	
 	public void setBorderWidth(int p_borderWidth) {
+		if(p_borderWidth < 0) {
+			throw new IllegalArgumentException();
+		}
+		
 		this.m_borderWidth = p_borderWidth;
 		
 	}

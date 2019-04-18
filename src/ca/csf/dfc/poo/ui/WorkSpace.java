@@ -68,7 +68,7 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setSelectedBorderWidth(int p_width) {
-		if(p_width < 1 || p_width > 5) {
+		if(p_width < 0) {
 			throw new IllegalArgumentException();
 		}
 		this.m_selectedBorderWidth = p_width;
@@ -90,20 +90,24 @@ public class WorkSpace extends JPanel{
 	}
 	
 	public void setInitialPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_initialPoint = p_point;
 	}
 	
 	public void setFinalPoint(Point p_point) {
+		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
+		
 		this.m_finalPoint = p_point;
 	}
 	
@@ -317,11 +321,13 @@ public class WorkSpace extends JPanel{
 					
 				}
 				
+				
 				if (selectedShape != null && shape.equals(selectedShape)) {
 					g2.setColor(Color.GRAY);
 					g2.setStroke(new BasicStroke(5, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
 					p_Graphic.drawRect(coordX1-5,coordY1-5, width+10, height+10);
 				}
+				
 			}
 		}
 	}
