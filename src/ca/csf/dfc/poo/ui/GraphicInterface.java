@@ -36,6 +36,20 @@ public class GraphicInterface extends JFrame{
     JButton m_btn_line = new JButton(new ImageIcon("src/line.png"));
     JButton m_btn_clear = new JButton("Clear");
     
+    /* Fabio */
+    JButton m_btn_select = new JButton(new ImageIcon("src/select.png"));
+    JButton m_btn_delete = new JButton(new ImageIcon("src/delete.png"));
+    
+    JButton m_btn_up = new JButton("Up");
+    JButton m_btn_down = new JButton("Down");
+    JButton m_btn_left = new JButton("Left");
+    JButton m_btn_right = new JButton("Right");
+    
+    JButton m_btn_size_up = new JButton("Size +");
+    JButton m_btn_size_down = new JButton("Size -");
+    
+    /**/
+    
     String[] m_ColorChoice = {"Aucune", "Blanc", "Noir", "Bleu", "Rouge", "Jaune", "Vert", "Orange"};
     Integer[] m_BorderWidthOptions = {1, 2, 3, 4, 5};
     
@@ -43,7 +57,7 @@ public class GraphicInterface extends JFrame{
     JComboBox m_BorderColor = new JComboBox(m_ColorChoice);
     JComboBox m_FillColor = new JComboBox(m_ColorChoice);
     JComboBox m_BorderWidth = new JComboBox(m_BorderWidthOptions);
-    
+
     JMenuBar menuBar = new JMenuBar();
     
     JMenu m_Fichier = new JMenu("Fichier");
@@ -82,10 +96,34 @@ public class GraphicInterface extends JFrame{
 		JPanel panneauBorderWidth = new JPanel();
 		panneauBorderWidth.setLayout(new GridLayout(2, 1));
 		
+		/* Fabio */
+		
+		JPanel panneauShapeProperties = new JPanel();
+		panneauShapeProperties.setLayout(new GridLayout(8, 1));
+		panneauShapeProperties.add(this.m_btn_up);
+		panneauShapeProperties.add(this.m_btn_down);
+		panneauShapeProperties.add(this.m_btn_left);
+		panneauShapeProperties.add(this.m_btn_right);
+		panneauShapeProperties.add(this.m_btn_size_up);
+		panneauShapeProperties.add(this.m_btn_size_down);
+		
+		this.m_btn_up.addActionListener(new ShapePositionHandler());
+		this.m_btn_down.addActionListener(new ShapePositionHandler());
+		this.m_btn_left.addActionListener(new ShapePositionHandler());
+		this.m_btn_right.addActionListener(new ShapePositionHandler());
+	    
+		this.m_btn_size_up.addActionListener(new ShapeSizeHandler());
+		this.m_btn_size_down.addActionListener(new ShapeSizeHandler());
+		/**/
+		
 		this.m_btn_elipse.addActionListener(new ShapeBtnHandler());
 		this.m_btn_line.addActionListener(new ShapeBtnHandler());
 		this.m_btn_rectangle.addActionListener(new ShapeBtnHandler());
 		this.m_btn_clear.addActionListener(new ClearBtnHandler());
+		/* Fabio */
+		this.m_btn_select.addActionListener(new SelectBtnHandler());
+		this.m_btn_delete.addActionListener(new DeleteBtnHandler());
+		/**/
 		
 		this.m_BorderColor.addActionListener(new ComboboxHandler());
 		this.m_BorderWidth.addActionListener(new ComboboxHandler());
@@ -96,7 +134,10 @@ public class GraphicInterface extends JFrame{
         panneauForme.add(this.m_btn_rectangle);
         panneauForme.add(this.m_btn_line);
         panneauForme.add(this.m_btn_clear);
-        
+        /* Fabio */
+        panneauForme.add(this.m_btn_select);
+        panneauForme.add(this.m_btn_delete);
+        /* */        
         panneauForme.add(panneauBorderColor);
         panneauForme.add(panneauFillColor);
         panneauForme.add(panneauBorderWidth);
@@ -109,7 +150,26 @@ public class GraphicInterface extends JFrame{
         panneauBorderWidth.add(this.m_BorderWidth);
     
         this.add(panneauForme, BorderLayout.NORTH);
+        this.add(panneauShapeProperties, BorderLayout.EAST);
         
+	}
+	
+	protected void disableEditShapeFields() {
+		this.m_btn_up.setEnabled(false);
+		this.m_btn_down.setEnabled(false);
+		this.m_btn_left.setEnabled(false);
+		this.m_btn_right.setEnabled(false);
+		this.m_btn_size_up.setEnabled(false);
+		this.m_btn_size_down.setEnabled(false);
+	}
+	
+	protected void enableEditShapeFields() {
+		this.m_btn_up.setEnabled(true);
+		this.m_btn_down.setEnabled(true);
+		this.m_btn_left.setEnabled(true);
+		this.m_btn_right.setEnabled(true);
+		this.m_btn_size_up.setEnabled(true);
+		this.m_btn_size_down.setEnabled(true);
 	}
 
 	
@@ -197,21 +257,127 @@ public class GraphicInterface extends JFrame{
 		public void actionPerformed(ActionEvent p_arg0) {
 			Object compt = p_arg0.getSource();
 			if(compt.equals(GraphicInterface.this.m_BorderColor)) {
-				GraphicInterface.this.m_workSpace.setSelectedBorderColor(GraphicInterface.this.getBorderColor());
+				if (GraphicInterface.this.m_workSpace.getSelectedShape() != null) {
+					GraphicInterface.this.m_workSpace.getSelectedShape().setBorderColor(GraphicInterface.this.getBorderColor());
+					GraphicInterface.this.m_workSpace.repaint();
+				}
 				
+				GraphicInterface.this.m_workSpace.setSelectedBorderColor(GraphicInterface.this.getBorderColor());
 			}
 			else if (compt.equals(GraphicInterface.this.m_FillColor)) {
 
+				if (GraphicInterface.this.m_workSpace.getSelectedShape() != null) {
+					GraphicInterface.this.m_workSpace.getSelectedShape().setFillColor(GraphicInterface.this.getFillColor());
+					GraphicInterface.this.m_workSpace.repaint();
+				}
+				
 				GraphicInterface.this.m_workSpace.setSelectedFillColor(GraphicInterface.this.getFillColor());
-
 			}
 			else if(compt.equals(GraphicInterface.this.m_BorderWidth)){
+				if (GraphicInterface.this.m_workSpace.getSelectedShape() != null) {
+					GraphicInterface.this.m_workSpace.getSelectedShape().setBorderWidth(GraphicInterface.this.getBorderWidth());
+					GraphicInterface.this.m_workSpace.repaint();
+				}
+				
 				GraphicInterface.this.m_workSpace.setSelectedBorderWidth(GraphicInterface.this.getBorderWidth());
-			
 			}
 		}
 	}
 	
+	
+	private class ShapeSizeHandler implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			Object compt = p_arg0.getSource();
+			if (GraphicInterface.this.m_workSpace.getSelectedShape() != null) {
+				if(compt.equals(GraphicInterface.this.m_btn_size_up)) {
+				
+					int width = GraphicInterface.this.m_workSpace.getSelectedShape().getWidth();
+					int height = GraphicInterface.this.m_workSpace.getSelectedShape().getHeight();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+					
+					GraphicInterface.this.m_workSpace.getSelectedShape().setHeight(height+1);
+					GraphicInterface.this.m_workSpace.getSelectedShape().setWidth(width+1);
+					finalPoint.x = finalPoint.x + 1;
+					finalPoint.y = finalPoint.y + 1;
+					
+					GraphicInterface.this.m_workSpace.repaint();
+				
+				} else if(compt.equals(GraphicInterface.this.m_btn_size_down)) {
+					int width = GraphicInterface.this.m_workSpace.getSelectedShape().getWidth();
+					int height = GraphicInterface.this.m_workSpace.getSelectedShape().getHeight();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+					
+					if (height > 1 && width > 1) {
+						GraphicInterface.this.m_workSpace.getSelectedShape().setHeight(height-1);
+						GraphicInterface.this.m_workSpace.getSelectedShape().setWidth(width-1);
+						finalPoint.x = finalPoint.x - 1;
+						finalPoint.y = finalPoint.y - 1;
+						
+						GraphicInterface.this.m_workSpace.repaint();
+					}
+				} 
+			}
+			
+		}
+		
+	}
+	
+	
+	private class ShapePositionHandler implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			Object compt = p_arg0.getSource();
+			
+			if (GraphicInterface.this.m_workSpace.getSelectedShape() != null) {
+				if(compt.equals(GraphicInterface.this.m_btn_up)) {
+					Point initialPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getInitialPoint();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+					
+					if (initialPoint.y > 1) {
+						initialPoint.y = initialPoint.y - 1;
+						
+						finalPoint.y = finalPoint.y - 1;
+						
+						GraphicInterface.this.m_workSpace.repaint();
+					}
+				} else if(compt.equals(GraphicInterface.this.m_btn_down)) {
+					Point initialPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getInitialPoint();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+				
+					initialPoint.y = initialPoint.y + 1;
+					
+					finalPoint.y = finalPoint.y + 1;
+					
+					GraphicInterface.this.m_workSpace.repaint();
+					
+				} else if(compt.equals(GraphicInterface.this.m_btn_left)) {
+					Point initialPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getInitialPoint();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+					
+					if (initialPoint.x > 1) {
+						initialPoint.x = initialPoint.x - 1;
+						
+						finalPoint.x = finalPoint.x - 1;
+						
+						GraphicInterface.this.m_workSpace.repaint();
+					}
+				} else if(compt.equals(GraphicInterface.this.m_btn_right)) {
+					Point initialPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getInitialPoint();
+					Point finalPoint = GraphicInterface.this.m_workSpace.getSelectedShape().getFinalPoint();
+				
+					initialPoint.x = initialPoint.x + 1;
+					
+					finalPoint.x = finalPoint.x + 1;
+					
+					GraphicInterface.this.m_workSpace.repaint();
+				}
+			}
+			
+		}		
+	}
 
 	private class ShapeBtnHandler implements ActionListener{
 
@@ -233,6 +399,7 @@ public class GraphicInterface extends JFrame{
 			}
 
 			GraphicInterface.this.m_workSpace.m_testShapeName.setText(itemSelected);
+			GraphicInterface.this.m_workSpace.clearShapeSelection();
 		}
 		
 	}
@@ -244,8 +411,30 @@ public class GraphicInterface extends JFrame{
 			GraphicInterface.this.m_workSpace.getShapeList().clear();
 			GraphicInterface.this.m_workSpace.repaint();
 		}
-		
 	}
+	
+	/* Fabio */
+	private class SelectBtnHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			GraphicInterface.this.m_workSpace.setSelectedShape("select");
+			GraphicInterface.this.m_workSpace.m_testShapeName.setText("select");
+		}
+	}
+	
+	private class DeleteBtnHandler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent p_arg0) {
+			Shape selectedShape = GraphicInterface.this.m_workSpace.getSelectedShape();
+			if (selectedShape != null) {
+				GraphicInterface.this.m_workSpace.removeShape(selectedShape);
+			}
+			
+		}
+	}
+	/* Fabio */
 	
 	public Integer getBorderWidth() {
 		return  Integer.valueOf(this.m_BorderWidth.getSelectedItem().toString());
