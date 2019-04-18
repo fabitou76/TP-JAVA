@@ -33,7 +33,7 @@ public class ImportShapesFromXML implements IImportShapes {
 	/**
 	 * DONNEES MEMBRES
 	 */
-	ConnectToLocalDrive m_connectToDB;
+	IConnectToDB m_connectToDB;
 	IGenerateShapes m_importData;
 	List<Shape> m_ListShapes = null;
 	XMLStreamReader m_xmlDoc;
@@ -85,6 +85,12 @@ public class ImportShapesFromXML implements IImportShapes {
 			this.m_xmlDoc = this.m_connectToDB.getXMLDoc();
 			this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
 		} catch (FactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
