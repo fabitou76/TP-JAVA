@@ -123,6 +123,7 @@ public class ImportShapesFromXML implements IImportShapes {
 				 break;
 			 case"line":
 				 this.m_ListShapes.add(this.m_importData.importDataLine(new Line()));
+				 break;
 			 }			 
 		 }
 	}
