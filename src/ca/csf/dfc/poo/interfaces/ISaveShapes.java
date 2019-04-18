@@ -12,7 +12,7 @@ import javax.xml.stream.XMLStreamException;
  * @author Maximilian
  *
  */
-public interface ISaveData {
+public interface ISaveShapes {
 	public void selectFolder();
 	public void saveData() throws IOException, XMLStreamException, FactoryConfigurationError;
 

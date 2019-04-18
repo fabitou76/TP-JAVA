@@ -18,13 +18,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
-import ca.csf.dfc.poo.interfaces.ISaveData;
+import ca.csf.dfc.poo.interfaces.ISaveShapes;
 
 /**
  * @author Maximilian
  *
  */
-public class SaveShapes implements ISaveData {
+public class SaveShapesOnLocalDrive implements ISaveShapes {
 	
 	/**
 	 * DONNEES MEMBRES
@@ -39,7 +39,7 @@ public class SaveShapes implements ISaveData {
 	/**
 	 * ctr
 	 */
-	public SaveShapes(IFormatDataAndSave p_formatDataAndSave) {
+	public SaveShapesOnLocalDrive(IFormatDataAndSave p_formatDataAndSave) {
 		this.m_formatDataAndSave = p_formatDataAndSave;
 		this.m_ListShapes = this.m_formatDataAndSave.getShapeList();
 		
