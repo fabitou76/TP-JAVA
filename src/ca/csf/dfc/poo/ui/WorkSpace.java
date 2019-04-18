@@ -19,7 +19,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * WorkSpace est la surface sur laquelle l'utilisateur peut dessiner
  * 
- * @author Hugo
+ * @author Laurence, Hugo , Maximilian, Fabio
  *
  */
 public class WorkSpace extends JPanel{
@@ -89,7 +89,7 @@ public class WorkSpace extends JPanel{
 	 * @throws IllegalArgumentException si la largeur sélectionnée est <1 ou >5
 	 */
 	public void setSelectedBorderWidth(int p_width) {
-		if(p_width < 0) {
+		if(p_width < 1 || p_width > 5) {
 			throw new IllegalArgumentException();
 		}
 		this.m_selectedBorderWidth = p_width;
@@ -126,13 +126,11 @@ public class WorkSpace extends JPanel{
 	 *  @throws IllegalArgumentException  si x ou y sont plus petits que 0 
 	 */
 	public void setInitialPoint(Point p_point) {
-		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
-		
 		this.m_initialPoint = p_point;
 	}
 	
@@ -142,13 +140,11 @@ public class WorkSpace extends JPanel{
 	 * @throws IllegalArgumentException  si x ou y sont plus petits que 0 
 	 */
 	public void setFinalPoint(Point p_point) {
-		
 		if(p_point != null) {
 			if(p_point.x < 0 || p_point.y < 0) {
 				throw new IllegalArgumentException();
 			}
 		}
-		
 		this.m_finalPoint = p_point;
 	}
 	/**
@@ -168,8 +164,8 @@ public class WorkSpace extends JPanel{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Retourne  le type de forme
+	 * @return selectedShape
 	 */
 	public Shape getSelectedShape() {
 		return this.selectedShape;
@@ -399,13 +395,11 @@ public class WorkSpace extends JPanel{
 					
 				}
 				
-				
 				if (selectedShape != null && shape.equals(selectedShape)) {
 					g2.setColor(Color.GRAY);
 					g2.setStroke(new BasicStroke(5, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
 					p_Graphic.drawRect(coordX1-5,coordY1-5, width+10, height+10);
 				}
-				
 			}
 		}
 	}
