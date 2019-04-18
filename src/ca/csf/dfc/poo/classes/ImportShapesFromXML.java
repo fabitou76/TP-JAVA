@@ -48,6 +48,16 @@ public class ImportShapesFromXML implements IImportShapes {
 	}
 	
 
+	public IConnectToDB getM_connectToDB() {
+		return m_connectToDB;
+	}
+
+
+	public void setM_connectToDB(IConnectToDB m_connectToDB) {
+		this.m_connectToDB = m_connectToDB;
+	}
+
+
 	/**
 	 * 
 	 * @param p_shapeList
@@ -82,8 +92,11 @@ public class ImportShapesFromXML implements IImportShapes {
 	public void connection() {
 		try {
 			this.m_connectToDB.connectToDB();
-			this.m_xmlDoc = this.m_connectToDB.getXMLDoc();
-			this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
+			if (this.getM_connectToDB() !=null) {
+
+				this.m_xmlDoc = this.m_connectToDB.getXMLDoc();
+				this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
+			}
 		} catch (FactoryConfigurationError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

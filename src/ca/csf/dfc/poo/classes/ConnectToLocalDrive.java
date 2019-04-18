@@ -41,20 +41,21 @@ public class ConnectToLocalDrive implements IConnectToDB {
 	
 	public void connectToDB() {
 		this.selectDataFolder();
-		try {
-			this.connect();
-		} catch (FileNotFoundException | XMLStreamException | FactoryConfigurationError e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (this.m_pathToFolder != null) {
+			try {
+				this.connect();
+			} catch (FileNotFoundException | XMLStreamException | FactoryConfigurationError e) {
+				// TODO Auto-generated catch block
+				System.out.println("aucune adresse sélectionnée");
+			}
 		}
+		
 	}
 	
 
 	@Override
 	public void selectDataFolder() {
 		//utiliser JFileChooser
-		
-		
 		
 		
 		String folderName = null;
