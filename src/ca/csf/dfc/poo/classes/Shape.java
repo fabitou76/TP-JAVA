@@ -11,7 +11,7 @@ import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 /*
  * Classe abstraite Shape
  * 
- * Défini les données membres et les méthodes des formes
+ * Dï¿½fini les donnï¿½es membres et les mï¿½thodes des formes
  * 
  * Auteur: Hugo
  */
@@ -36,7 +36,7 @@ public abstract class Shape {
 	}
 	
 	/*
-	 * Remplace m_nom par le string en paramètre
+	 * Remplace m_nom par le string en paramï¿½tre
 	 * ne retourne rien
 	 */
 	public void setName(String p_name) {
@@ -47,14 +47,14 @@ public abstract class Shape {
 	}
 
 	/*
-	 * Retourne le point (coordonnés) du premier clic de la souris dans le workspace
+	 * Retourne le point (coordonnï¿½s) du premier clic de la souris dans le workspace
 	 */
 	public Point getInitialPoint() {
 		return this.m_initialPoint;
 	}
 
 	/*
-	 * Retourne le point (coordonnés) du deuxième clic de la souris dans le workspace
+	 * Retourne le point (coordonnï¿½s) du deuxiï¿½me clic de la souris dans le workspace
 	 */
 	public Point getFinalPoint() {
 		return this.m_finalPoint;
