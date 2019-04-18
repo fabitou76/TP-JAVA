@@ -16,10 +16,11 @@ import ca.csf.dfc.poo.interfaces.ISaveShapes;
  */
 public class SaveShapesOnLocalDrive_pourTest implements ISaveShapes {
 	
-	private int m_compteurAppelClasse;
+	private int m_compteurAppelConstructeur;
+	private int m_compteurAppel;
 	
 	public SaveShapesOnLocalDrive_pourTest() {
-		this.m_compteurAppelClasse = 0;
+		this.m_compteurAppelConstructeur = 0;
 	}
 
 	@Override
