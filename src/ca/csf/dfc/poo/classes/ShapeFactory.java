@@ -39,10 +39,10 @@ public class ShapeFactory {
 			break;
 		}
 		
-		if(newShape != null) {
+		
 			newShape.setHeight(Math.abs(height));
 			newShape.setWidth(Math.abs(width));
-		}
+		
 		return newShape;
 
 	}

@@ -241,7 +241,7 @@ public class GraphicInterface extends JFrame{
 			importFromXML.createShapes();
 			
 			
-			GraphicInterface.this.m_workSpace.repaint();
+			GraphicInterface.this.m_workSpace.refreshWorkSpace();
 		}
 		
 	}
