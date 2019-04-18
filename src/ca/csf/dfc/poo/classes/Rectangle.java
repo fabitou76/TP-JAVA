@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.xml.stream.XMLStreamException;
 
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
-import ca.csf.dfc.poo.interfaces.IImportData;
+import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 
 public class Rectangle extends Shape{
 
@@ -28,7 +28,7 @@ public class Rectangle extends Shape{
 	}
 
 	@Override
-	public void importData(IImportData p_import) throws XMLStreamException {
+	public void importData(IGenerateShapes p_import) throws XMLStreamException {
 		p_import.importDataRectangle(this);
 		
 	}

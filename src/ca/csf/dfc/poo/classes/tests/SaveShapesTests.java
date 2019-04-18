@@ -11,7 +11,7 @@ import ca.csf.dfc.poo.classes.FormatDataToSVG;
 import ca.csf.dfc.poo.classes.FormatDataToXML;
 import ca.csf.dfc.poo.classes.Line;
 import ca.csf.dfc.poo.classes.Rectangle;
-import ca.csf.dfc.poo.classes.SaveShapes;
+import ca.csf.dfc.poo.classes.SaveShapesOnLocalDrive;
 import ca.csf.dfc.poo.classes.Shape;
 
 class SaveShapesTests {
@@ -24,7 +24,7 @@ class SaveShapesTests {
 		//Arranger
 		
 		ArrayList<Shape> list = null;   
-		SaveShapes test1 = new SaveShapes(new FormatDataToXML(list));		
+		SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToXML(list));		
 		
 		//Agir & Auditer
 		assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToXML");
@@ -40,7 +40,7 @@ class SaveShapesTests {
 			rect1.setName("Rectangle de test pour un  test");
 			ArrayList<Shape> list = new ArrayList<Shape>();   
 			list.add(rect1);
-			SaveShapes test1 = new SaveShapes(new FormatDataToXML(list));	
+			SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToXML(list));	
 			
 			//Agir & Auditer
 			assertSame(test1.getM_ListShapes().get(0).getName(),"Rectangle de test pour un  test");
@@ -51,7 +51,7 @@ class SaveShapesTests {
 				list.add(new Elipse());
 				list.add(new Rectangle());
 			}
-			SaveShapes test2 = new SaveShapes(new FormatDataToXML(list));
+			SaveShapesOnLocalDrive test2 = new SaveShapesOnLocalDrive(new FormatDataToXML(list));
 			assertTrue(test2.getM_ListShapes().size() ==301);
 		}
 		
@@ -61,7 +61,7 @@ class SaveShapesTests {
 		void ctrInit_casFormatDataToSVG_normal() {
 			//Arranger
 			ArrayList<Shape> listShapes = null;
-			SaveShapes test1 = new SaveShapes(new FormatDataToSVG(listShapes));		
+			SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToSVG(listShapes));		
 			
 			//Agir & Auditer
 			assertSame(test1.getM_formatDataAndSave().getClass().getName(),"ca.csf.dfc.poo.classes.FormatDataToSVG");
@@ -77,7 +77,7 @@ class SaveShapesTests {
 			rect1.setName("Rectangle de test pour un  test");
 			ArrayList<Shape> list = new ArrayList<Shape>();   
 			list.add(rect1);
-			SaveShapes test1 = new SaveShapes(new FormatDataToSVG(list));	
+			SaveShapesOnLocalDrive test1 = new SaveShapesOnLocalDrive(new FormatDataToSVG(list));	
 			
 			//Agir & Auditer
 			assertSame(test1.getM_ListShapes().get(0).getName(),"Rectangle de test pour un  test");
@@ -88,7 +88,7 @@ class SaveShapesTests {
 				list.add(new Elipse());
 				list.add(new Rectangle());
 			}
-			SaveShapes test2 = new SaveShapes(new FormatDataToSVG(list));
+			SaveShapesOnLocalDrive test2 = new SaveShapesOnLocalDrive(new FormatDataToSVG(list));
 			assertTrue(test2.getM_ListShapes().size() ==301);
 			assertTrue(test2.getM_ListShapes().get(1).getClass().getName() == 
 					"ca.csf.dfc.poo.classes.Line");

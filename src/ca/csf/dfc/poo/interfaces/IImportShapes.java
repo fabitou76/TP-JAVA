@@ -21,4 +21,6 @@ public interface IImportShapes {
 
 	void setShapeList(List<Shape> p_shapeList);
 
+	public void createShapes();
+
 }

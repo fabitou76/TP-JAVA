@@ -13,7 +13,7 @@ import ca.csf.dfc.poo.classes.Rectangle;
  * @author Maximilian
  *
  */
-public interface IImportData {
+public interface IGenerateShapes {
 
 	Elipse importDataEllipse(Elipse p_shape) throws XMLStreamException;
 	Line importDataLine(Line p_shape) throws XMLStreamException;

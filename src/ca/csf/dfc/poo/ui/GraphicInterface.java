@@ -24,6 +24,7 @@ import javax.xml.stream.XMLStreamException;
 
 import ca.csf.dfc.poo.classes.*;
 import ca.csf.dfc.poo.classes.Shape;
+import ca.csf.dfc.poo.interfaces.IImportShapes;
 
 
 public class GraphicInterface extends JFrame{
@@ -144,7 +145,7 @@ public class GraphicInterface extends JFrame{
 			
 			try {
 				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
-				new SaveShapes(new FormatDataToXML(listOfShapes)).saveData();
+				new SaveShapesOnLocalDrive(new FormatDataToXML(listOfShapes)).saveData();
 			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
 				e.printStackTrace();
 			};
@@ -158,7 +159,7 @@ public class GraphicInterface extends JFrame{
 		public void actionPerformed(ActionEvent p_arg0) {
 			try {
 				ArrayList<Shape> listOfShapes = GraphicInterface.this.m_workSpace.getShapeList();
-				new SaveShapes(new FormatDataToSVG(listOfShapes)).saveData();
+				new SaveShapesOnLocalDrive(new FormatDataToSVG(listOfShapes)).saveData();
 			} catch (FactoryConfigurationError | IOException | XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -173,16 +174,11 @@ public class GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-			ImportShapesFromXML importFromXML = new ImportShapesFromXML();
+			IImportShapes importFromXML = new ImportShapesFromXML();
 			ArrayList<Shape> listShapes = GraphicInterface.this.m_workSpace.getShapeList();
 			importFromXML.setShapeList(listShapes);
 			
-			try {
-				importFromXML.createShapes();
-			} catch (FileNotFoundException | XMLStreamException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			importFromXML.createShapes();
 			
 			
 			GraphicInterface.this.m_workSpace.repaint();
