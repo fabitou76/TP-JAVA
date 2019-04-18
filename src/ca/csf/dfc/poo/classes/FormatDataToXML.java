@@ -38,6 +38,7 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	private final static String ATTR_FILL_COLOR= "fillColor";
 	
 	private XMLStreamWriter m_xmlDoc;
+	private String m_folderName;
 	
 	private ArrayList<Shape> m_listOfShapes = null;
 	
@@ -56,10 +57,15 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	 */
 	
 	@Override
+	public String checkFileExtension(String p_folderName) {
+		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" : p_folderName;
+		return p_folderName;
+	}
+	
+	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
-		if (!p_folderName.endsWith(".xml")) {
-			p_folderName += ".xml";
-		}
+		p_folderName = checkFileExtension(p_folderName);
+		
 		FileWriter outputWriter = new FileWriter(new File(p_folderName));
 		this.m_xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 		
@@ -181,6 +187,12 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 			m_xmlDoc.writeEndElement();
 		m_xmlDoc.writeEndElement();
 		
+	}
+	public String getM_folderName() {
+		return m_folderName;
+	}
+	public void setM_folderName(String m_folderName) {
+		this.m_folderName = m_folderName;
 	}
 	
 //	String hexa(String p_hex) {

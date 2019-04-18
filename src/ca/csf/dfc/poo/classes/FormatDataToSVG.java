@@ -33,17 +33,17 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 	
 	public  FormatDataToSVG(ArrayList<Shape>p_ListOfShapes) {
 		this.m_listOfShapes = p_ListOfShapes;
-		
-		
+	}
+	
+	@Override
+	public String checkFileExtension(String p_folderName) {
+		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" :p_folderName;
+		return p_folderName;
 	}
 
 	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
-		if (this.m_listOfShapes != null && !this.m_listOfShapes.isEmpty()) {
-
-			if (!p_folderName.endsWith(".svg")) {
-				p_folderName += ".svg";
-			}
+			p_folderName = checkFileExtension(p_folderName);
 			
 			FileWriter outputWriter = new FileWriter(new File(p_folderName));
 			this.m_svgDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
@@ -75,7 +75,6 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 					this.m_svgDoc = null;
 		}
 		
-	}
 	
 	@Override
 	public ArrayList<Shape> getShapeList() {
