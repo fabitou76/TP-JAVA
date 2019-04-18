@@ -40,8 +40,13 @@ public class ShapeFactory {
 		}
 		
 		if(newShape != null) {
-			newShape.setHeight(Math.abs(height));
-			newShape.setWidth(Math.abs(width));
+			System.out.println(Math.abs(height));
+			System.out.println(Math.abs(width));
+			
+			height = Math.abs(height);
+			width = Math.abs(width);
+			newShape.setHeight(height);
+			newShape.setWidth(width);
 		}
 		return newShape;
 
