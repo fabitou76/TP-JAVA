@@ -21,7 +21,8 @@ public class ShapeFactory {
 		Point adjustedCoords[] = this.coordinatesAdjustment(p_initialPoint, p_finalPoint);
 		p_initialPoint = adjustedCoords[0];
 		p_finalPoint = adjustedCoords[1];
-
+		
+		
 		switch(p_shapeName.toLowerCase()) {
 		case "rectangle" :
 			newShape = new Rectangle(p_initialPoint, p_finalPoint);
@@ -34,9 +35,13 @@ public class ShapeFactory {
 			break;
 		default:
 			newShape = null;
+			break;
 		}
-		newShape.setHeight(Math.abs(height));
-		newShape.setWidth(Math.abs(width));
+		
+		if(newShape != null) {
+			newShape.setHeight(Math.abs(height));
+			newShape.setWidth(Math.abs(width));
+		}
 		return newShape;
 
 	}
