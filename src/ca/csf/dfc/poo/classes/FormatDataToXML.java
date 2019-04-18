@@ -56,10 +56,15 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	 */
 	
 	@Override
+	public String checkFileExtension(String p_folderName) {
+		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" :p_folderName;
+		return p_folderName;
+	}
+	
+	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
-		if (!p_folderName.endsWith(".xml")) {
-			p_folderName += ".xml";
-		}
+		p_folderName = checkFileExtension(p_folderName);
+		
 		FileWriter outputWriter = new FileWriter(new File(p_folderName));
 		this.m_xmlDoc = XMLOutputFactory.newInstance().createXMLStreamWriter(outputWriter);
 		

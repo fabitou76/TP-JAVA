@@ -14,7 +14,7 @@ import ca.csf.dfc.poo.classes.Rectangle;
 import ca.csf.dfc.poo.classes.SaveShapesOnLocalDrive;
 import ca.csf.dfc.poo.classes.Shape;
 
-class SaveShapesTests {
+class SaveShapesOnLocalDriveTests {
 
 	@Test
 	//verifier que la classe passée en paramètre est la bonne et 

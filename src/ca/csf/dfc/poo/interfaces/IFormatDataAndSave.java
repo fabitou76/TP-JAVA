@@ -31,5 +31,6 @@ public interface IFormatDataAndSave {
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException;
 	public ArrayList<Shape> getShapeList();
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError;
+	String checkFileExtension(String p_folderName);
 
 }
