@@ -99,11 +99,7 @@ class TestElipse {
 		elipse.setWidth(545);
 		
 		assertTrue(elipse.getWidth() == 545);
-		
-		/*
-		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(0));
-		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(-1));
-		*/
+
 	}
 	@Test
 	void testElipseSetHeight() {
@@ -117,11 +113,7 @@ class TestElipse {
 		elipse.setHeight(45);
 		
 		assertTrue(elipse.getHeight() == 45);
-		
-		/*
-		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(0));
-		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(-1));
-		*/
+
 	}
 	@Test
 	void testElipseSetBorderColor() {

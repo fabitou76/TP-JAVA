@@ -98,10 +98,7 @@ class TestLine {
 		
 		assertTrue(line.getWidth() == 545);
 		
-		/*
-		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(0));
-		assertThrows(IllegalArgumentException.class, () -> elipse.setWidth(-1));
-		*/
+	
 	}
 	@Test
 	void testLineSetHeight() {
@@ -116,10 +113,8 @@ class TestLine {
 		
 		assertTrue(line.getHeight() == 45);
 		
-		/*
-		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(0));
-		assertThrows(IllegalArgumentException.class, () -> elipse.setHeight(-1));
-		*/
+
+	
 	}
 	@Test
 	void testLineSetBorderColor() {

@@ -19,7 +19,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * WorkSpace est la surface sur laquelle l'utilisateur peut dessiner
  * 
- * @author Hugo
+ * @author Hugo,Fabio
  *
  */
 public class WorkSpace extends JPanel{
@@ -41,28 +41,12 @@ public class WorkSpace extends JPanel{
 	private Color m_selectedBorderColor = DEFAULT_BORDER_COLOR;
 	private Color m_selectedFillColor = null;
 	
-	
-    //test
-    JLabel m_testShapeName = new JLabel("nom");
-    JLabel m_testP1 = new JLabel("p1");
-    JLabel m_testP2 = new JLabel("p2");
-    //fin
-    
 	public WorkSpace() {
 		super();
 		this.setBackground(Color.white);
 		this.m_shapeList = new ArrayList<Shape>();
 		this.addMouseListener(new MouseHandler());
 			
-		
-       //Panel test
-        JPanel panelTest = new JPanel();
-        panelTest.setLayout(new GridLayout(3,1));
-        panelTest.add(m_testShapeName);
-        panelTest.add(m_testP1);
-        panelTest.add(m_testP2);
-        this.add(panelTest);
-       //fin test
 
 	}
 	
@@ -98,12 +82,10 @@ public class WorkSpace extends JPanel{
 	/**
 	 * Modifie la couleur de bordure s�lectionn�e
 	 * @param p_color
-	 * @throws IllegalArgumentException si p_color est null
+
 	 */
 	public void setSelectedBorderColor(Color p_color) {
-		if(p_color == null) {
-			throw new IllegalArgumentException();
-		}
+
 		this.m_selectedBorderColor = p_color;
 	}
 	
@@ -181,31 +163,26 @@ public class WorkSpace extends JPanel{
 	public void clearShapeSelection() {
 		this.selectedShape = null;
 		this.repaint();
-		System.out.println("No shape selected");
 	}
 
-	/**
-	 * 
-	 * @author Hugo
-	 *
-	 */
+
 	private class MouseHandler implements MouseListener{
 
 		@Override
 		public void mouseClicked(MouseEvent p_arg0) {
-			// TODO Auto-generated method stub
+	
 			
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent p_arg0) {
-			// TODO Auto-generated method stub
+			
 			
 		}
 
 		@Override
 		public void mouseExited(MouseEvent p_arg0) {
-			// TODO Auto-generated method stub
+		
 			
 		}
 		
@@ -230,7 +207,6 @@ public class WorkSpace extends JPanel{
 					if (drawnShape != null && drawnShape.contains(p_arg0.getX(), p_arg0.getY())) {
 						WorkSpace.this.selectedShape = shape;
 						WorkSpace.this.repaint();
-						System.out.println("Shape Selected: " + shape.getName());
 						return;
 					}
 					
@@ -244,14 +220,14 @@ public class WorkSpace extends JPanel{
 					point.x = p_arg0.getX();
 					point.y = p_arg0.getY();
 					WorkSpace.this.setInitialPoint(point);
-					WorkSpace.this.m_testP1.setText(WorkSpace.this.m_initialPoint.toString()); //test
+					
 				}
 				else if (WorkSpace.this.m_finalPoint == null) {
 					Point point = new Point();
 					point.x = p_arg0.getX();
 					point.y = p_arg0.getY();
 					WorkSpace.this.setFinalPoint(point);
-					WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
+			
 				}
 				
 				if(WorkSpace.this.coordinatesAreSet()) {
@@ -266,7 +242,7 @@ public class WorkSpace extends JPanel{
 		}
 		@Override
 		public void mouseReleased(MouseEvent p_arg0) {
-			// TODO Auto-generated method stub
+
 			
 		}
 	}
@@ -321,14 +297,12 @@ public class WorkSpace extends JPanel{
 	}
 	
 	/**
-	 * 
+	 * remet les coordonnées à null pour permettre de dessiner une autre forme
 	 */
 	public void resetCoordinates(){
 		this.m_initialPoint = null;
 		this.m_finalPoint = null;
-		
-		WorkSpace.this.m_testP1.setText(""); //test
-		WorkSpace.this.m_testP2.setText(""); //test
+
 	}
 
 	/**
