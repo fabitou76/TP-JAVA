@@ -19,7 +19,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * WorkSpace est la surface sur laquelle l'utilisateur peut dessiner
  * 
- * @author Hugo
+ * @author Hugo,Fabio
  *
  */
 public class WorkSpace extends JPanel{
@@ -82,12 +82,10 @@ public class WorkSpace extends JPanel{
 	/**
 	 * Modifie la couleur de bordure s�lectionn�e
 	 * @param p_color
-	 * @throws IllegalArgumentException si p_color est null
+
 	 */
 	public void setSelectedBorderColor(Color p_color) {
-		if(p_color == null) {
-			throw new IllegalArgumentException();
-		}
+
 		this.m_selectedBorderColor = p_color;
 	}
 	
@@ -165,14 +163,9 @@ public class WorkSpace extends JPanel{
 	public void clearShapeSelection() {
 		this.selectedShape = null;
 		this.repaint();
-		System.out.println("No shape selected");
 	}
 
-	/**
-	 * 
-	 * @author Hugo
-	 *
-	 */
+
 	private class MouseHandler implements MouseListener{
 
 		@Override
@@ -214,7 +207,6 @@ public class WorkSpace extends JPanel{
 					if (drawnShape != null && drawnShape.contains(p_arg0.getX(), p_arg0.getY())) {
 						WorkSpace.this.selectedShape = shape;
 						WorkSpace.this.repaint();
-						System.out.println("Shape Selected: " + shape.getName());
 						return;
 					}
 					
@@ -305,7 +297,7 @@ public class WorkSpace extends JPanel{
 	}
 	
 	/**
-	 * 
+	 * remet les coordonnées à null pour permettre de dessiner une autre forme
 	 */
 	public void resetCoordinates(){
 		this.m_initialPoint = null;
