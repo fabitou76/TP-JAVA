@@ -15,21 +15,15 @@ import ca.csf.dfc.poo.interfaces.IImportShapes;
 import ca.csf.dfc.poo.interfaces.IGenerateShapes;
 
 /**
+ * classe utilisée pour générer une connexion à un fichier sur le disque local pour récupérer des données au format XML 
+ * qui seront utilisées pour générer des formes de type SHape
  * @author Maximilian
  *
  */
 public class ImportShapesFromXML implements IImportShapes {
 	
-	private final static String ELM_SHAPE = "shape"; 
 	private final static String ELM_TYPE = "type"; 
-	private final static String ELM_COORD = "coord"; 
-	private final static String ELM_STYLE = "style"; 
-	private final static String ATTR_INIT_POINT = "initialPoint"; 
-	private final static String ATTR_FINAL_POINT = "finalPoint";
-	private final static String ATTR_BORDER_COLOR = "borderColor";
-	private final static String ATTR_BORDER_WIDTH = "borderWidth";
-	private final static String ATTR_FILL_COLOR= "fillColor";
-	
+		
 	/**
 	 * DONNEES MEMBRES
 	 */
@@ -40,26 +34,33 @@ public class ImportShapesFromXML implements IImportShapes {
 	
 	
 	/**
-	 * ctr
+	 * constructeur
+	 * 
 	 */
 	public ImportShapesFromXML() {
 		this.m_connectToDB = new ConnectToLocalDrive();
 		this.m_importData = new GenerateShapesXML(this.m_xmlDoc);
 	}
 	
-
+	/**
+	 * retourne la connection utilisée pour accéder à un fichier XML en lecture sur le disque local
+	 * @return
+	 */
 	public IConnectToDB getM_connectToDB() {
 		return m_connectToDB;
 	}
 
-
+	/**
+	 * set  la connection utilisée pour accéder à un fichier XML en lecture sur le disque local
+	 * @param m_connectToDB
+	 */
 	public void setM_connectToDB(IConnectToDB m_connectToDB) {
 		this.m_connectToDB = m_connectToDB;
 	}
 
 
 	/**
-	 * 
+	 * fait de la donnée local m_ListShapes une référence à la liste contenant les formes
 	 * @param p_shapeList
 	 */
 	@Override
@@ -67,6 +68,10 @@ public class ImportShapesFromXML implements IImportShapes {
 		this.m_ListShapes = p_shapeList;
 	}
 	
+	
+	/**
+	 * généere le processus de création de formes à partir de données XML récupérée sur le disque local
+	 */
 	public void createShapes() {
 		this.connection();
 		try {
@@ -90,7 +95,7 @@ public class ImportShapesFromXML implements IImportShapes {
 	}
 	
 	/**
-	 * Pour faire la connection
+	 * Pour faire la connection en lecture à un fichier XML sur le disque local
 	 */
 	public void connection() {
 		try {
@@ -113,7 +118,8 @@ public class ImportShapesFromXML implements IImportShapes {
 	}
 	
 	/**
-	 * Pour vÃ©rifier le fichier Ã  importer
+	 * Pour vérifier que le fichier pris en lecture sur le disque local correspondat bien à une liste de formes du 
+	 * type de notre application
 	 * @throws XMLStreamException si jamais le fichier une erreur 
 	 */
 	private void checkFile() throws XMLStreamException {
@@ -125,7 +131,8 @@ public class ImportShapesFromXML implements IImportShapes {
 	}
 
 	/**
-	 * Pour gÃ©nerer les shapes  
+	 * Selon le type de forme qui est lu dans le fichier sur le disque local, le système lance la génération d'un rectangle, 
+	 * d'une ellipse ou d'une ligne  
 	 */
 	@Override
 	public void generateShapes() throws FileNotFoundException, XMLStreamException, FactoryConfigurationError {

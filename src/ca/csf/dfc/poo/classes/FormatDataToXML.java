@@ -21,6 +21,7 @@ import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 
 
 /**
+ * Classe initiant le processus d'écriture en SXML des formes stockées en mémoires / sur l'écran
  * @author Maximilian
  *
  */
@@ -56,12 +57,19 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	 * 
 	 */
 	
+	
+	/**
+	 * Méthode vérifiant si le fichier sélectionné par l'utilisateur a ou non une extention XML. La rajoute sinon
+	 */
 	@Override
 	public String checkFileExtension(String p_folderName) {
 		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" : p_folderName;
 		return p_folderName;
 	}
 	
+	/**
+	 * récupêre de la liste des formes les données de chaque forme pour en créer une version SVG
+	 */
 	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
 		p_folderName = checkFileExtension(p_folderName);
@@ -83,6 +91,10 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 		m_xmlDoc = null;
 	}
 	
+	
+	/**
+	 * méthode pour récuppérer la liste des formes
+	 */
 	@Override
 	public ArrayList<Shape> getShapeList() {
 		return this.m_listOfShapes;
@@ -99,6 +111,9 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 	
 	
 	
+	/**
+	 * méthode récupérant les données d'un rectangle pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 	public void exportRectangle(Rectangle p_Rectangle) throws XMLStreamException {
 		String color = null;
@@ -130,6 +145,9 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 		m_xmlDoc.writeEndElement();
 	}
 
+	/**
+	 * méthode récupérant les données d'une ligne pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 	public void exportLine(Line p_Line) throws XMLStreamException {
 		String color = null;
@@ -146,10 +164,11 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 			
 			//		element de style
 			m_xmlDoc.writeStartElement(ELM_STYLE);	
-				color = Integer.toHexString(p_Line.getBorderColor().getRGB()& 0xffffff);
+//				color = Integer.toHexString(p_Line.getBorderColor().getRGB()& 0xffffff);
+			color = "0";
 				m_xmlDoc.writeAttribute(ATTR_BORDER_COLOR, color);
 				m_xmlDoc.writeAttribute(ATTR_BORDER_WIDTH, Integer.toString(p_Line.getBorderWidth()));
-				color = p_Line.getFillColor() == null ? "" : Integer.toHexString(p_Line.getFillColor().getRGB()& 0xffffff);
+				color = p_Line.getFillColor() == null ? "0" : Integer.toHexString(p_Line.getFillColor().getRGB()& 0xffffff);
 //				if (color != null)
 //					color = hexa(color);
 				m_xmlDoc.writeAttribute(ATTR_FILL_COLOR, color);
@@ -158,6 +177,9 @@ public class FormatDataToXML implements IFormatDataAndSave  {
 		m_xmlDoc.writeEndElement();
 	}
 	
+	/**
+	 * méthode récupérant les données d'une ellipse pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException {

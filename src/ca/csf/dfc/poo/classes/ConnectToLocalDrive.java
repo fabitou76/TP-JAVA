@@ -31,17 +31,16 @@ public class ConnectToLocalDrive implements IConnectToDB {
 	private String m_pathToFolder = null;
 	
 	/**
-	 * constructeur
+	 * constructeur par défaut
 	 */
 	
 	public ConnectToLocalDrive() {
 		
 	}
 	
-
-	public XMLStreamReader getXMLDoc(){
-		return this.m_xmlDoc;
-	}
+	/**
+	 * Méthode pour demander à l'utilisateur de saisir le dossier de sauvegarde des formes
+	 */
 	
 	public void connectToDB() {
 		this.selectDataFolder();
@@ -56,11 +55,11 @@ public class ConnectToLocalDrive implements IConnectToDB {
 		
 	}
 	
-
+	/**
+	 * Méthode pour permettre à l'utilisateur de sélectionner dans quel dossier enregistrer les formes affichées
+	 */
 	@Override
 	public void selectDataFolder() {
-		//utiliser JFileChooser
-		
 		
 		String folderName = null;
 		
@@ -80,18 +79,30 @@ public class ConnectToLocalDrive implements IConnectToDB {
 		}
 			
 	}
-
+	/**
+	 * Méthode créant une connextion sur le disque local pour lire un fichier XML
+	 */
 	@Override
 	public void connect()throws FileNotFoundException, XMLStreamException, FactoryConfigurationError  {
 		 FileReader input=new FileReader(new File(m_pathToFolder));
 		 this.m_xmlDoc = XMLInputFactory.newInstance().createXMLStreamReader(input);
 	}
-
+	
+	/**
+	 * Méthode fermant la connextion en lecture sur le disque local
+	 */
 	@Override
 	public void closeConnection() throws XMLStreamException {
 		this.m_xmlDoc.close();
 		this.m_xmlDoc = null;
 		
+	}
+	
+	/**
+	 * méthode retournant le handler pour la connexion en lecture sur le disque local
+	 */
+	public XMLStreamReader getXMLDoc(){
+		return this.m_xmlDoc;
 	}
 	
 
