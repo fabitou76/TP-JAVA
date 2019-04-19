@@ -476,22 +476,21 @@ public class GraphicInterface extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
-			String itemSelected = "";
+		
 			Object compt = p_arg0.getSource();
 			if(compt.equals(GraphicInterface.this.m_btn_elipse)) {
 				GraphicInterface.this.m_workSpace.setSelectedShape("elipse");
-				itemSelected = "elipse";
+			
 			}
 			else if (compt.equals(GraphicInterface.this.m_btn_line)) {
 				GraphicInterface.this.m_workSpace.setSelectedShape("line");
-				itemSelected = "line";
+			
 			}
 			else if(compt.equals(GraphicInterface.this.m_btn_rectangle)){
 				GraphicInterface.this.m_workSpace.setSelectedShape("rectangle");
-				itemSelected = "rectangle";
+			
 			}
 
-			GraphicInterface.this.m_workSpace.m_testShapeName.setText(itemSelected);
 			GraphicInterface.this.m_workSpace.clearShapeSelection();
 		}
 		
@@ -511,13 +510,12 @@ public class GraphicInterface extends JFrame{
 		}
 	}
 	
-	/* Fabio */
 	private class SelectBtnHandler implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent p_arg0) {
 			GraphicInterface.this.m_workSpace.setSelectedShape("select");
-			GraphicInterface.this.m_workSpace.m_testShapeName.setText("select");
+
 		}
 	}
 	
@@ -532,7 +530,6 @@ public class GraphicInterface extends JFrame{
 			
 		}
 	}
-	/* Fabio */
 	
 }
 
