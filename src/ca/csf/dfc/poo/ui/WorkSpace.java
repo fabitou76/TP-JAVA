@@ -86,7 +86,7 @@ public class WorkSpace extends JPanel{
 	/**
 	 * Modifie la largeur de bordure selectionnee
 	 * @param p_width
-	 * @throws IllegalArgumentException si la largeur sélectionnée est <1 ou >5
+	 * @throws IllegalArgumentException si la largeur sï¿½lectionnï¿½e est <1 ou >5
 	 */
 	public void setSelectedBorderWidth(int p_width) {
 		if(p_width < 0) {
@@ -96,7 +96,7 @@ public class WorkSpace extends JPanel{
 	}
 	
 	/**
-	 * Modifie la couleur de bordure sélectionnée
+	 * Modifie la couleur de bordure sï¿½lectionnï¿½e
 	 * @param p_color
 	 * @throws IllegalArgumentException si p_color est null
 	 */
@@ -211,7 +211,7 @@ public class WorkSpace extends JPanel{
 		
 		@Override
 		public void mousePressed(MouseEvent p_arg0) {
-		
+			
 			if ("select".equals(WorkSpace.this.m_selectedShape))
 			{
 				List<Shape> shapeList = WorkSpace.this.getShapeList();
@@ -250,19 +250,8 @@ public class WorkSpace extends JPanel{
 					Point point = new Point();
 					point.x = p_arg0.getX();
 					point.y = p_arg0.getY();
-					
-					if (point.x > WorkSpace.this.m_initialPoint.x && point.y > WorkSpace.this.m_initialPoint.y) {
-
-						WorkSpace.this.setFinalPoint(point);
-						WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
-					} else {
-
-						WorkSpace.this.m_initialPoint = null;
-						WorkSpace.this.m_finalPoint = null;
-						WorkSpace.this.m_testP1.setText(""); //test
-						WorkSpace.this.m_testP2.setText(""); //test
-					}
-					
+					WorkSpace.this.setFinalPoint(point);
+					WorkSpace.this.m_testP2.setText(WorkSpace.this.m_finalPoint.toString()); //test
 				}
 				
 				if(WorkSpace.this.coordinatesAreSet()) {
@@ -275,7 +264,6 @@ public class WorkSpace extends JPanel{
 				}
 			}
 		}
-
 		@Override
 		public void mouseReleased(MouseEvent p_arg0) {
 			// TODO Auto-generated method stub
@@ -423,11 +411,5 @@ public class WorkSpace extends JPanel{
 			}
 		}
 	}
-	
 
-	
-	
-			
-		
-	
 }
