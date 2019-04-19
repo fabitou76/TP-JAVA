@@ -21,7 +21,10 @@ import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 import ca.csf.dfc.poo.interfaces.ISaveShapes;
 
 /**
+ * Classe utilisée pour sauvegarder sur le disque local les formes en mémoire / affichées
+ * le format de convertion est passé en paramètre
  * @author Maximilian
+ * @param format de convertion souhaité pour la sauvegarde des données
  *
  */
 public class SaveShapesOnLocalDrive implements ISaveShapes {
@@ -37,7 +40,7 @@ public class SaveShapesOnLocalDrive implements ISaveShapes {
 	
 
 	/**
-	 * ctr
+	 * constructeur
 	 */
 	public SaveShapesOnLocalDrive(IFormatDataAndSave p_formatDataAndSave) {
 		this.m_formatDataAndSave = p_formatDataAndSave;
@@ -45,19 +48,26 @@ public class SaveShapesOnLocalDrive implements ISaveShapes {
 		
 	}
 	
+	/**
+	 * permet à l'utilisateur de sélectionner le dossier de sauvegarde de ses données en format XML
+	 */
 	@Override
 	public void saveData() throws IOException, XMLStreamException, FactoryConfigurationError {
 		
 		if (this.m_ListShapes != null && !this.m_ListShapes.isEmpty()) {
 			selectFolder();
 			}
-		if (this.getPath() != null ) {
-			m_formatDataAndSave.formatAndSave(this.getPath());
+		if (this.getM_Path() != null ) {
+			m_formatDataAndSave.formatAndSave(this.getM_Path());
 		}
 		
 		
 	}
-
+	
+	
+	/**
+	 * Fenêtre permettant à l'utilisateur de parcourir les dossiers de son système pour sauvegarder ses formes
+	 */
 	@Override
 	public void selectFolder() {
 		String folderName = null;
@@ -122,18 +132,6 @@ public class SaveShapesOnLocalDrive implements ISaveShapes {
 	 */
 	public void setM_formatDataAndSave(IFormatDataAndSave m_formatDataAndSave) {
 		this.m_formatDataAndSave = m_formatDataAndSave;
-	}
-	
-	
-	
-	
-
-	/**
-	 * Retourne le path
-	 * @return the path
-	 */
-	public String getPath() {
-		return this.m_Path;
 	}
 
 	/**

@@ -16,31 +16,40 @@ import javax.xml.stream.XMLStreamWriter;
 import ca.csf.dfc.poo.interfaces.IFormatDataAndSave;
 
 /**
+ * Classe initiant le processus d'écriture en SVG des formes stockées en mémoires / sur l'écran
  * @author Maximilian
  *
  */
 public class FormatDataToSVG implements IFormatDataAndSave {
 	
+	// Données membres
 	private XMLStreamWriter m_svgDoc;
 	
 	private ArrayList<Shape> m_listOfShapes = null; 
 	
 	/**
-	 * ctr
+	 * constructeur
 	 * @throws XMLStreamException 
 	 * @throws IOException 
+	 * @param contient la liste des formes à parcourir pour en retirer les données et les mettre en format SVG
 	 */
 	
 	public  FormatDataToSVG(ArrayList<Shape>p_ListOfShapes) {
 		this.m_listOfShapes = p_ListOfShapes;
 	}
 	
+	/**
+	 * Méthode vérifiant si le fichier sélectionné par l'utilisateur a ou non une extention XML. La rajoute sinon
+	 */
 	@Override
 	public String checkFileExtension(String p_folderName) {
 		p_folderName = !p_folderName.endsWith(".xml") ? p_folderName += ".xml" :p_folderName;
 		return p_folderName;
 	}
 
+	/**
+	 * récupêre de la liste des formes les données de chaque forme pour en créer une version SVG
+	 */
 	@Override
 	public void formatAndSave(String p_folderName) throws IOException, XMLStreamException, FactoryConfigurationError {
 			p_folderName = checkFileExtension(p_folderName);
@@ -75,12 +84,17 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 					this.m_svgDoc = null;
 		}
 		
-	
+	/**
+	 * méthode pour récuppérer la liste des formes
+	 */
 	@Override
 	public ArrayList<Shape> getShapeList() {
 		return this.m_listOfShapes;
 	}
-
+	
+	/**
+	 * méthode récupérant les données d'un rectangle pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 	public void exportRectangle(Rectangle p_Rectangle) throws XMLStreamException {
 		// GENERATION DES VARIABLES UTILES
@@ -104,7 +118,10 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 				this.m_svgDoc.writeEndElement();
 		
 	}
-
+	
+	/**
+	 * méthode récupérant les données d'une ligne pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 	public void exportLine(Line p_Line) throws XMLStreamException {
 		// GENERATION DES VARIABLES UTILES
@@ -127,7 +144,10 @@ public class FormatDataToSVG implements IFormatDataAndSave {
 		this.m_svgDoc.writeAttribute("stroke-width", strokeWidth);
 		this.m_svgDoc.writeEndElement();
 	}
-
+	
+	/**
+	 * méthode récupérant les données d'une ellipse pour les convertir en format SVG et les écrire sur le disque local  
+	 */
 	@Override
 	public void exportEllipse(Elipse p_Ellipse) throws XMLStreamException {
 		 String rx = Integer.toString((p_Ellipse.getFinalPoint().x) - (p_Ellipse.getInitialPoint().x));
